@@ -1,0 +1,25 @@
+.content-section {
+    width: 100%;
+    top: 10%;
+    position: absolute;
+    text-align: center;
+}
+.content-section .content-col  {
+    max-width: 1170px;
+    width: 70%;
+    display: block;
+    margin: 10px auto;
+    padding: 20px 5%;
+    
+    background: rgba(256, 256, 256, 0.9);
+    
+    border-radius: 8px 8px;
+    -webkit-border-radius: 8px 8px;
+    -moz-border-radius: 8px 8px;
+}
+.content-section .content-col .para {
+    color: #3d3d3d;
+    font-size: 14px;
+    line-height: 24px;
+    text-align: justify;
+}

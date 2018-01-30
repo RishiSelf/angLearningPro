@@ -1,0 +1,36 @@
+<section class="data-table-frame">
+  <div class="form-container">
+    
+      <input type="text" name="" [(ngModel)]="formData.fName"  placeholder="First Name" /> <br /> <br />
+      <input type="text" name="" [(ngModel)]="formData.lName" placeholder="Last Name" /> <br /> <br />
+      <input type="text" name="" [(ngModel)]="formData.age" placeholder="Age" /> <br /> <br />
+      <input type="text" name="" [(ngModel)]="formData.expr" placeholder="Experience" /> <br /> <br />
+
+      <button (click)="addData()">Add Data</button>
+ 
+  </div>
+<br />
+  <div class="table-container">
+      <h2 class="title">Dynamic Data Table</h2>
+      <table width="100%" border="0" cellspacing="0">
+        <thead>
+          <tr>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Age</th>
+            <th>Experience</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let data of datas">
+            <td>{{ data.fName}}</td>
+            <td>{{ data.lName}}</td>
+            <td>{{ data.age}}</td>
+            <td>{{ data.expr}}</td>
+          </tr>
+        </tbody>
+      </table>
+  
+  </div>
+  
+</section>

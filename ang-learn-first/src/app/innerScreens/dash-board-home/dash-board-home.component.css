@@ -1,0 +1,8 @@
+.dashboard-home-frame .middle-content-frame {
+    padding-top: 70px;   
+}
+
+.dashboard-home-frame .middle-content-frame .right-side-content {
+    margin-left: 260px;
+    border: red 1px solid;
+}

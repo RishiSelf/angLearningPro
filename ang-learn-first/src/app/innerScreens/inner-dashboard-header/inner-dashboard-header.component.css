@@ -1,0 +1,40 @@
+.header-frame {
+    background: #0082d2;
+    position: fixed ;
+    min-height: 70px;
+    top: 0;
+    width: 100%;
+    color: #fff;
+    z-index: 1;    
+}
+.header-frame a {
+    color: #fff;
+}
+.header-frame .logo-col {
+    display: inline-block;
+    width: 320px;
+    position: absolute;
+    left: 15px;
+    top: 0;
+    font-size: 30px;
+    text-shadow: 0 3px 3px #808080;
+}
+
+.header-frame .right-side-col {
+    width: calc (100% - 380px);
+    margin-left:350px;
+    margin-right: 20px;
+    margin-top: 25px;
+    text-align: right;
+    display: block;
+}
+.header-frame .right-side-col a {
+    text-decoration: none;
+}
+.header-frame .right-side-col .user-detail strong {
+    margin-right: 10px;
+}
+.header-frame .right-side-col .user-detail .fa {
+    color: #111;
+    font-size: 28px;
+}

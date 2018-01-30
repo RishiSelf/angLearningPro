@@ -1,0 +1,67 @@
+.login-content-frame {
+    max-width: 1170px;
+    width: 70%;
+    display: block;
+    margin: 10px auto;
+    padding: 20px 5%;
+}
+.login-content-frame .login-frame {
+    width: 90%;
+    max-width: 640px;
+    margin: 20px auto;
+    padding: 20px 0;
+    color: #fff;
+    text-align: center;
+    background: #1974AB;
+    
+    border-radius: 10px 10px;
+    -webkit-border-radius: 10px 10px;
+    -moz-border-radius: 10px 10px;
+}
+.login-content-frame .login-frame a {
+    color: #fff;
+    font-size: 14px;
+    text-decoration: underline;
+}
+.login-content-frame .login-frame .title {
+    font-size: 30px;
+    font-weight: 400;
+    color: #fff;
+    text-transform: uppercase;
+}
+.login-content-frame .login-frame .form-group {
+    padding: 10px 20px;
+}
+.login-content-frame .login-frame .form-group input {
+    width: 100%;
+    max-width: 480px;
+    height: 48px;
+    padding: 0 10px;
+    font-size: 14px;
+    background: #fff;
+    border: 0 none;
+    
+    border-radius: 10px 10px;
+}
+.login-content-frame .login-frame .btn-row {
+    padding: 10px 0;
+}
+.login-content-frame .login-frame .btn-row .btn {
+    width: 120px;
+    height: 40px;
+    color: #fff;
+    font-size: 14px;
+    cursor: pointer;
+    text-transform: uppercase;
+    transition: 0.5s;
+    background: #505050;
+    border: 0 none;
+    
+    border-radius: 24px 24px;
+}
+.login-content-frame .login-frame .btn-row .btn:hover {
+    background: #000;
+}
+.login-content-frame .login-frame .btm-option-block {
+    padding-bottom: 20px;
+}
