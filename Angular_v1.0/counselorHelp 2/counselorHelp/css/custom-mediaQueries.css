@@ -1,0 +1,1009 @@
+@media screen and (min-width: 1200px) {
+	.lib-details-tmpl .lib-indexing-col {
+		max-width: 360px;
+	}
+}
+@media screen and (max-width: 1200px) {
+	
+	.header-frame .navigation-col ul li {
+		padding: 0 6px;
+	}
+	.header-frame .navigation-col ul li a {
+		padding: 20px 1px 15px;
+	}
+	.header-frame .navigation-col ul li.login {
+		margin: 10px 8px 0;
+	}
+	.how-grid-frame .how-to-content {
+		padding: 190px 0 145px;
+	}
+	
+	.footer-btm-frame .footer-container .footer-nav {
+		text-align: right;
+	}
+	.login-content-frame .login-container .login-grid { 
+		width: 40%;
+		right: 30%;
+		top: 150px;
+	}
+	.get-started-row .question-col,
+	.get-started-row .review-col {
+		width: 50%;
+	}
+	
+	.register-page-frame .registration-content .form-col,
+	.register-page-frame .registration-content .register-note-col {
+		width: 50%;
+	}
+	.bankid-login-container .login-block {
+		top: 0;
+	}
+	.whyus-section .grid-row  li {
+		width: 48%;
+	}
+	
+	.counselor-matching .top-frame {
+		/*	box-shadow: 0 0 2px #ababab;*/
+	}
+	
+	.form-row .semi-col::last-child {
+		padding-top: 15px;
+	}
+	.content-area .news-flow-row .btn-newsletter .btn {
+		font-size: 12px;
+		padding: 5px 10px;
+	}
+	
+	.information-form .form-row .semi-col:last-child {
+		padding-top: 25px;
+	}
+	.payment-description-frame {
+		width: 100%;
+	}
+    
+    .innerpage-banner {
+        height: auto !important;
+    }
+    .header-right-inner-content  {
+    	position: relative;
+    }
+    .counselor-page .counselor-header-frame .header-right-inner-content .navigation-col,
+    .patient-page .counselor-header-frame .header-right-inner-content .navigation-col  {
+    	position: absolute;
+	    right: 0;
+	    top: 16px;
+	    width: 100%;
+	    max-width: 280px;
+	    z-index: 1;
+	    margin-right: 0;
+    }
+    .counselor-header-frame .header-right-inner-content .navigation-col .navbar-toggle {
+		position: absolute;
+		top: 0;
+		right: 0;
+		margin-right: 0;
+	}
+	.header-right-inner-content .navigation-col .navbar-toggle{
+		display: block !important;
+	}
+	.header-right-inner-content .navbar-toggle .icon-bar {
+		background: #0081D2;
+		height: 4px;
+		width: 27px;
+		transition: ease delay 0.4s;
+	}
+	.header-right-inner-content .navbar-toggle:hover .icon-bar {
+		background: #1181D2;
+	}
+	.header-right-inner-content .navigation-col .navigation-listing {
+		margin-top: 50px;
+		background: rgb(254, 254, 254);
+		padding: 0;
+		display: none;
+	}
+	.header-right-inner-content .navigation-col .navigation-listing.collapse {
+		display: none !important;
+	}
+	.header-right-inner-content .navigation-col .navigation-listing.collapse.in {
+		display: block !important;
+	}
+	
+	.header-right-inner-content .navigation-col .navigation-listing li {
+		display:block;
+		padding: 10px 10px;
+		text-align: left;
+	}
+	.header-right-inner-content .navigation-col .navigation-listing li a {
+		 padding: 0 !important;
+	}
+	.header-right-inner-content  .navigation-col ul li a:hover,
+	.header-right-inner-content .navigation-col ul li a.active {
+		border-bottom: 0 none;
+		padding-bottom: 0;
+		background: #f1f1f1;
+	}
+	
+	.counselor-page .counselor-header-frame .header-right-inner-content .dropdown-col {
+		right: 70px;
+		width: auto;
+	}
+
+	.patient-page .counselor-header-frame .header-right-inner-content .dropdown-col {
+		right: 70px;
+		width: auto;
+	}
+}
+@media screen and (max-width: 990px) {
+	.header-frame {
+		height: 161px;
+	}
+	#counselor-header-frame.header-frame {
+		height: 80px;
+	}
+	.header-frame .logo-col {
+		text-align: center;
+	}
+	.header-frame .navigation-col {
+		text-align: center;
+		padding: 0 0;
+	}
+	.header-frame .navigation-col ul li {
+		padding: 0 5px;
+	}
+    .header-frame .navigation-col ul li a {
+        font-size: 13px;
+    }
+	.header-frame .navigation-col ul li.login {
+		margin:10px 8px;
+	}
+	.footer-btm-frame .footer-container .foot-image,
+	.footer-btm-frame .footer-container .footer-nav,
+	.footer-btm-frame .footer-container .foot-social-col {
+		display: block;
+		width: 100%;
+		text-align: center;
+	}
+	.login-content-frame {
+		min-height: 500px;
+	}
+	.login-content-frame .login-container .login-grid {
+		width: 50%;
+		position: relative;
+		top: inherit;
+		right: inherit;
+		margin: 50px auto 0;
+	}
+	
+	.bankid-login-container .login-block {
+		width: 90%;
+	}
+	
+	/****************************
+		Counselor Matching
+	************/
+	.counselor-matching .content-section .option-listing li {
+		width: 48%;
+		margin: 15px 0;
+	}
+	
+	.counselor-page-content .message-form {
+		width: 95%;
+	}
+	.counselor-page-content .message-form .btn-row .btn {
+		width: 150px;
+	}
+	
+	/**** Patient  Landing ****/
+	.counselor-page-content .content-area .news-flow-row .title-text {
+		font-size: 24px;
+	}
+    
+    /**** New Updated Landing/Home Screen ****/
+    .banner-container aside h3.big-text {
+        font-size: 40px;
+        line-height: 50px;
+    }
+    
+    
+}
+@media screen and (max-width: 800px) {
+	.header-frame .navigation-col ul li.btn {
+		padding: 20px 4px 0
+	}	
+}
+
+@media screen and (max-width: 767px) {	
+	.header-frame {
+		height: 80px;
+	}
+	.header-frame .logo-col {
+		text-align: left;
+		padding: 10px 15px;
+		margin-top: 10px;
+	}
+	.navigation-col {
+		top:16px;
+		right: 0;
+		position: absolute;
+		z-index: 1;
+		width: 100%;
+		padding: 0;
+	}
+	
+	.navigation-col .navbar-toggle {
+		position: absolute;
+		top: 0;
+		right: 0;
+	}
+	.navbar-toggle .icon-bar {
+		background: #0081D2;
+		height: 4px;
+		width: 27px;
+		transition: ease delay 0.4s;
+	}
+	.navbar-toggle:hover .icon-bar {
+		background: #1181D2;
+	}
+	.navigation-col .navigation-listing {
+		margin-top: 50px;
+		background: rgb(254, 254, 254);
+		padding: 0;
+	}
+	.header-frame .navigation-col ul li {
+		display:block;
+		padding: 10px 10px;
+		text-align: left;
+	}
+	
+	.header-frame .navigation-col ul li.login {
+		background: none;
+		margin: 0;
+		padding: 10px 10px;
+		text-align: left;
+		width: 100%;
+		cursor: pointer;
+	}
+	.header-frame .navigation-col ul li.login a {
+		padding-left: 0;
+	}
+	.header-frame .navigation-col ul li.btn {
+		padding: 0;
+	}
+	.header-frame .navigation-col ul li.btn .btn-blue {
+		width: 100%;
+		border-radius: 0;
+		display: block;
+	}
+	.header-frame .navigation-col ul li.btn .btn-blue  {
+		text-align: left;
+	}
+	.header-frame .navigation-col ul li a,
+	.header-frame .navigation-col ul li span,
+	.header-frame .navigation-col ul li button {
+		padding-left: 10px;
+		padding-right: 10px;
+	}
+	.header-frame .navigation-col ul li.login span {
+		padding: 0;
+	}
+	.header-frame .navigation-col ul li a {
+		padding: 0;
+	}
+	.header-frame .navigation-col ul li a:hover,
+	.header-frame .navigation-col ul li a.active {
+		border-bottom: 0 none;
+		padding-bottom: 0;
+	}
+	.header-frame .navigation-col ul li:hover,
+	.header-frame .navigation-col ul li a.active {
+		background: #f1f1f1;
+	}
+	.custom-modal .modal-dialog {
+		margin: 0 auto;	
+	}
+	
+	/*******************************
+		Footer Elements
+	***************/
+	.footer-container .foot-image,
+	.footer-container .footer-nav,
+	.footer-container .foot-social-col {
+		text-align: center;
+		margin-bottom: 10px;
+	}
+	.footer-frame .foot-social-col .copyright-text {
+		margin-bottom: 10px;
+	}
+	
+	/********************************
+	Banner Elements
+	*****************/
+	.banner-frame .text-content aside {
+		margin-top: 130px;
+	}
+	.banner-frame .app-btn-row {
+		text-align: center;
+		margin-top: 80px;
+		position: relative;
+		bottom: inherit;
+		left: inherit;
+	}
+	.how-grid-frame {
+		background-position: center top;
+	}
+	.how-grid-frame .how-to-content {
+		padding: 30px 0 0;
+	}
+	.how-grid-frame .how-to-content .grid-col {
+		width: 45%;
+		float: left;
+		margin: 20px 2%;
+		padding:0;
+	}
+	.other-resource-frame .text-col,
+	.other-resource-frame .image-col {
+		margin-bottom: 20px;
+		text-align: center;
+	}
+	
+	/********************************
+		Jobs  Elements
+	*****************/
+	.service-section .service-row .diff-col {
+		text-align: left;
+	}
+	
+	/********************************
+		Account Setting Elements
+	*****************/
+	.account-setting .header-frame .logo-col {
+		text-align: center;
+	}
+	.account-setting .head-listing-col {
+		background: #c9c9c9;
+	}
+	
+	.account-page-header .head-listing-col li {
+		vertical-align: middle;
+	}
+	.account-page-header .head-listing-col .left-listing {
+		padding: 15px 10px 5px;
+	}
+	.account-page-header .head-listing-col .left-listing li {
+		margin-top: 6px;
+	}
+	.head-listing-col .right-profile-option li .link {
+		padding : 8px 10px;
+	}
+	.head-listing-col .right-profile-option li.help .link {
+		padding: 17px 10px;
+	}
+	.account-page-header .head-listing-col li a {
+		color: #fff;
+	}
+	.head-listing-col .right-profile-option li ul.sub-listing {
+		top: 55px;
+	}
+	.head-listing-col .right-profile-option li ul.sub-listing li a {
+		color: #7a7a7a;
+	}
+	
+	/**** Company Page ******/
+	.company-page .top-page-content {
+		margin-bottom: 40px;
+		margin-top: 20px;
+		text-align: center;
+	}
+	.company-page .top-page-content .image-col {
+		padding: 20px 0;
+		float: none !important;
+		text-align: center;			
+	}
+	.company-page .blue-grid-frame .grid-row .grid-col .title {
+		min-height: inherit;
+	}
+	
+	/********* Counselor Page *****/
+	.counselor-header-frame .dropdown-col .name {
+		display: none;	
+		/*width: 65px;*/
+	}
+	.notification-listing-frame .notification-listing li .content .name {
+		display: block;
+	}
+	
+	/***********************************
+		Counselor Matching Page
+	************/
+	.counselor-matching .top-frame .top-frame-container {
+		width: 100%;
+		box-shadow: 0 1px 2px #eaeaea;
+	}
+	.counselor-matching .top-frame .progress-bar-col {
+		margin-top: 10px;
+	}
+	/** Library Page **/
+	.library-detail-content.lib-details-tmpl {
+		margin: 15px 0;
+	}
+	.lib-details-tmpl .lib-rightcontent-col {
+		padding: 0;
+		float: left;
+	}
+	.lib-rightcontent-col .content-box-frame {
+		margin: 15px 0;
+	}
+	
+	.account-setting .account-page-header {
+		height: 135px;
+	}
+	
+	.middle-frame  .get-started-new .btn-frame .btn {
+		margin-bottom: 20px;
+		min-width: inherit;
+	}
+	.middle-frame .get-started-new .btn-frame .btn-blue-border {
+		margin-left: 20px;
+	}
+	
+	.innerpage-banner.counselor-dir-banner .title {
+		padding: 100px 0;
+	}
+/*
+	.innerpage-banner .banner-nav {
+		position: relative;
+	}
+*/
+	.counselor-page-content .right-content-col {
+		padding-right: 15px;
+	}
+	.landing-content-box .image-col {
+		margin-bottom: 15px;
+	}
+	.counselor-page-content .content-area .news-flow-row .title-text {
+		width: 24%;
+		font-size: 20px;
+	}
+	.counselor-page-content .content-area .news-flow-row .search-col {
+		width: 40%;
+	}
+	.content-area .news-flow-row .btn-newsletter {
+		max-width: 220px;
+		float: left;
+	}
+	
+	/** Patient Message **/
+	.content-row .message-content-frame .mobile-check-col {
+/*
+		float: inherit;
+		padding: 0;
+*/
+	}
+	.content-row .message-content-frame .mobile-check-col ul {
+		width: 100%;
+		display: table;
+	}
+	.content-row .message-content-frame .mobile-check-col ul li {
+		display: table-cell;
+	}
+	
+	.counselor-page-content .profile-listing-col .listing-row {
+		padding: 0;
+	}
+	.listing-row .navbar-toggle {
+		top: 10px;
+	}
+	
+	.counselor-page-content .right-content-col .content-area {
+		padding: 20px 20px;
+	}
+	
+	/*** Patient Message ***/
+	.content-row .message-content-frame .mobile-check-col ul li {
+		border-left: 1px solid #ccc;
+		border-top: 0 none;
+	}
+	.patient-page .patient-message .message-content-frame {
+		padding: 20px 20px;
+	}
+	
+	.billing-info-section .card-period select {
+		width: 45%;
+		display: inline-block;
+	}
+	
+    /** Patient Message **/
+    .left-menu-active .left-menu-frame {
+        position: relative;
+        width: 100%;
+        background: #0082d2;
+        display: block;
+        margin-bottom: 20px;
+    }
+
+    .left-menu-active .message-content-row {
+        margin-left: inherit;
+    }
+    
+    /**** New Updated Landing/Home Screen ****/
+    .price-box-container .price-box {
+        margin: 108px auto;
+        float: none !important;
+    }
+    
+   
+    
+}
+
+@media screen and (max-width: 640px) {
+	.video-frame .video-row .embed-video {
+		height: 250px
+	}
+	.login-content-frame .login-container .login-grid {
+		min-width: 90%;
+	}
+	.get-started-row .question-col,
+	.get-started-row .review-col {
+		width: 100%;
+		display: block;
+	}
+	.register-page-frame .registration-content .form-col,
+	.register-page-frame .registration-content .register-note-col {
+		width: 100%;
+		display: block;
+	}
+	.security-detail-listing .security-list dl {
+		margin-left: 140px;
+	}
+	
+	/*** Counselor Page **/
+	.counselor-personal-banner {
+		 min-height: 300px;
+	}
+	.counselor-personal-banner .counselor-about-row .photo-frame {
+		position: relative;
+		top: 0;
+		left: 0;
+		width: 100px;
+		margin: 20px auto 10px;		
+	}
+	.counselor-personal-banner .counselor-about-row .about-col {
+		width: 80%;
+		text-align: center;
+		margin: 10px auto;
+	}
+	.counselor-personal-banner .banner-nav ul.navigation {
+		margin-left: 0;
+		text-align: center;
+	}
+	.trial-period-col .content-area {
+		width: 90%;
+		margin: 10px auto;
+		text-align: center;
+	}
+	
+	/**** Bank Page ******/
+	.bankid-login-container {
+		padding: 50px 50px;
+	}
+	.bankid-login-container .login-block {
+		width: 100%;
+	}
+	.bankid-login-container .option-form .option-row .option-text .form-container {
+		width: 100%;
+	}
+	.bankid-login-container .option-form .btn-blue {
+		width: 100%;
+		margin: 25px 0 10px;
+	}
+	.counselor-login-footer {
+		position: relative;
+	}
+	
+	/**** BankId Popup Page Element ******/
+	.popup-frame .popup-box {
+		min-width: 320px;
+		top: 10%;
+	}
+	
+	.counselor-page .bankId-middle-frame .bankid-login-container {
+		padding: 20px 15px;
+	}
+	.counselor-page .bankId-middle-frame {
+		height: inherit !important;
+	}
+	
+	.counselor-page-content .content-area .news-flow-row .title-text {
+		width: 100%;
+		font-size: 24px;
+	}
+	.counselor-page-content .content-area .news-flow-row .search-col {
+		width: 98%;
+		margin: 10px auto;
+	}
+	.content-area .news-flow-row .btn-newsletter {
+		max-width: inherit;
+		margin: 10px 0;
+		text-align: left;
+	}
+	/**** Coming Soon Template ****/
+	.coming-soon-frame {
+		min-height: 500px !important;
+	}
+	.coming-soon-frame .coming-soon-content {
+		top: 10px;
+	}
+	.patient-page-content .registration-container .form-container .semi-textbox {
+		width: 100%;
+		margin-left: inherit !important;
+		margin-top: 0;
+	}
+	.patient-page-content .registration-container .form-container .semi-textbox:last-child {
+		margin-top: 5px;
+		margin-bottom: 0;
+	}
+	.content-area .checkout-page-content .manage-cards-row {
+		width: 100%;
+	}
+	.content-area .personal-info-section .title, .content-area .payment-info-frame .title {
+		font-size: 24px;
+		font-family: 'Brown-Regular';
+	}
+    
+    
+}
+@media screen and (max-width: 540px) {
+    /**** New Updated Landing/Home Screen ****/
+    .banner-frame .text-content aside {
+        width: 90%;
+        margin: 0 auto;
+        float: none !important;
+        margin-top: 110px;
+    }
+    .banner-container .text-content aside h3.big-text {
+        font-size: 30px;
+    }
+    
+    .price-box-container .price-box {
+        width: 90%;
+        margin: 108px auto;
+        float: none !important;
+    }
+    .innerpage-banner .title {
+/*        padding: 100px 0;*/
+    }
+    
+}
+@media screen and (max-width: 480px) {
+	.custom-modal {
+		top: 20%;
+	}
+	.custom-modal .modal-dialog {
+		width: 300px;
+	}
+	.how-grid-frame .grid-listing-bullets {
+		display: block;
+	}
+	.how-grid-frame .how-to-content .grid-col {
+		width: 100%;
+		display: none;
+		float: none;
+	}
+	.how-grid-frame .how-to-content .grid-col.active {
+		display: block;
+	}
+	/********************************
+		Account Setting Elements
+	*****************/
+	.account-setting .head-listing-col {
+		padding: 0;
+	}
+	.account-page-header .head-listing-col .left-listing {
+		display: block;
+		width: 100%;
+		float: none;
+		text-align: right;
+		background: #9a9a9a;
+		padding: 10px 10px;
+		margin-bottom:  0;
+	}
+	.account-page-header .head-listing-col .left-listing a:hover {
+		color: #b4b4b4;
+	}
+	.account-page-header .head-listing-col .right-profile-option {
+		position: relative;
+		text-align: right;
+	}
+	.account-page-header .head-listing-col .right-profile-option ul {
+		margin-bottom: 0;
+	}
+	.head-listing-col .right-profile-option li.help .link {
+		padding: 18px 10px;
+	}
+	
+	/***********************************
+		Security Page Element
+	****************/
+	.security-detail-listing .security-list .icon-col {
+		position: relative;
+		top: inherit;
+		left: inherit;
+		text-align: center;
+		width: 100%;
+		display: block;
+	}
+	.security-detail-listing .security-list dl {
+		margin-left: inherit;
+		text-align: center;
+	}
+	
+/*
+	.counselor-page .counselor-header-frame .dropdown-col .pic {
+		width: 28px;
+		height: 28px;
+	}
+*/
+	.counselor-page .counselor-header-frame .dropdown-col {
+		padding: 19px 4px 10px;
+	}
+	.counselor-page-content .right-content-col .content-area .top-profile-section {
+		height: 320px;
+		word-break: break-all;
+	}
+	.content-area .top-profile-section .about-row .photo-frame {
+		position: relative;
+		top: 10px;
+		left: inherit;
+		margin: 0 auto;
+	}
+	.content-area .top-profile-section .about-row .about-col {
+		padding-top: 10px;
+		margin: 0 10px;
+		text-align: center;
+	}
+	.content-area .top-profile-section .banner-nav ul {
+		margin: 10px 10px;
+		text-align: center;
+	}
+	.content-area .top-profile-section .banner-nav ul li {
+		padding: 5px 5px;
+	}
+	.counselor-page-content .content-area .top-profile-section .banner-nav {
+		position: relative;
+		bottom: inherit;
+		margin-top: 10px;
+	}
+	
+	/****************************
+		Counselor Matching
+	************/
+	.counselor-matching .content-section .option-listing li {
+		width: 98%;
+		margin: 15px 0;
+	}
+	
+	.whyus-section .grid-row  li {
+		width: 100%;
+	}
+	
+	.get-started-row .question-col h3.sub-title {
+		font-size: 24px;
+	}
+	
+	.account-setting .account-page-header {
+		height: 175px;
+	}
+	
+	.middle-frame  .get-started-new .btn-frame .btn {
+		margin-bottom: 20px;
+		min-width: inherit;
+		width: 100%;
+	}
+	.middle-frame  .get-started-new .btn-frame .btn-blue-border {
+		margin-left: 0;
+	}
+	
+	.innerpage-banner.counselor-dir-banner .title {
+		font-size: 28px;
+		line-height: 150%;
+	}
+	
+	.dir-listing-frame .pagination > li > a, 
+	.dir-listing-frame .pagination > li > span {
+		padding: 6px 7px;
+		font-size: 14px
+	}
+	
+	.counselor-page-content .message-form .btn-row .btn {
+		width: 120px;
+	}
+	.counselor-page-content .message-form .btn-row .btn-change {
+		margin-left: 10px;
+	}
+	.counselor-page-content .landing-content-box .top-row .date {
+		display: block;
+		width: 100%;
+		margin-bottom: 5px;
+		position: relative;
+		text-align: center;
+	}
+	.counselor-page-content .landing-content-box .top-row .btn-listing {
+		margin-right: inherit;
+	}
+	.counselor-page-content .landing-content-box .top-row .btn-listing .btn-list {
+		width: 150px;
+		display: block;
+		text-align: center;
+		margin: 10px auto;
+	}
+	/**** Coming Soon Template ****/
+	.coming-soon-frame .coming-soon-content {
+		right: 5%;
+		top: 0;
+	}
+	.coming-soon-frame .coming-soon-content .email-address-row .textbox {
+		width: 100%;
+	}
+	
+	.price-page-frame .additional-phone-frame .phone-session-text {
+		padding-left: 50px;
+	}
+	
+	.custom-modal .modal-content .modal-body .title {
+		font-size: 18px;
+	}
+	.payment-description-frame .title {
+		font-size: 24px;
+	}
+	.content-area .personal-info-section .title, .content-area .payment-info-frame .title {
+		font-size: 18px;
+		font-family: 'Brown-Regular';
+	}
+    
+    .my-subscription-frame .subscription-section .subscription-listing li {
+        width: 100%;
+        display: block;
+    }
+    .subscription-section .subscription-listing li:nth-child(even) {
+        display: block;
+        text-align: left;
+    }
+    
+    /**** New Updated Landing/Home Screen ****/
+    .banner-container aside .btn-row .app-store {
+        width: 130px;
+    }
+    .banner-container aside .btn-helpMe {
+        width: 267px;
+        line-height: 34px;
+        height: 50px;
+    }
+    
+    .company-page .banner-frame .text-content aside {
+        margin: 80px auto 0;
+    }
+    .company-page .banner-frame .text-content aside h2.title {
+        font-size: 36px;
+    }
+    
+
+    /**** Counselor/ Patient Page Elements ****/
+    #counselor-header-frame.header-frame {
+    	height: 130px;
+    }
+    #counselor-header-frame.header-frame .container-fluid {
+    	height: 130px;
+    }
+    .counselor-header-frame .logo-col {
+     	display: block;
+     	width: 100%;
+     	text-align: center;
+     }
+    .counselor-header-frame .head-listing-col {
+    	display: block;
+    	width: 100%;
+    	float: none;
+    }
+    #counselor-header-frame.header-frame .head-listing-col .header-right-inner-content {
+    	height: 60px;
+    }
+    #counselor-header-frame.header-frame .head-listing-col .header-right-inner-content .dropdown-col {
+    	padding-top: 10px;
+    }
+    .counselor-page .counselor-header-frame .header-right-inner-content .navigation-col,
+    .patient-page .counselor-header-frame .header-right-inner-content .navigation-col {
+    	top: 0;
+    }
+}
+@media screen and (max-width: 360px) {
+    #counselor-header-frame.header-frame {
+        /*height: 155px;*/
+        position: relative;
+    }
+    #counselor-header-frame.header-frame .logo-col,
+    #counselor-header-frame.header-frame .head-listing-col {
+        display: block;
+        width : 100%;
+    }
+    #counselor-header-frame.header-frame .logo-col {
+        text-align: center;
+    }
+/*
+    .counselor-header-frame .dropdown-col .notification-listing-frame::after {
+        right: 10px;
+    }
+*/
+	.banner-frame .text-content aside {
+		margin-top: 50px;
+	}
+	/**** BankId Popup Page Element ******/
+	.popup-frame .popup-box {
+		min-width: 94%;
+		top: 20px;
+	}
+	
+	.counselor-page .counselor-header-frame .dropdown-col .glyphicon {
+		position: relative;
+		top: 5px;
+	}
+	.form-section .form-fields-frame {
+		padding: 30px 0;
+	}
+	.counselor-page-content .right-content-col .content-area {
+		padding: 15px 15px;
+	}
+	
+	.message-detail-col .left-editor-col .top-title-row .text-col .text {
+		font-size: 16px;
+    	line-height: 150%;
+	}
+	
+    
+     /**** New Updated Landing/Home Screen ****/
+    .new-banner-frame .text-content aside {
+        margin-top: 100px;
+    }
+    .banner-container aside .btn-row .app-store {
+        width: 110px;
+    }
+    .banner-container aside .btn-helpMe {
+        width: 227px;
+        line-height: 34px;
+        height: 50px;
+    }
+    
+    
+    /**** New Updated Landing/Home Screen ****/
+    .support-detail-frame .newsletter-col {
+        padding-top: 20px;
+    }
+    .support-detail-frame .content-col .image-col {
+        position: inherit;
+        top: inherit;
+        left: inherit;
+        display: block;
+        margin: 20px auto;
+            
+    }
+    .support-detail-frame .content-col .content-area {
+        display: block;
+        margin-left: 0;
+        text-align: center;
+        padding-right: 0;
+    }
+
+    .popup-frame .popup-box.imagePopup {
+    	top: 40px;
+    }
+    .popup-frame .popup-box.imagePopup .cropArea {
+    	max-width: 260px;
+    	margin:0 auto;
+    }
+    
+    
+    .company-page .banner-frame .text-content aside {
+        margin: 40px auto 0;
+    }
+    
+    
+}

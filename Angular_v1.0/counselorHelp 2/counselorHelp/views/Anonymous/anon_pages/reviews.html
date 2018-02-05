@@ -1,0 +1,57 @@
+<!-- =Middle Content Frame= -->
+<section class="middle-frame"s>
+	<!-- =Help Content Frame Start= -->				
+	<div class="container page-content-container">
+		
+		<!-- =Review Page detail Content frame= -->
+		<div class="review-detail-content">
+			<h2 class="title">S&aring; tycker v&aring;ra patienter</h2>
+			<p class="para">
+				Efter avslutad nätterapi får samtliga patienter möjlighet att fylla i en utvärdering om hur de upplever att nätterapin fungerat. Patienten har också möjlighet att ge sin psykoterapeut ett kort omdöme. Detta omdöme publiceras nedan och på psykoterapeutens personliga profil och gör det lättare för nya patienter att hitta en lämplig och passande psykoterapeut. Alla omdömen är anonyma.
+			</p>
+			
+			<!-- =Review log Frame Start = -->
+			<section class="review-log-frame">
+				<div class="row review-grid-row">
+					<div class="panel-danger" ng-if="ifNoReview">
+		                <p class="panel-heading" style="text-align: center; font-size: 16px;">Inga omd&ouml;men hittades</p>
+		            </div>
+					<!-- =Review GRrid col 01= -->
+					<div class="col-lg-4 col-sm-4 col-xs-12 review-col" ng-repeat="oReview in aReviews" current-page="currentPage" total-items="total_count">
+						<article class="review-col-content">
+							<!-- =Review Top Content= -->
+							<div class="review-top-content">
+								<p class="para" ng-bind-html="oReview.comment"></p>
+								<h4 class="date">Skriven den {{oReview.created}}</h4>
+							</div><!-- =Review Top Content End//= -->
+							
+							<!-- =Person Detail= -->
+							<div class="person-detail">
+								<span class="white-arrow">&nbsp;</span>
+								<a href="javascript:void(0)" class="image-row">
+									<img ng-src="{{oReview.counselorProfilePic}}" alt="" title="" />
+								</a>
+								<label class="name">
+									<a ui-sref="anon.personal-page({id:oReview.counselor_id})" ng-bind-html="oReview.counselorName"></a>
+								</label>
+								<label class="text" ng-bind-html="oReview.role"></label>
+							</div><!-- =Person Detail End//= -->
+							
+						</article><!-- =Review Col Content End//= -->
+					</div><!-- =Review GRrid col 01 End//= -->					
+				</div><!-- =Review Grid Row End//= -->
+
+				<!-- =Pagination Frame = -->
+				<div class="pagination-frame" ng-if="total_count > 3">
+					<nav aria-label="Page navigation">
+				        <div class="pagination">
+				        	<ul uib-pagination boundary-links="true" total-items="total_count" ng-model="currentPage" class="pagination-sm" previous-text="&lsaquo;" next-text="&rsaquo;" first-text="&laquo;" last-text="&raquo;" ng-change="getReviews(currentPage)" items-per-page="3" max-size="5" force-ellipses="true"></ul>
+						</div>
+					</nav>
+				</div><!-- =Pagination Frame= -->
+			</section><!-- =Review log Frame End//= -->
+			
+		</div><!-- =Review Page detail Content frame End//= -->
+	
+	</div><!-- =Help Content Frame End//= -->
+</section><!-- =Middle Content End//= -->

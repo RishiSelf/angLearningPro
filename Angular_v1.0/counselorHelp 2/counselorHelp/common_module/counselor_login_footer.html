@@ -1,0 +1,7 @@
+<div class="container">
+	<ul class="foot-nav-list">
+	    <li ng-repeat="loginFooter in commonFooterHeader.loginFooter">
+			<a ui-sref="{{loginFooter.path}}" ui-sref-active="active" ng-bind-html="loginFooter.name"></a>
+		</li>
+	</ul>
+</div>

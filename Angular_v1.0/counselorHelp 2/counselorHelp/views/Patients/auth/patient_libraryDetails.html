@@ -1,0 +1,81 @@
+<!-- =Content Area Start= -->
+<div class="content-area" ng-init="getLibDetails()">
+	<!-- =Patient Library Detail= -->
+	<section class="patient-library-detail">
+		<!-- =Library detail Content Frame= -->
+		<div class="library-detail-content lib-details-tmpl">
+			<!-- =Library details Content Row= -->
+			<div class="row lib-detail-row">
+				<!-- =left col= -->
+				<aside class="col-xs-12 lib-indexing-col">
+					<h5 class="list-title"><a ui-sref="patient.patient_liboverview">Tillbaka till f&ouml;rstasida</a></h5>
+					<ul class="lib-indexing-listing">
+						<li ng-repeat="oCatDetail in aData.libraryChilds">
+							<label class="lbl"><a href="" ng-click="gotoAnchor('mainCat'+oCatDetail.Library.id, $event)"><label class="lbl categorylink">{{oCatDetail.Library.title}}</label></a></label>
+							<ul class="sub-listing">
+								<div ng-repeat="oSubDetail in oCatDetail.children">
+									<a href="" ng-click="gotoAnchor('subCat'+oSubDetail.Library.id, $event)">
+										<li>
+											{{oSubDetail.Library.title}}
+										</li>
+									</a>
+								</div>				
+							</ul>
+						</li>
+
+						<li>
+							<label class="lbl">
+								<a href="" ng-click="gotoAnchor('resources',$event)"><label class="lbl categorylink">K&auml;llor</label></a>
+							</label>
+						</li>
+					</ul><!-- =Library Index Listing End//= -->
+				</aside><!-- =left col End//= -->
+
+				<!-- =Right Content Box Col= -->
+				<div class="col-xs-12 lib-rightcontent-col">
+					<!-- =Content box frame= -->
+					<div class="content-box-frame">
+						<!-- =article 01= -->
+						<!-- =article 01= -->							
+						<article class="article-box">
+							<h2 class="article-title">
+								{{ aData.libraryInfo.heading}}
+							</h2>
+							<h5 class="author-name">{{aData.libraryInfo.author_name}}</h5>
+							<p class="para" ng-bind-html="aData.libraryInfo.overview">									
+							</p>		
+						</article><!-- =article 01 End//= -->
+						
+						<!-- =article 02= -->
+						<article class="article-box" ng-repeat="oCatDetail in aData.libraryChilds" id="mainCat{{oCatDetail.Library.id}}">
+							<h2 class="article-title">
+								{{oCatDetail.Library.title}}
+							</h2>
+
+							<!-- <h5 class="author-name">{{ oCatDetail.author_name}}</h5> -->
+							
+							<p class="para" ng-bind-html="oCatDetail.Library.description">									
+							</p>
+							<div ng-repeat="oSubDetail in oCatDetail.children" id="subCat{{oSubDetail.Library.id}}">
+								<p class="para title-para">
+									<span class="dark-text">{{oSubDetail.Library.title}}</span>
+								</p>
+								
+								<div ng-bind-html="oSubDetail.Library.description"></div>
+							</div>
+						</article><!-- =article 02 End//= -->
+							
+						<article class="article-box" id="resources">
+							<h2 class="title" style="font-size: 16px">K&auml;llor</h2>								
+							<div ng-repeat="oResource in aData.resources">																	
+								<p>
+									<a href="{{ oResource.url}}" target="_blank">{{ oResource.title}}</a>
+								</p>														
+							</div>			
+						</article><!-- =article 01 End//= -->
+					</div>
+				</div><!-- =Content box frame End//= -->
+			</div><!-- =Right Content Box Col End//= -->
+		</div><!-- =Library details Content Row End//= -->
+	</section><!-- =Patient Library Detail Frame End//= -->
+</div><!-- =Content Area End//= -->

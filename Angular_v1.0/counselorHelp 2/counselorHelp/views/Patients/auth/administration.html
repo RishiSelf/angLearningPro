@@ -1,0 +1,167 @@
+<!-- =Content Area Start= -->
+<div class="content-area">
+	<section class="personal-info-section">		
+		<!-- =Profile Image Row= -->
+		<div class="profile-img-row">
+			<a href="javascript:void(0)" class="image-frame">
+				<img ng-src="{{patientDetail.profile_pic}}" alt="Person Image" title="" class="image">
+			</a>
+			<label class="camera-icon">
+				<input type="file" id="profilePicInput" accept="image/*"  ngf-max-size="5MB"  aria-hidden="true"/>				
+			</label>
+			<label class="camera-icon" for="profilePicInput" ng-click="cropImgType('profile')">
+    			<span class="btn btn-blue btn-profile-pic-edit">Byt profilbild</span>
+			</label>
+			<!-- <button class="btn btn-blue btn-profile-pic-edit" for="patientProfileImg">
+				Byt profilbild
+			</button> -->
+
+		</div><!-- =Profile Image Row End//= -->
+		
+		<h2 class="title">Mina kontaktuppgifter</h2>
+		<!-- =personal Info Form= -->
+		<div class="personal-info-form">
+			<form class="form-container" name="profileUpdateFrm" ng-submit="updateProfile(profileUpdateFrm.$valid)" novalidate>
+				<div class="field-row">
+					<div class="form-group">
+						<input name="first_name" placeholder="Förnamn" class="form-control" type="text" ng-model="patientInfo.first_name" ng-disabled='true' />
+						<!-- <div ng-show="profileUpdateFrm.$submitted || profileUpdateFrm.first_name.$touched" class="error-notification">
+                        	<div ng-show="profileUpdateFrm.first_name.$error.required">Du beh&ouml;ver fylla i ett f&ouml;rnamn</div>
+                        </div>  -->
+					</div>
+				</div><!-- =Field Row 01 End//= -->
+				
+				<div class="field-row">
+					<div class="form-group">
+						<input name="last_name" placeholder="Efternamn" class="form-control" type="text" ng-model="patientInfo.last_name" ng-disabled='true'/>								
+						<!-- <div ng-show="profileUpdateFrm.$submitted || profileUpdateFrm.last_name.$touched" class="error-notification">
+                            <div ng-show="profileUpdateFrm.last_name.$error.required">Du beh&ouml;ver fylla i ett efternamn </div>
+                        </div>  -->
+					</div>
+				</div><!-- =Field Row 02 End//= -->
+				
+				<div class="field-row">
+					<div class="form-group">
+						<input name="phone" placeholder="Personnummer(ååååmmdd-nnnn)" class="form-control" type="text" ng-model="Personnummer" ng-disabled='true' />
+					</div>
+				</div><!-- =Field Row 03 End//= -->
+				
+				<div class="field-row">
+					<div class="form-group">
+						<input name="email" placeholder="E-postadress" class="form-control" type="email" ng-model="patientInfo.email" ng-disabled='true' />
+                    	<!-- <div class="error-notification" ng-show="failed">{{message}}</div>
+                    	<div ng-show="profileUpdateFrm.$submitted || profileUpdateFrm.email.$touched" class="error-notification">
+                    		<div ng-show="profileUpdateFrm.email.$error.required">Din e-post kr&auml;vs</div>
+                    		<div ng-show="profileUpdateFrm.email.$error.email">Din e-mail har ett ogiltigt format</div>
+                    	</div> -->
+					</div>
+				</div><!-- =Field Row 04 End//= -->
+				
+				<div class="field-row">
+					<div class="form-group">
+						<input name="telephone_no" placeholder="Telefonnummer" class="form-control" type="text" ng-model="patientInfo.telephone_no" value="" ng-minlength="10" numlimit="10" ng-disabled="readOnly" ng-pattern="/^\d+$/" required />
+                    	<div ng-show="profileUpdateFrm.$submitted || profileUpdateFrm.telephone_no.$touched" class="error-notification">
+                    		<div ng-show="profileUpdateFrm.telephone_no.$error.required || profileUpdateFrm.telephone_no.$error.minlength">Ditt telefonnummer m&aring;ste vara minst 10 siffror</div>
+                    		<div ng-show="profileUpdateFrm.telephone_no.$error.pattern">Numret inte giltig</div>
+                    	</div>
+					</div>
+				</div><!-- =Field Row 05 End//= -->
+				
+				<div class="field-row">
+					<div class="form-group">
+						<input name="address" placeholder="Gatuadress" class="form-control" type="text" ng-model="patientInfo.address" ng-disabled="readOnly" required />
+                    	<div ng-show="profileUpdateFrm.$submitted || profileUpdateFrm.address.$touched" class="error-notification">
+                    		<div ng-show="profileUpdateFrm.address.$error.required">Du beh&ouml;ver fylla i en gatuadress</div>
+                    	</div>
+					</div>
+				</div><!-- =Field Row 06 End//= -->
+				
+				<div class="row field-row">
+					<div class="col-lg-6 form-group">
+						<input name="zipcode" placeholder="Postnummer" class="form-control" type="text" ng-model="patientInfo.zipcode" ng-disabled="readOnly" required />
+                		<div ng-show="profileUpdateFrm.$submitted || profileUpdateFrm.zipcode.$touched" class="error-notification">
+                			<div ng-show="profileUpdateFrm.zipcode.$error.required">Du beh&ouml;ver fylla i ett postnummer</div>
+                		</div>
+					</div>
+					<div class="col-lg-6 form-group">
+						<input name="place" placeholder="Ort" class="form-control"  type="text" ng-model="patientInfo.place" ng-disabled="readOnly" required />
+                		<div ng-show="profileUpdateFrm.$submitted || profileUpdateFrm.place.$touched" class="error-notification">
+                			<div ng-show="profileUpdateFrm.place.$error.required">Du beh&ouml;ver fylla i en ort</div>
+                		</div>
+					</div>
+				</div><!-- =Field Row 07 End//= -->
+				
+				<!-- =Btn row Start= -->
+				<div class="btn-row">
+					<button type="submit" name="save" class="btn btn-blue" ng-disabled="readOnly">Spara</button>
+					<button type="button" class="btn btn-cancel btn-blue-border" ng-click="resetFrm()">&Auml;ndra</button>
+				</div><!-- =Btn row End//= -->
+			</form>
+		</div><!-- =personal Info Form End//= -->
+	</section><!-- =Personal Info Section End//= -->
+	
+	<!-- =Payment info frame= -->
+	<section class="payment-info-frame">
+		<h2 class="title">Mina betalningsuppgifter</h2>
+
+
+		<!-- =Manage Card Frame= -->
+		<div class="manage-cards-row">
+			<div class="payment-info-title">
+				<label class="lbl">
+					Mina kort- och betalningsuppgifter
+				</label>									
+			</div><!-- =Payment Info Title End//= -->
+			
+			<!-- =Save Cards Frames= -->
+			<div class="save-cards-frame">
+				<!-- =Save Card row 01= -->
+				<section class="save-card-row" ng-repeat="cardDetail in patientCardDetail">
+					<label class="radio-field check-col">
+						<input class="radio-btn" name="cardType" type="radio" ng-click="setDefaultCard(cardDetail.id)" ng-checked="$index==0?true:false" /> 
+						<span class="custom-radio">&nbsp;</span>
+					</label>					
+					<span class="card-img" ng-if="cardDetail.brand == 'Visa'">
+						<img src="images/icon_card_visa.jpg" alt="visa card">
+					</span><!-- =card-img= -->
+					<span class="card-img" ng-if="cardDetail.brand == 'MasterCard'">
+						<img src="images/icon_card_mastercard.jpg" alt="mastercard card">
+					</span><!-- =card-img= -->
+					<span class="card-img" ng-if="cardDetail.brand == 'American Express'">
+						<img src="images/icon_card_amex.png" alt="amex card">
+					</span><!-- =card-img= -->
+
+					<div class="card-details">
+						<label class="card-name">{{cardDetail.brand}} Debit Card</label>
+						<label class="card-number">
+							xxxx xxxx xxxx {{cardDetail.last4}}
+						</label>
+					</div><!-- =Card Details= -->
+
+					<span class="glyphicon glyphicon-trash icon-trash" aria-hidden="true" ng-if="patientCardDetail.length > 1" ng-click="deleteCard(cardDetail.id, $index)"></span>
+				</section><!-- =Save Card row 01 End//= -->
+				
+				<!-- =Add More Btn Row = -->
+				<div class="add-more-row">
+					<button class="btn btn-blue" id="btn-add-card" ui-sref="patient.add_card">Nytt kredit- eller bankkort</button>
+				</div><!-- =Add More Btn Row End//= -->
+						  
+			</div><!-- =Save Cards Frames end//= -->
+		</div><!-- =Manage Card Frame End//= -->
+	</section><!-- =Payment info frame End//= -->
+	<!-- =Popup Frame= -->
+	<div class="popup-frame bankId-popup" ng-show="showCropper" >
+		<!-- =popup box Start= -->
+		<div class="popup-box imagePopup">
+			<span class="edit_imagepopUp" ng-click="showCropper = !showCropper">X</span>
+    		<div class="cropArea">
+    			<ui-cropper image="imageCrop.originalImage" width="640" height="480" result-image="imageCrop.croppedImage" area-type="square" change-on-fly="true"></ui-cropper>
+    		</div>
+			<!-- =Foot Section= -->
+			<div class="btn-row text-center">
+				<p ng-if='!bannerImg'>Minsta storlek f&ouml;r b&auml;sta passform 200 X 200</p>
+				<button name="" class="btn btn-blue" ng-click="cropped_profileImg(imageCrop.croppedImage, $invalidFiles)">Spara bild</button>
+			</div>			
+		</div><!-- =popup box End//= -->
+	</div><!-- =Popup Frame End//= -->
+</div><!-- =Content Area End//=

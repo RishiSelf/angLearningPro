@@ -1,0 +1,252 @@
+<!-- =Middle Content Frame= -->
+<section class="middle-frame" ng-init="getCountryList();getUserProfileData();">
+    <!-- =Page Content Frame Start= -->       
+    <div class="page-content-container account-setting-page">
+      <div class="container">
+        <h2 class="section-title">Mina kontouppgifter</h2>
+        
+        <!-- =Content Section 01= -->
+        <section class="content-section">
+          <h3 class="title">Mitt inlogg</h3>
+          <div class="content-frame">
+            <label class="lbl">Inlogg med Bank-ID/mobilt Bank-ID.</label>
+            <label class="lbl">Min aktuella e-mail:</label>
+            
+            <dl class="field-listing">
+              <dt class="term color-blue"><a style="cursor:pointer;" ng-click="toggleEmailDiv();"><span>&Auml;ndra e-mail :</span></a></dt>
+              <dd class="desc">
+                {{User.email}}
+            </dd>
+            <br/>             
+        </dl>
+        <!-- =Change Email Frame= -->
+        <div class="change-email-frame" id="changeEmail" ng-hide = "IsEmailDivHidden">
+          <form class="apply-job-form" id="changeEmailFrm" name="changeEmailFrm" ng-submit="updateEmail(changeEmailFrm.$valid)" novalidate>
+              <span ng-bind-html="emailResMessage"></span>
+              <div class="row form-row">
+                <div class="col-lg-3 col-xs-12 form-lbl">
+                  <label class="lbl">New Email address :</label>
+              </div>
+              <div class="col-lg-6 col-xs-12 form-field">
+                  <input type="email" value="" name="email" ng-model="User.email" class="form-control" required/>
+                  <div ng-show="changeEmailFrm.$submitted || changeEmailFrm.email.$touched">
+                    <div ng-show="changeEmailFrm.email.$error.required" class="errorMsg">Email is required.</div>
+                    <div ng-show="changeEmailFrm.email.$error.email" class="errorMsg">Email address is not valid.</div>
+                </div>
+            </div>
+        </div><!-- =NEw Email Address End//= -->
+        
+        <div class="row form-row">
+            <div class="col-lg-3 col-xs-12 form-lbl">
+              <label class="lbl">Verify Password :</label>
+          </div>
+          <div class="col-lg-6 col-xs-12 form-field">
+              <input type="password" name="password" ng-model="User.password" class="form-control" required/>
+              <div ng-show="changeEmailFrm.$submitted || changeEmailFrm.password.$touched">
+                <div ng-show="changeEmailFrm.password.$error.required" class="errorMsg">Password is required.</div>
+            </div>
+        </div>
+    </div><!-- =Verify Password End//= -->
+    
+    <div class="row btn-save-row">
+        <div class="col-lg-3 col-xs-12">&nbsp;</div>
+        <div class="col-lg-6 col-xs-12 form-field">
+          <button class="btn btn-blue">  Spara &auml;ndringar</button>
+      </div>
+  </div>
+</form> 
+</div><!-- =Change Email Frame End//= -->
+
+</div>
+</section><!-- =Content Section 01 End//= -->       
+
+<!-- =Content Section 02= -->
+<section class="content-section">
+  <h3 class="title"> Min psykoterapeut</h3>
+  <div class="content-frame">
+    <dl class="field-listing">
+      <dt class="term"><span>Min psykoterapeut heter Julia McCoy :</span></dt>
+      <dd class="desc color-blue">
+        Byta psykoterapeu
+    </dd>
+</dl>
+</div>
+</section><!-- =Content Section 02 End//= -->
+
+<!-- =Content Section 03= -->
+<section class="content-section">
+  <h3 class="title"> Mina betalningsuppgifter</h3>
+  <div class="content-frame">
+    <dl class="field-listing">
+      <dt class="term"><span>Aktuellt abonnemang :</span></dt>
+      <dd class="desc color-blue">
+        Weekly
+    </dd>
+</dl>
+
+<dl class="field-listing">
+  <dt class="term">
+    <span>Ditt abonnemang f&ouml;rnyas den :</span>
+</dt>
+<dd class="desc color-blue">
+    &Auml;ndra abonnemang/Avsluta abonnemang
+</dd>
+</dl>
+
+<dl class="field-listing">
+  <dt class="term"><span>Betalkort giltigt t o m :</span></dt>
+  <dd class="desc color-blue">
+    Uppdatering av kortuppgifter
+</dd>
+</dl>
+</div>
+</section><!-- =Content Section 03 End//= -->
+
+<!-- =Content Section 04= -->
+<div  id="picture">
+    <form class="apply-job-form" id="profilepicFrm" name="profilepicFrm" enctype="multipart/form-data" ng-submit="saveProfilePic(profilepicFrm.$valid)" novalidate>
+        <section class="content-section">
+          <span ng-bind-html="resMessage"></span>
+          <h3 class="title">Min profilbild</h3>
+          <div class="content-frame">
+            
+            <dl class="field-listing">
+              <dt class="term" style="min-width: 200px;"><span>Byt profilbild (valfritt)</span></dt>
+              <dd class="desc">
+                <!-- <button class="btn btn-blue" type="file"> Bl&auml;ddra</button> -->
+                <input type="file" id="profile_pic" multiple onchange="angular.element(this).scope().handleProfilePicUpload(this)" name="profile_pic" ng-model="User.profile_piaac" class="form-control" valid-file ng-required="true"/>
+                
+                <div ng-show="profilepicFrm.$submitted">
+                  <div ng-show="profilepicFrm.profile_pic.$error.required" style="color:red;">Profile Photo is required.</div>
+                  <div ng-show="profilepicFrm.profile_pic.$error.valid" style="color:red;">Profile Photo is not valid.</div>
+              </div> 
+          </dd>
+      </dl>
+  </div>
+</section><!-- =Content Section 04 End//= -->
+
+<div class="btn-row">
+  <button class="btn btn-blue">Spara &auml;ndringar</button>
+</div>      
+<br />
+</form>
+</div>
+<!-- =Form Section= -->
+<form  id="profileDataFrm" name="profileDataFrm" ng-submit="saveProfileData(profileDataFrm.$valid)" novalidate>
+
+    <section class="content-section" id="personalinfo">
+        <div ng-bind-html="profileResMessage"></div>
+        <h3 class="title">Mina personuppgifter</h3>         
+        
+        <div class="form-content form-container">
+          <div class="row form-row">
+            <div class="col-lg-3 col-xs-12 form-lbl">
+              <label class="lbl">Personnummer</label>
+          </div>
+          <div class="col-lg-6 col-xs-12 form-field">
+              <!-- <input type="text" name="personnummer" value="" class="form-control" /> -->
+              <input type="text" value="" name="civic" ng-model="User.civic" class="form-control" value="{{loggedInUser.civic}}" required/>
+              <div ng-show="profileDataFrm.$submitted || profileDataFrm.civic.$touched">
+                <div ng-show="profileDataFrm.civic.$error.required" class="errorMsg">Civic is required.</div>
+            </div>
+        </div>
+    </div><!-- =Form Row 01 End//= -->
+    
+    <div class="row form-row">
+        <div class="col-lg-3 col-xs-12 form-lbl">
+          <label class="lbl">F&ouml;rnamn</label>
+      </div>
+      <div class="col-lg-6 col-xs-12 form-field">
+          <!-- <input type="text" name="" value="" class="form-control" /> -->
+          <input type="text" name="firstname" ng-model="User.firstname" class="form-control" required/>
+          <div ng-show="profileDataFrm.$submitted || profileDataFrm.firstname.$touched">
+            <div ng-show="profileDataFrm.firstname.$error.required" class="errorMsg">First name is required.</div>
+        </div>
+    </div>
+</div><!-- =Form Row 02 End//= -->
+
+              <!-- <div class="row form-row">
+                <div class="col-lg-3 col-xs-12 form-lbl">
+                  <label class="lbl">Efternamn</label>
+                </div>
+                <div class="col-lg-6 col-xs-12 form-field">
+                  <input type="text" name="" value="" class="form-control" />
+                </div>
+            </div> --><!-- =Form Row 03 End//= -->
+            
+            <div class="row form-row">
+                <div class="col-lg-3 col-xs-12 form-lbl">
+                  <label class="lbl">Gatuadress</label>
+              </div>
+              <div class="col-lg-6 col-xs-12 form-field">
+                  <textarea class="form-control" name="streetaddress" ng-model="User.street_address" rows="5"></textarea>
+                  <div ng-show="profileDataFrm.$submitted || profileDataFrm.streetaddress.$touched">
+                    <div ng-show="profileDataFrm.streetaddress.$error.required" class="errorMsg">Street Address is required.</div>
+                </div>
+            </div>
+        </div><!-- =Form Row 04 End//= -->
+        
+        <div class="row form-row">
+            <div class="col-lg-3 col-xs-12 form-lbl">
+              <label class="lbl">Efternamn</label>
+          </div>
+          <div class="col-lg-6 col-xs-12 form-field">
+              <input type="text"  name="lastname" ng-model="User.lastname" class="form-control" required/>
+              <div ng-show="profileDataFrm.$submitted || profileDataFrm.lastname.$touched">
+                <div ng-show="profileDataFrm.lastname.$error.required" class="errorMsg">Surname is required.</div>
+            </div>
+        </div>
+    </div><!-- =Form Row 05 End//= -->
+    
+    <div class="row form-row">
+        <div class="col-lg-3 col-xs-12 form-lbl">
+          <label class="lbl">Stad</label>
+      </div>
+      <div class="col-lg-6 col-xs-12 form-field">
+          <input type="text"  name="city" ng-model="User.city"  value="" class="form-control" required/>
+          <div ng-show="profileDataFrm.$submitted || profileDataFrm.city.$touched">
+            <div ng-show="profileDataFrm.city.$error.required" class="errorMsg">City is required.</div>
+        </div>
+    </div>
+</div><!-- =Form Row 06 End//= -->
+
+<div class="row form-row">
+    <div class="col-lg-3 col-xs-12 form-lbl">
+      <label class="lbl">Postnummer</label>
+  </div>
+  <div class="col-lg-6 col-xs-12 form-field">
+      <input type="text"  name="zipcode" ng-model="User.zipcode"  value="" class="form-control" required/>
+      <div ng-show="profileDataFrm.$submitted || profileDataFrm.zipcode.$touched">
+        <div ng-show="profileDataFrm.zipcode.$error.required" class="errorMsg">Zip code is required.</div>
+    </div>
+</div>
+</div><!-- =Form Row 07 End//= -->
+
+<div class="row form-row">
+    <div class="col-lg-3 col-xs-12 form-lbl">
+      <label class="lbl">Land</label>
+  </div>
+  <div class="col-lg-6 col-xs-12 form-field">
+      <div class="select-box">
+        <select class="form-control" name="country_code" ng-model="User.country_code" required>
+          <option value="">Select</option>
+          <option ng-repeat="(key, val) in aCountries" value="{{key}}">{{val}}</option>                   
+      </select>
+      <div ng-show="profileDataFrm.$submitted || profileDataFrm.country_code.$touched">
+          <div ng-show="profileDataFrm.country_code.$error.required" class="errorMsg">Country is required.</div>
+      </div>
+  </div>
+  
+</div>
+</div><!-- =Form Row 07 End//= -->
+
+</div><!-- =Form Container End//= -->         
+</section><!-- =Form Section End//= -->
+<div class="btn-row">
+  <button class="btn btn-blue">  Spara &auml;ndringar</button>
+</div>
+<br />
+</form>
+</div><!-- =Container End//= -->
+</div><!-- =Page Content Frame Start= -->       
+  </section><!-- =Middle Content End//= -->

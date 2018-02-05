@@ -1,0 +1,101 @@
+<!-- =Banner Frame start= -->
+	<div class="innerpage-banner counselors-banner">
+		<div class="container banner-container">
+			<div>
+				<div class="row frmTopSpace">
+					<div class="col-md-3 col-xs-10 col-xs-offset-1 col-sm-6 col-sm-offset-5 col-md-offset-8 frmWrap">
+						<a ui-sref="anon.login({userType:'Counselor'})" class="btn btn-blue btn-block">Har du redan ett konto?</a>
+						<form name="counserlorsFrm" ng-submit="counselorsRequest(counserlorsFrm.$valid)" novalidate>
+						  	<div class="form-group">
+
+						    	<input type="text" name="firstname" class="form-control" id="firstname" placeholder="F&ouml;rnamn" ng-model="counselors.firstname" required />
+						    	<div ng-show="counserlorsFrm.$submitted || counserlorsFrm.firstname.$touched" class="error-notification">
+                                	<div ng-show="counserlorsFrm.firstname.$error.required">Du beh&ouml;ver fylla i ett f&ouml;rnamn </div>
+                            	</div>
+						  	</div>
+						  	<div class="form-group">
+						    	<input type="text" class="form-control" id="lastname" placeholder="Efternamn" ng-model="counselors.lastname" name="lastname" required />
+						    	<div ng-show="counserlorsFrm.$submitted || counserlorsFrm.lastname.$touched" class="error-notification">
+                                    <div ng-show="counserlorsFrm.lastname.$error.required">Du beh&ouml;ver fylla i ett efternamn </div>
+                                </div> 
+						  	</div>
+						  	<div class="form-group">
+						  		<input name="email" placeholder="E-post" class="form-control" type="email" ng-model="counselors.email" required />
+	                        	<div ng-show="counserlorsFrm.$submitted || counserlorsFrm.email.$touched" class="error-notification">
+	                        		<div ng-show="counserlorsFrm.email.$error.required">Din e-post kr&auml;vs</div>
+	                        		<div ng-show="counserlorsFrm.email.$error.email">Din e-mail har ett ogiltigt format</div>
+	                        	</div>
+						  	</div>
+						  	<div class="form-group">
+						    	<input type="text" name="phonenumber" placeholder="Telefon" class="form-control" ng-minlength="10" numlimit="10" ng-model="counselors.phonenumber" ng-pattern="/^\d+$/" required />
+                                <div ng-show="counserlorsFrm.$submitted || counserlorsFrm.phonenumber.$touched" class="error-notification">
+                                    <div ng-show="counserlorsFrm.phonenumber.$error.required || counserlorsFrm.phonenumber.$error.minlength">Ditt telefonnummer m&aring;ste vara minst 10 siffror</div>
+                                    <div ng-show="counserlorsFrm.phonenumber.$error.pattern">Numret inte giltig</div>
+                                </div> 
+						  	</div>
+						  
+						  	<button type="submit" class="btn btn-blue"> Anmäl ditt intresse </button>
+							<!-- <p class="text-left">
+								<a href="">Registrera dig för att köra = Anmäl ditt intresse som psykoterapeut </a>
+							</p> -->
+						  	<p class="tncTxt"> Genom att fortsätta godkänner jag att MinTerapi.se eller dess representanter kan kontakta mig via e-post, telefon eller sms (inklusive via automatiska metoder på den här e-postadressen eller det telefonnummer jag anger). Jag har läst och förstått MinTerapi.ses <a ui-sref="anon.terms">allmänna villkor</a></p>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div><!-- =Banner Container End//= -->
+	</div><!-- =Banner Frame End//= -->
+
+	<!-- =Middle Content Frame= -->
+	<section class="middle-frame">
+		<!-- =Counselors content Frame Start= -->				
+		<div class="container page-content-container">
+			<!-- =Counselor Content= -->
+			<div class="counselor-detail-content">
+				<h3 class="title darkTitle">
+					F&aring; tillg&aring;ng till ett terapirum p&aring; n&auml;tet
+				</h3>
+				<p class="para">
+					F&aring; tillg&aring;ng till ditt eget terapirum p&aring; n&auml;tet. Du avg&ouml;r sj&auml;lv hur m&aring;nga patienter du vill arbeta med i ditt terapirum p&aring; MinTerapi.se. Du ansvarar f&ouml;r det kliniska arbetet och vi f&ouml;r marknadsf&ouml;ring, patienttillstr&ouml;mning och alla ekonomiska transaktioner.
+				</p>
+			
+				<!-- =Why work with us frame Start= -->
+				<div class="why-work-frame" style="border:none">
+					<!-- <h3 class="title">Varf&ouml;r arbeta med MinTerapi.se?</h3> -->
+					<div class="row benefit-lists">
+						<div class="col-sm-4 volume">
+							<img src="images/money.png" alt="">
+							<h4 class="title">Komplement</h4>
+							<p class="para">
+								Du avgör själv hur mycket du vill jobba med MinTerapi.se. Du kan ha det som din huvudsakliga sysselsättning eller som ett komplement till ditt nuvarande arbete. Du kan välja själv hur många patienter som du vill arbeta med. 
+							</p>
+						</div>
+
+						<div class="col-sm-4 volume">
+							<img src="images/time.png" alt="">
+							<h4 class="title">Arbeta när du själv vill</h4>
+							<p class="para">Eftersom kommunikationen &auml;r textbaserad och inte sker i realtid, är du fri att välja de arbetstider som passar bäst för dig. Det kan vara morgnar, kvällar, nätter eller hela dagar. Du behöver inte heller bekymra dig över fakturering eller tidsbokningar. 
+							</p>
+						</div>
+
+						<div class="col-sm-4 volume">
+							<img src="images/icon_profit.png" alt="">
+							<h4 class="title">Tillgång till nya patienter </h4>
+							<p class="para">Många patienter föredrar kontakt via nätet, antingen som primär kontakt eller som komplement till pågående terapi. Du får tillgång till en ny patientgrupp och ett nytt sätt att jobba med psykoterapi.</p>
+							<!-- <p class="para italic">
+								<span class="big-text">OBS!</span> Du blir inte anst&auml;lld av MinTerapi.se utan arbetar som oberoende leverant&ouml;r under eget yrkesansvar.
+							</p> -->
+						</div>
+					</div>
+					<!-- =Benefits List End//= -->
+					
+				</div><!-- =Why work with us frame End//= -->
+				
+				<!-- <h2 class="title-below">Klar att b&ouml;rja?</h2> -->
+				
+				<!-- <button class="btn btn-blue">Ans&ouml;k nu</button> -->
+				
+			</div><!-- =Counselor Content End//= -->
+					
+		</div><!-- =Counselors Content Frame End//= -->
+	</section><!-- =Middle Content End//=

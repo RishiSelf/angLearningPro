@@ -1,0 +1,71 @@
+<!-- =Middle Content Frame= -->
+<section class="middle-frame" ng-init="getPlans();">
+	<!-- =Price Page Content Frame Start= -->				
+	<div class="container page-content-container">
+		<section class="price-page-content">
+			<h2 class="section-title">Vad passar dig?</h2>
+			<p class="para">
+				MinTerapi.se erbjuder tre olika typer av paket. Ett veckopaket, ett m&aring;nadspaket och ett kvartalspaket. &Auml;r du os&auml;ker p&aring; vilket paket som passar just dig? Prova en vecka och r&aring;dg&ouml;r d&auml;refter med din psykoterapeut f&ouml;r att f&aring; en individuell v&auml;gledning och rekommendation. P&aring; s&aring; vis kan du vara s&auml;ker p&aring; att du v&auml;ljer ett paket som passar just dig och dina behov b&auml;st.
+			</p>
+			
+			<!-- =Price Package Box Frame= -->
+			<div class="row package-grid-row">
+				<!-- =Package-Grid 01= -->
+				<div class="col-lg-4 col-xs-12 package-col" ng-repeat="pricePlan in pricePlans" ng-if='pricePlans.length == 3'>
+					<!--<h4 class="package-name">Original</h4>-->
+					<!-- =Package Feature box= -->
+					<section class="package-feature-box">
+						<div class="feature-title">
+							<h4 class="text">
+								<strong>{{pricePlan.Plan.title}}</strong>
+								<label ng-if="pricePlan.Plan.duration == 'week'">({{constant.week}})</label>
+								<label ng-if="pricePlan.Plan.duration == 'month'">({{constant.month}})</label>
+								<label ng-if="pricePlan.Plan.duration == 'quarter'">({{constant.quarter}})</label>
+							</h4>
+						</div><!-- =feature-title End//= -->
+						<div class="feature-content">
+							<h3 class="content-title">{{pricePlan.Plan.price}} {{pricePlan.Plan.currency}}</h3>
+							<p class="para">
+								{{pricePlan.Plan.description}}
+							</p>
+						</div><!-- =Feature-Content End//= -->
+						<button class="btn btn-blue" ng-click="checkout(pricePlan.Plan.id, pricePlan.Plan.is_visible)">K&ouml;p detta paket</button>
+						<label class="link-read-more">
+							<a ui-sref="anon.plan-detail">L&auml;s mer om detta paket</a>
+						</label>
+					</section><!-- =Package Feature box End//= -->
+				</div><!-- =Package-Grid 01 End//= -->
+
+				<div class="col-lg-3 col-xs-12 package-col" ng-repeat="pricePlan in pricePlans" ng-if='pricePlans.length > 3'>
+					<section class="package-feature-box">
+						<div class="feature-title">
+							<h4 class="text">
+								<strong>{{pricePlan.Plan.title}}</strong>
+								<label>{{arr[pricePlan.Plan.duration]}}</label>
+								<!-- <label ng-if="pricePlan.Plan.duration == 'week'">({{constant.week}})</label>
+								<label ng-if="pricePlan.Plan.duration == 'month'">({{constant.month}})</label>
+								<label ng-if="pricePlan.Plan.duration == 'quarter'">({{constant.quarter}})</label> -->
+							</h4>
+						</div><!-- =feature-title End//= -->
+						<div class="feature-content" style="position: relative;">
+							<h3 class="content-title">{{pricePlan.Plan.price}} {{pricePlan.Plan.currency}}</h3>
+							<p class="para" ng-bind-html="pricePlan.Plan.description | customLimit:50"></p>
+							<!-- <div class="error-notification" ng-if="pricePlan.Plan.is_visible=='' && freePlanCheck == 1"><span>Din nuvarande plan</span></div>
+							<div class="error-notification" ng-if="pricePlan.Plan.is_visible=='' && freePlanCheck == 2"><span>Du har redan tagit planen</span></div> -->
+						</div><!-- =Feature-Content End//= -->						
+						<button class="btn btn-blue" ng-click="checkout(pricePlan.Plan.id, pricePlan.Plan.is_visible)">K&ouml;p detta paket</button>
+						<label class="link-read-more">
+							<a ui-sref="anon.plan-detail">L&auml;s mer om detta paket</a>
+						</label>
+					</section><!-- =Package Feature box End//= -->
+				</div>
+			</div>
+							
+			<!-- =Additional Saving Frame= -->
+			<div class="additional-saving-frame">
+			
+			</div><!-- =Additional Saving Frame End//= -->
+			
+		</section><!-- =Price Content Frame= -->
+	</div><!-- =Price Page Content Frame End//= -->
+</section><!-- =Middle Content End//=

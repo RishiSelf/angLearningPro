@@ -1,0 +1,165 @@
+	
+<!-- =Middle Content Frame= -->
+<section class="middle-frame" ng-init="getJobApplyFrm();">
+	<!-- =Jobs Description content Frame Start= -->				
+	<div class="container page-content-container" id="container">
+		<!-- =Jobs Detail Frame= -->
+		<div class="jobs-details-frame">
+			<div class="logo-row"><a ui-sref="anon">
+				<img src="images/logo.png" alt="MinTerapi.se logo" title="" /></a>
+			</div><!-- =logo -row End//= -->
+			<!-- =Details Top Frame= -->
+			<section class="desc-top-frame" ng-init="getJobPositionDetail();">
+				<ul class="breadcums">
+					<li><a ui-sref="anon.jobs">Alla jobb</a></li>
+					<li>
+						<a ui-sref="anon.job-details({id:aPositionDetail.JobPosition.id})">{{aPositionDetail.JobPosition.position}}</a>
+					</li>
+					<li>Till&auml;mpa</li>
+				</ul>
+
+				<h3 class="job-title"><span>{{aPositionDetail.JobPosition.position}}</span></h3>
+				<h5 class="sub-title">
+					<span>Malm&ouml;, Sk&aring;ne l&auml;n, Sverige</span>
+				</h5>
+				<span class={{customClass}} ng-click="toggleJobDetail();">&nbsp;</span>
+			</section><!-- =Details Top Frame End//= -->
+			<!-- =Detail Content section=  -->
+
+			<!-- <h2>{{resMessage}}</h2> -->
+
+			<section class="details-section content-section" style="display:none;">
+				<div  ng-bind-html="aPositionDetail.JobPosition.description">
+				</div>
+				<hr />
+			</section><!-- =Detail Content section End//= -->
+
+
+
+			<form class="apply-job-form" id="jobFrm" name="jobFrm" enctype="multipart/form-data" ng-submit="saveJobData(jobFrm.$valid, aData)" novalidate>
+				<!-- =Detail Content section=  -->
+				<section class="details-section">
+
+					<div class="form-container">
+						<!-- =Personal Details Section= -->
+						<section class="form-section"  ng-repeat="oData in aData">							
+							<h3 class="title">{{oData.FormType.form_name}}</h3>
+							<!-- =Name Row start//= -->
+							<div ng-repeat="oFormData in oData.MasterApplicationForm" ng-init="fieldId=oFormData.id; isRequired = (oFormData.application_form.visible_status=='mandatory') ? 'true' : 'false';" class="form-group row" >								
+								<div ng-if="fieldId != 12">
+									<div class="col-lg-2 col-xs-12 label-col">
+										<label for="name" class="required control-label">												
+											<span ng-if="oFormData.application_form.visible_status=='mandatory'" title="required">*</span>
+											{{oFormData.label}}	
+										</label>
+									</div><!-- =Label End//= -->
+
+									<div class="col-lg-8 col-xs-12 field-col">
+										<div class="row"><!-- =Field ROW Start//= -->
+											<div class="col-xs-12">
+												<div ng-if="oFormData.input_type=='text' || oFormData.input_type=='textbox'">
+													<div ng-if="fieldId == 4">	
+														<input type="text" id="{{fieldId}}" name="{{oFormData.label}}" ng-model="oFormData.value" placeholder="{{oFormData.label}}" class="form-control" ng-minlength="10" numlimit="10" ng-pattern="/^\d+$/" ng-required="{{isRequired}}"/>
+														<div ng-show="isRequired && (jobFrm.$submitted || jobFrm.{{oFormData.label}}.$touched)" class="error-notification">
+															<div ng-show="jobFrm.{{oFormData.label}}.$error.required || jobFrm.{{oFormData.label}}.$error.minlength">Ditt {{oFormData.label}} m&aring;ste vara minst 10 siffror</div>
+															<div ng-show="jobFrm.{{oFormData.label}}.$error.pattern">Numret inte giltig</div>
+														</div>
+													</div>
+
+													<div ng-if="fieldId == 2">	
+														<input type="text" id="{{fieldId}}" name="{{oFormData.label}}" ng-model="oFormData.value" placeholder="{{oFormData.label}}" class="form-control" ng-required="{{isRequired}}"/>	
+
+														<div ng-show="jobFrm.$submitted || jobFrm.{{oFormData.label}}.$touched" class="error-notification">
+															<div ng-show="jobFrm.{{oFormData.label}}.$error.required">Du beh&ouml;ver fylla i ett {{oFormData.label}}</div>
+														</div>
+													</div>
+
+													<div ng-if="fieldId == 1">	
+														<input type="text" id="{{fieldId}}" name="{{oFormData.label.split('ö').join('o')}}" ng-model="oFormData.value" placeholder="{{oFormData.label}}" class="form-control" ng-required="{{isRequired}}"/>	
+
+														<div ng-show="isRequired && (jobFrm.$submitted || jobFrm.{{oFormData.label.split('ö').join('o')}}.$touched)" class="error-notification">
+															<div ng-show="jobFrm.{{oFormData.label.split('ö').join('o')}}.$error.required">Du beh&ouml;ver fylla i ett {{oFormData.label}}</div>
+														</div>
+													</div> 
+
+													<div ng-if="fieldId == 3">
+														<input type="email" id="{{fieldId}}" name="{{oFormData.label.split('-').join('') }}" ng-model="oFormData.value" placeholder="{{oFormData.label}}" class="form-control" ng-required="{{isRequired}}"/>	
+
+														<div ng-show="isRequired && (jobFrm.$submitted || jobFrm.{{oFormData.label.split('-').join('') }}.$touched)" class="error-notification">
+															<div ng-show="jobFrm.{{oFormData.label.split('-').join('') }}.$error.required">Din {{oFormData.label}} har ett ogiltigt format</div>
+															<div ng-show="jobFrm.{{oFormData.label.split('-').join('') }}.$error.email" >Din {{oFormData.label}} har ett ogiltigt format</div>
+														</div>   							                                												
+													</div>   							                                												
+												</div>
+
+												<div ng-if="oFormData.input_type=='file'">
+
+													<input type="file" id="filePicker" multiple onchange="angular.element(this).scope().handleFileSelect(this)" name="{{oFormData.label.split(' ').join('') }}" ng-model="document" class="form-control" valid-file ng-required="{{isRequired}}"/>
+
+													<div id="{{oFormData.label}}" ng-show="isRequired && (jobFrm.$submitted || jobFrm.{{oFormData.label.split(' ').join('') }}.$touched)" class="error-notification">
+
+														<div ng-show="jobFrm.{{oFormData.label.split(' ').join('') }}.$error.required" ng-if="fieldId == 6">Du m&aring;ste {{oFormData.label}}</div>
+														<div ng-show="jobFrm.{{oFormData.label.split(' ').join('') }}.$error.required" ng-if="fieldId == 10">Du beh&ouml;ver bifoga ditt CV</div>
+
+													</div> 
+
+												</div>
+
+												<div ng-if="oFormData.input_type=='textarea'">
+
+													<textarea name="{{oFormData.label.split(' ').join('') }}" ng-model="oFormData.value" placeholder="{{oFormData.label}}" class="form-control" ng-required="{{isRequired}}"></textarea>
+
+													<div ng-show="isRequired && (jobFrm.$submitted || jobFrm.{{oFormData.label.split(' ').join('') }}.$touched)" class="error-notification">
+														<div ng-show="jobFrm.{{oFormData.label.split(' ').join('') }}.$error.required" ng-if="fieldId == 5 || fieldId == 9">Du beh&ouml;ver fylla i en {{oFormData.label}}</div>
+
+														<div ng-show="jobFrm.{{oFormData.label.split(' ').join('') }}.$error.required" ng-if="fieldId == 7 || fieldId == 8">Du beh&ouml;ver fylla i din {{oFormData.label}}</div>
+
+														<div ng-show="jobFrm.{{oFormData.label.split(' ').join('') }}.$error.required" ng-if="fieldId == 11">Du beh&ouml;ver skriva et {{oFormData.label}}</div>
+													</div> 
+
+												</div>
+											</div>
+
+										</div><!-- =Field ROW End//= -->
+									</div><!-- =Field col End//= -->
+								</div>
+							</div><!-- =Name Row End//= -->
+
+
+							<div ng-repeat="oFormData in oData.MasterApplicationForm" ng-init="fieldId=oFormData.id;">
+								<div ng-if="fieldId==12">										
+									<div class="form-group row" ng-repeat="oCustomQuestions in oFormData.application_form.ApplicationFormQuestion">
+										<div class="col-lg-2 col-xs-12 label-col">
+											<label for="address" class="required control-label">
+												<!-- <span title="required">*</span> --> {{oCustomQuestions.question}}
+											</label>
+										</div><!-- =Label End//= -->
+
+										<div class="col-lg-8 col-xs-12 field-col">
+											<div class="row">
+												<div class="col-xs-12">
+													<div  ng-if="oFormData.input_type=='textarea'">
+														<textarea id="{{oFormData.label}}" name="{{oFormData.label}}" ng-model="oCustomQuestions.value" class="form-control"></textarea>
+													</div>
+												</div>										
+											</div>
+										</div><!-- =Field col End//= -->								
+									</div><!-- =Address Row End//= -->
+								</div>	
+							</div>
+							<hr />
+						</section><!-- =Personal Details Section End//= -->
+
+						<!-- =Job Details Footer= -->
+						<div class="job-dtl-footer">
+							<div class="btn-row">
+								<button class="btn" >Skicka in ans&ouml;kan</button>
+							</div>
+						</div><!-- =Job Details Footer End//= -->
+					</div><!-- =Form Container End//= -->
+				</section><!-- =Detail Content section End//= -->
+			</form>
+		</div><!-- =Jobs Details Frame End//= -->
+	</div><!-- =Jobs description Content Frame End//= -->
+</section><!-- =Middle Content End//= -->
+

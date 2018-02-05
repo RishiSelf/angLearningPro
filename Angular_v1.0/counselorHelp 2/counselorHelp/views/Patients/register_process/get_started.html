@@ -1,0 +1,65 @@
+<!-- =Middle Content Frame= -->
+<section class="middle-frame" style="min-height: 434px;">
+	<!-- =Content Frame Start= -->				
+	<div class="container page-content-container">
+		<!-- =Get started Frame= -->
+		<section class="get-started-frame get-started-questionnaire">
+			<!-- =profile Image row= -->
+			<div class="profile-image-row">
+				<img ng-src="{{counselor_details.profilePic}}" alt="Counselor Profile Picture" title="">
+			</div><!-- =profile Image row End//= -->
+			<h2 class="title">
+				Hj&auml;lp {{counselor_details.counselorName}} att f&ouml;rst&aring; dina problem och utmaningar b&auml;ttre
+			</h2>
+			
+			<p class="para heading-para">
+				N&auml;r du fyller i fr&aring;geformul&auml;ret ger du din psykoterapeut en kort bakgrund om dig sj&auml;lv och de problem du vill arbeta med. Fr&aring;geformul&auml;ret best&aring;r utav ett antal fr&aring;gor, b&aring;de flervalsfr&aring;gor och &ouml;ppna fr&aring;gor. Klicka p&aring; n&auml;sta n&auml;r du k&auml;nner dig redo och &auml;r n&ouml;jd med ditt svar.
+			</p>
+			
+			<!-- =Get started Content row= -->
+			<div class="row get-started-row">
+				<!-- =Question col= -->
+				<div class="col-lg-7 col-sm-10 col-xs-12 question-col">
+					<div class="solution-frame">
+						<form class="option-form" name="questionnaireFrm" ng-submit="submitQuestions(questionnaireFrm.$valid,'addData')" novalidate>
+							<p class="para">
+								{{aQuestions[counter].StartUpQuestion.question}}
+							</p>
+
+							<div class="form-group" ng-if="aQuestions[counter].InputControl.type == 'select'">								
+								<select class="form-control" name="selectBox"  ng-model="questionnaire.questionAns.value" ng-options="val as val for (key, val) in aQuestions[counter].StartUpQuestion.value" required>
+									<option value="" selected>{{aQuestions[counter].StartUpQuestion.question}}</option>
+								</select>
+								<div ng-show="questionnaireFrm.$submitted || questionnaireFrm.selectBox.$touched" class="error-notification">
+	                            	<div ng-show="questionnaireFrm.selectBox.$error.required">Var god v&auml;lj ett alternativ</div>
+	                        	</div>
+							</div>
+
+							<div class="form-group" ng-if="aQuestions[counter].InputControl.type == 'radio'">								
+								<label ng-repeat="(key, val) in aQuestions[counter].StartUpQuestion.value" for="{{key}}" class="radio-field">
+									<input type="radio" value="{{key}}" name="radioBtn" ng-model="questionnaire.questionAns.value" required/>
+									<span class="lbl">{{val}}</span>
+									<span class="custom-radio">&nbsp;</span>
+								</label>	
+								<div ng-show="questionnaireFrm.$submitted || questionnaireFrm.radioBtn.$touched" class="error-notification">
+	                            	<div ng-show="questionnaireFrm.radioBtn.$error.required">Var god v&auml;lj ett alternativ</div>
+	                        	</div>												
+							</div>
+
+							<div class="form-group" ng-if="aQuestions[counter].InputControl.type == 'text'">
+								<textarea class="form-control" name="textBox" ng-model="questionnaire.questionAns.value" required></textarea>
+								<div ng-show="questionnaireFrm.$submitted || questionnaireFrm.textBox.$touched" class="error-notification">
+	                            	<div ng-show="questionnaireFrm.textBox.$error.required">Var god v&auml;lj ett alternativ</div>
+	                        	</div>
+							</div>
+
+							<div class="btn-row text-right">
+								<button class="btn btn-blue" type="submit" style="color:white;" ng-bind-html="btnText"></button>
+							</div>
+						</form>
+					</div>
+				</div><!-- =Question col End//= -->					
+			</div><!-- =Get started Content row End//= -->
+		</section><!-- =Get started Frame End//= -->	
+	</div><!-- =Content Frame End//= -->		
+</section><!-- =Middle Content End//= -->

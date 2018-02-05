@@ -1,0 +1,56 @@
+<!-- =Middle Content Frame= -->
+<section class="middle-frame" ng-init="getPriceList();">
+    <!-- =Price Page Content Frame Start= -->               
+    <div class="container page-content-container">
+        <section class="price-content-frame">
+            <h2 class="section-title price-page-list">Vad passar just dig? J&auml;mf&ouml;r v&aring;ra olika paket!</h2>
+            <p class="para">
+                MinTerapi.se erbjuder tre olika typer av paket. Ett veckopaket, ett m&aring;nadspaket och ett kvartalspaket. &Auml;r du os&auml;ker p&aring; vilket paket som passar just dig? Prova en vecka och r&aring;dg&ouml;r d&auml;refter med din psykoterapeut f&ouml;r att f&aring; en individuell v&auml;gledning och rekommendation. P&aring; s&aring; vis kan du vara s&auml;ker p&aring; att du v&auml;ljer ett paket som passar just dig och dina behov b&auml;st.
+            </p>
+            <!--<button class="btn btn-blue no-bg">
+                    Kom ig&aring;ng nu
+            </button>-->
+            <!-- =Price Table Frame Start= -->
+            <div class="price-table-frame table-responsive">
+                <table class="table price-table" border="0">
+                    <thead>
+                        <tr class="plan-title">
+                            <th  width="40%">&nbsp;</th>
+                            <th ng-repeat="priceListPlan in priceListPlans| orderBy:'id':false">
+                                <h5>{{priceListPlan.plan_id}}</h5>
+                                <p>
+                                    {{priceListPlan.description}}
+                                </p>
+                                <button class="btn btn-blue" ng-click="checkout(priceListPlan.id, priceListPlan.is_visible)">K&ouml;p nu</button>
+                            </th>
+                        </tr>
+                    </thead><!-- =Plan-title Frame End//= -->
+                    <tbody class="plan-rate">
+                        <tr>
+                            <td class="price-lbl"><span>Pris</span></td>
+                            <th ng-repeat="priceListPlan in priceListPlans| orderBy:'id':false">
+                                <h4>{{priceListPlan.price}}</h4>
+                            </th>
+                        </tr>
+                    </tbody><!-- =Plan rate End//= -->
+                    <thead class="title-feature">
+                        <th colspan="4"><h4>Paketinneh&aring;ll</h4></th>
+                    </thead><!-- =Title-Features= -->
+
+                    <tbody class="features-data-list" ng-repeat="pricePlanFeature in pricePlanFeatures">
+                        <tr>
+                            <td>{{pricePlanFeature.title}}</td>
+                            <td  ng-repeat="pricePlanFeatureValue in pricePlanFeature.planValues">
+                                <span ng-if="lowerCaseString(pricePlanFeatureValue.plan_option_value) == 'yes'" class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+                                <span ng-if="lowerCaseString(pricePlanFeatureValue.plan_option_value) == 'no'" class="glyphicon glyphicon-remove" aria-hidden="true" style="color:  #f00"></span>
+                                <span ng-if="lowerCaseString(pricePlanFeatureValue.plan_option_value) == 'none' || pricePlanFeatureValue.plan_option_value == ''" class="glyphicon glyphicon-minus" aria-hidden="true"></span>
+                                <span ng-if="isCheckStrType(pricePlanFeatureValue.plan_option_value)">{{pricePlanFeatureValue.plan_option_value}}</span>
+                                <span ng-if="(lowerCaseString(pricePlanFeatureValue.plan_option_value) != 'yes') && (lowerCaseString(pricePlanFeatureValue.plan_option_value) != 'no') && (lowerCaseString(pricePlanFeatureValue.plan_option_value) != 'none') && (isCheckStrType(pricePlanFeatureValue.plan_option_value) == false)" ng-bind-html="GetValidString(pricePlanFeatureValue.plan_option_value)"></span>
+                            </td>
+                        </tr>
+                    </tbody><!-- =Features Data List End//= -->
+                </table>
+            </div><!-- =Price Table Frame End//= -->
+        </section><!-- =Price Content Frame= -->
+    </div><!-- =Price Page Content Frame End//= -->
+</section><!-- =Middle Content End//=

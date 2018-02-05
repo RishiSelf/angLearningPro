@@ -1,0 +1,245 @@
+
+<div class="content-area">
+
+	<div class="top-profile-section">
+		<section class="about-row" ng-style="{'background-image': 'url('+counselorData.User.banner_pic+')'}">
+			<label class="camera-icon">
+				<!-- <span class="glyphicon glyphicon-camera" aria-hidden="true" ngf-select="uploadFiles($file, $invalidFiles, 'banner')" accept="image/*"></span> -->
+				<input id="bannerPic" accept="image/*"  ngf-max-size="200KB"  aria-hidden="true"/>
+			</label>
+			<label class="camera-icon" for="bannerPic" ng-click="cropImgType('banner')">
+    			<span class="glyphicon glyphicon-camera"></span>
+			</label>
+			
+			<div class="photo-frame" ng-show="showProfilePic">
+				<div class="image-frame">
+					<img ng-src="{{counselorData.User.profile_pic}}" alt="Photo" title="" class="image" />
+				</div>
+				<label class="camera-icon">
+					<input type="file" id="profilePicInput" accept="image/*"  ngf-max-size="5MB"  aria-hidden="true"/>				
+				</label>
+				<label class="camera-icon" for="profilePicInput" ng-click="cropImgType('profile')">
+        			<span class="glyphicon glyphicon-camera"></span>
+    			</label>
+			</div>
+			<div class="about-col">			
+				<h2 class="title">{{counselorData.User.name}}</h2>
+				<!-- <label class="profile">{{user.designation_profile}}</label> -->
+				<a class="counselorRole" href="" editable-text="user.role" onaftersave="update('role',user.role)" e-maxlength="30">
+					<span class="glyphicon glyphicon-edit"></span> <span ng-bind-html="user.role"></span>
+				</a>
+			</div>
+		</section>
+
+		<section class="banner-nav">
+			<nav class="">
+				<ul class="navigation">
+					<li ng-click="navigation('om_mig', $event);">
+						<a ui-sref-active="active" href="javascript:void(0);">Om mig</a>
+					</li>
+					<li ng-click="navigation('Specialisering', $event);">
+						<a ui-sref-active="active" href="javascript:void(0);">Specialisering</a>
+					</li>
+					<li ng-click="navigation('licensing', $event);">
+						<a ui-sref-active="active" href="javascript:void(0);">Utbildning</a>
+					</li>
+					<li ng-click="navigation('testimonials', $event);">
+						<a ui-sref-active="active" href="javascript:void(0);">Mina omdömen</a>
+					</li>			
+				</ul>
+			</nav>
+		</section>
+	</div>
+	
+
+	<form editable-form name="tableform" onaftersave="update('om_mig',user.about)" oncancel="cancel()">
+		<article class="content-frame" id="om_mig" ng-if="!om_migEditable">
+			<h2 class="title">
+				<span class="title-text">Om mig</span>
+				<button class="btn btn-blue" ng-click="tableform.$show(); editBtn('om_mig');" >
+					<span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+					<span>&Auml;ndra &nbsp; </span>
+				</button>
+			</h2>
+			<p class="para" ng-bind-html="user.about_counselor">
+				
+			</p>
+			<p></p>
+			<hr class="h-rular" />
+		</article>
+		
+		<article class="content-frame" id="om_mig" ng-if="om_migEditable">
+			<h2 class="title">
+				<span class="title-text">Om mig</span>
+			</h2>
+			<p class="para placeholderCss">
+				<span e-form="tableform" editable-textarea="user.about" e-rows="7" e-cols="90" e-placeholder="H&auml;r kan du kort beskriva dig sj&auml;lv och dina tidigare erfarenheter">
+				</span>
+			</p>
+			<span ng-show="tableform.$visible">
+				<button type="submit" class="btn btn-primary" ng-disabled="tableform.$waiting">
+					Spara
+				</button>
+				<button type="button" class="btn btn-default" ng-disabled="tableform.$waiting" ng-click="tableform.$cancel();cancelChanges('om_mig');">
+					&Aring;ngra
+				</button>
+			</span>
+			<hr class="h-rular" />
+		</article>
+	</form>
+
+	<!-- <form editable-form name="specsform"> -->
+		<article class="content-frame" id="Specialisering" ng-if="!specialiseringEditable">
+			<h2 class="title" style="margin-top: 0;">
+				<span class="title-text">Specialisering</span>
+				<button class="btn btn-blue" ng-click="editBtn('specs');">
+					<span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+					<span>&Auml;ndra &nbsp; </span>
+				</button>
+			</h2>
+
+			<ul class="listing specilities">
+				<li ng-repeat="spec in specsInitial">{{spec.title}}</li>
+			</ul>
+			<p class="para">
+				{{usersComment}}
+			</p>
+			<hr class="h-rular" />
+		</article>
+
+		<article class="content-frame" ng-if="specialiseringEditable">
+			<h2 class="title" style="margin-top: 0;">Specialisering</h2>
+
+			<multiselect class="input-xlarge" multiple="true" ng-model="user.specs" options="spec.title for spec in counselor_details.specialities" change="selected()" ></multiselect> 
+
+			<span>
+				<button type="submit" class="btn btn-primary" ng-click="update('specs',user)">
+					Spara
+				</button>
+				<button type="button" class="btn btn-default" ng-click="cancelChanges('specs');">
+					&Aring;ngra
+				</button>
+			</span>
+
+
+			<p class="para placeholderCss">
+				<textarea class="editable-input form-control" ng-model="user.comment" rows="3" cols="90" placeholder="H&auml;r har du m&ouml;jlighet att ge en kort beskrivning av de valda specialiseringarna"></textarea>
+			</p>
+			<span>
+				<button type="submit" class="btn btn-primary" ng-click="update('comments',user)">
+					Spara
+				</button>
+				<button type="button" class="btn btn-default" ng-click="cancelChanges('comments');">
+					&Aring;ngra
+				</button>
+			</span>
+			<hr class="h-rular" />
+		</article>
+	<!-- </form> -->
+
+	<form editable-form name="licform" onaftersave="update('license',user)" oncancel="cancel()">
+		<article class="content-frame" id="licensing" ng-if="!licensingEditable">
+			<h2 class="title" style="margin-top: 0;">
+				<span class="title-text">Utbildning</span>
+				<button class="btn btn-blue" ng-click="licform.$show(); editBtn('license');">
+					<span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+					<span>&Auml;ndra &nbsp; </span>
+				</button>
+			</h2>
+			<ul class="listing specilities">
+				<li ng-repeat="lic in user.licensing">
+					<strong class="name" ng-bind-html="lic.name"></strong>
+					<span class="qualify" ng-bind-html="lic.designation"></span>
+				</li>				
+			</ul>
+			<hr class="h-rular" />
+		</article>
+		
+		<article class="content-frame" ng-if="licensingEditable">
+			<h2 class="title" style="margin-top: 0;">Utbildning</h2>
+
+			<ul class="listing specilities placeholderCss" ng-if="notLicensing == true">
+				<li class="ng-scope">
+					<!-- <span editable-text="user.licensing_name1" e-placeholder="Licensing"></span>
+					<span editable-text="user.licensing_designation1" e-placeholder="Designation"></span> -->
+					<input class="customXeditor" type="text" placeholder="Utbildning" name="" ng-model="user.licensing_name1">
+					<input class="customXeditor" type="text" placeholder="Inriktning" name="" ng-model="user.licensing_designation1">
+					<a ng-click="addNewItem('licensing')" class="iconPointer"><span class="glyphicon glyphicon-plus"></span></a>
+				</li>				
+			</ul>
+
+			<ul class="listing specilities placeholderCss" ng-if="notLicensing == false">
+				<li ng-repeat="lic in user.licensing">
+					<span editable-text="lic.name" e-placeholder="Utbildning"></span>
+					<span editable-text="lic.designation" e-placeholder="Inriktning"></span>
+					<a ng-click="addNewItem('licensing')" ng-show="$last" class="iconPointer"><span class="glyphicon glyphicon-plus"></span></a>
+					<a ng-click="removeItem($index, 'licensing')" ng-show="$last-1" class="iconPointer"><span class="glyphicon glyphicon-minus"></span></a>
+				</li>				
+			</ul>
+			<span ng-show="licform.$visible">
+				<button type="submit" class="btn btn-primary" ng-disabled="licform.$waiting">
+					Spara
+				</button>
+				<button type="button" class="btn btn-default" ng-disabled="licform.$waiting" ng-click="licform.$cancel(); cancelChanges('license');">
+					&Aring;ngra
+				</button>
+			</span>
+			<hr class="h-rular" />
+		</article>
+		<article class="content-frame" id="testimonials">
+			<h2 class="title" style="margin-top: 0;">
+				Mina omd&ouml;men
+			</h2>
+			<p class="para note-para" ng-repeat="oReviews in user.Review">
+				Skriven av {{oReviews.patient_name}} den {{dateFormat(oReviews.created) |  amDateFormat : "DD/MM/YY"}}
+				<br /><br />
+				<span ng-bind-html="oReviews.comment"></span>
+			</p>
+		</article>
+	</form>
+	<!-- =Popup Frame= -->
+	<div class="popup-frame bankId-popup" ng-show="showCropper" >
+		<!-- =popup box Start= -->
+		<div class="popup-box imagePopup">
+			<span class="edit_imagepopUp" ng-click="popupClose()">X</span>
+			<!-- =Foot Section= -->
+			<div class="cropArea">
+      			<ui-cropper image="imageCrop.originalImage" result-image="imageCrop.croppedImage" area-type="square" change-on-fly="true"></ui-cropper>
+    		</div>
+			<div class="btn-row text-center">
+				<p>Minsta storlek f&ouml;r b&auml;sta passform 200 X 200</p>
+				<button name="" class="btn btn-blue" ng-click="cropped_profileImg(imageCrop.croppedImage)">Spara bild</button>
+			</div>			
+		</div><!-- =popup box End//= -->
+	</div><!-- =Popup Frame End//= -->
+	<!-- <button ng-click="clickHere()">click</button> -->
+
+	<div id="bannerImagePopup" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="top:30%">
+  		<div class="modal-dialog">
+    		<div class="modal-content">
+        		<div class="modal-body">
+            		<!-- <div class="container slider"> -->
+
+						<!-- enumerate all photos -->
+						<img ng-repeat="photo in photos" class="img-responsive" ng-show="isActive($index)" ng-src="{{photo.src}}" />
+						<!-- prev / next controls -->
+						<!-- <a class="arrow prev" href="" ng-click="showPrev()"></a>
+						<a class="arrow next" href="" ng-click="showNext()"></a> -->
+						<!-- extra navigation controls -->
+						<ul class="nav">
+							<li ng-repeat="photo in photos" ng-class="{'active':isActive($index)}">
+								<img ng-src="{{photo.src}}" alt="{{photo.desc}}" title="{{photo.desc}}" ng-click="showPhoto($index);" />
+							</li>
+						</ul>
+
+					<!-- </div> -->
+        		</div>
+        		<div class="btn-row text-center" style="padding: 10px;">
+					<button name="" class="btn btn-blue" ng-click="uploadBanner()">Spara bild</button>
+				</div>
+    		</div>
+  		</div>
+	</div>
+
+	
+</div>

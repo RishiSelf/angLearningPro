@@ -1,0 +1,25 @@
+<!-- =Content Area Start= -->
+<div class="content-area">
+	<h2 class="content-title">Redigera h&auml;lsningsfras</h2>
+	<p class="para">
+		I meddelandef&auml;ltet nedan kan du redigera din h&auml;lsningsfras. H&auml;lsningsfrasen &auml;r ett personligt, &auml;ndringsbart och autogenererat meddelande som skickas ut till varje ny patient som blivit tilldelad dig som psykoterapeut. I detta meddelande har du som psykoterapeut m&ouml;jlighet att v&auml;lkomna patienten till terapirummet och ber&auml;tta kort om uppl&auml;gget med n&auml;tterapin. Ett f&ouml;rslag p&aring; h&auml;lsningsfras &aring;terfinns i meddelandef&auml;ltet nedan. 
+	</p>
+	<!-- =Message Form Start= -->
+	<section class="message-form-frame">							
+		<form class="message-form">
+			<div class="form-container">
+				<label class="control-label">Meddelande</label>
+				<div class="form-group">
+					<textarea class="form-control" trusted-html ng-model="message" ng-disabled="msgDisabled"></textarea>
+				</div>
+			</div><!-- =Form Container End//= -->
+				
+			<div class="btn-row">
+				<button name="" class="btn btn-blue" ng-click="submitMsg(message)" ng-disabled="msgDisabled">
+					Spara
+				</button>
+				<button class="btn btn-change" ng-click="submitMsg('cancel')" >&Auml;ndra</button>
+			</div>
+		</form>
+	</section><!-- =Message Form End//= -->		
+</div><!-- =Content Area End//= -->

@@ -1,0 +1,89 @@
+<div class="counselor-page">
+	<!-- =Middle Content Frame= -->
+	<section class="middle-frame bankId-middle-frame">
+		<!-- =Bank Id Login container Start= -->				
+		<div class="container bankid-login-container">
+			<!-- =Login block Start= -->	
+			<div class="login-block">
+				<div class="logo-row">
+					<h1 class="logo-image" style="display: none;">
+						<img src="images/logo_bankId.png" alt="logo Bank Id" title="" />
+					</h1>
+					<p class="responseError" ng-if="responseError == true"><span class="glyphicon glyphicon-exclamation-sign"></span> <span ng-bind-html="message"></span></p>
+					<h3 class="logo-content">
+						Logga in med BankID eller Mobilt BankID
+					</h3>
+				</div><!-- =Logo Row End//= -->
+				
+				<!-- =Option form= -->
+				<form class="contact-us-form" name="loginFrm" ng-submit="loginForm(loginFrm.$valid)" novalidate>
+					<div class="option-form" ng-init="userType.bankId = 'Jag vill logga in med ett BankID som &auml;r installerat p&aring; den h&auml;r datorn.'">
+						<!-- =Row 01= -->
+						<div class="option-row bankId-option1">
+							<div class="radio-field">
+								<input type="radio" name="bankId" value="Jag vill logga in med ett BankID som &auml;r installerat p&aring; den h&auml;r datorn." class="radio-btn" ng-model="userType.bankId" ng-click="selectUserType('false')"/>
+								<span class="custom-radio">&nbsp;</span>
+								<div class="option-text">
+									<label class="text">Jag vill logga in med ett BankID som &auml;r installerat p&aring; den h&auml;r datorn.</label>
+								</div>
+							</div>
+						</div><!-- =Row 01 End//= -->
+						
+						<!-- =Row 02= -->
+						<div class="option-row bankId-option2">
+							<div class="radio-field">
+								<input type="radio" name="bankId" value="bankId" class="radio-btn" ng-click="selectUserType('true')"/>
+								<span class="custom-radio">&nbsp;</span>
+								<div class="option-text">
+									<label class="text">
+										Jag vill logga in med ett Mobilt BankID.
+									</label>
+									<section class="form-container">										
+										<div ng-show="showUserBankId">
+											<label class="lbl">Personnummer:</label>
+											<input type="number" placeholder="ååååmmddnnnn" name="userBankId" value="" class="form-control" ng-model="userBankId" ng-minlength="12" required />
+											<div ng-show="loginFrm.$submitted || loginFrm.userBankId.$touched" ng-if="login_error == true" class="error-notification">
+	                                			<div class="loginError" ng-show="loginFrm.userBankId.$error.required">Detta f&auml;lt &auml;r obligatoriskt</div>
+	                                			<div class="loginError" ng-show="loginFrm.userBankId.$error.number">V&auml;nligen ange endast siffror</div>
+	                            			</div> 
+										</div>
+									</section>
+								</div><!-- =Option-text End//= -->
+							</div>
+						</div><!-- =Row 02 End//= -->
+						
+						<div class="btn-row">
+							<button class="btn btn-blue" type="submit">Logga in</button>							
+						</div>
+						
+					</div><!-- =Option form End//= -->
+				</form>
+			</div><!-- =Login block End//= -->	
+		</div><!-- =Bank Id login container End//= -->
+
+	</section>
+	<!-- =Popup Frame= -->
+	<div class="popup-frame bankId-popup" ng-show="login_PopUp">
+		<!-- =popup box Start= -->
+		<div class="popup-box" id="loginPopUp">
+			<section class="title-section">
+				<h2 class="title-text">Inloggning p&aring;g&aring;r</h2>
+			</section><!-- =Title Section End//= -->
+			<!-- =Content Section Start= -->
+			<section class="content-section">
+				<div class="top-text">
+					<img src="images/icon_phone_hand.png" alt="" title="" class="icon-mobile" />
+					<span ng-show="otherDes">Starta din BankID s&auml;kerhetsapp nu.</span>
+					<span ng-show="!otherDes">Skriv in s&auml;kerhetskoden i din BankID S&auml;kerhetsapp och v&auml;lj "Legitimera".</span>
+				</div>				
+			</section><!-- =Content Section End//= -->
+			
+			<!-- =Foot Section= -->
+			<section class="foot-section">
+				<div class="btn-row text-right">
+					<button name="" class="btn btn-blue" ng-click="popupCancel_btn()">Avbryt</button>
+				</div>			
+			</section><!-- =Foot Section End//= -->
+		</div><!-- =popup box End//= -->
+	</div><!-- =Popup Frame End//= -->
+</div>

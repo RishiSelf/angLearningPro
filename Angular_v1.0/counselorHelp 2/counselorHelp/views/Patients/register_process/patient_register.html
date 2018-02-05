@@ -1,0 +1,118 @@
+<!-- =Middle Content Frame= -->
+<section class="middle-frame" style="min-height: 434px;">
+	<!-- =Get started Page Content Frame Start= -->				
+	<div class="container page-content-container">
+		<!-- =content-section= -->
+		<section class="content-section patient-page-content">
+			<!-- =Registration Container= -->
+			<div class="registration-container">
+				<h2 class="logo-minterapi">
+					<!-- <img src="MinTerapi.se_files/logo_minterapi02.png" alt="Minterapi.se logo" title="Minterapi.se" class="image"> -->
+					<img src="images/logo.png" alt="MinTerapi.se logo" title="MinTerapi.se" />
+				</h2><!-- =logo Row End//= -->
+
+				<h4 class="lbl">Skapa ett konto hos MinTerapi.se</h4>
+
+				<!-- =Form Container Start= -->
+				<section class="registration-dtl-form">
+					<form class="form-container" name="registerFrm" ng-submit="patientRegistration(registerFrm.$valid)" novalidate>
+						<div class="form-group">
+							<input name="first_name" placeholder="Förnamn" class="form-control" type="text" ng-model="patientRegister.first_name" ng-readonly="patientRegister.first_name" />
+								<!-- <div ng-show="registerFrm.$submitted || registerFrm.first_name.$touched" class="error-notification">
+                                	<div ng-show="registerFrm.first_name.$error.required">Du beh&ouml;ver fylla i ett f&ouml;rnamn</div>
+                                </div>  -->
+                            </div>
+
+                            <div class="form-group">
+                            	<input name="last_name" placeholder="Efternamn" class="form-control" type="text" ng-model="patientRegister.last_name" ng-readonly="patientRegister.last_name" />								
+								<!-- <div ng-show="registerFrm.$submitted || registerFrm.last_name.$touched" class="error-notification">
+	                                <div ng-show="registerFrm.last_name.$error.required">Du beh&ouml;ver fylla i ett efternamn </div>
+	                            </div> --> 
+	                        </div>
+
+	                        <div class="form-group">
+	                        	<input name="phone" placeholder="Personnummer (10 siffror)" class="form-control" type="text" ng-model="Personnummer" ng-readonly="Personnummer" />
+	                        </div>
+
+	                        <div class="form-group">
+	                        	<input name="email" placeholder="E-postadress" class="form-control" type="email" ng-model="patientRegister.email" ng-readonly="patientRegister.email" required />
+	                        	<div class="error-notification" ng-show="failed">{{message}}</div>
+	                        	<div ng-show="registerFrm.$submitted || registerFrm.email.$touched" class="error-notification">
+	                        		<div ng-show="registerFrm.email.$error.required">Din e-post kr&auml;vs</div>
+	                        		<div ng-show="registerFrm.email.$error.email">Din e-mail har ett ogiltigt format</div>
+	                        	</div>
+	                        </div>
+
+	                        <div class="form-group">
+	                        	<input name="address" placeholder="Gatuadress" class="form-control" type="text" ng-model="patientRegister.address" required />
+	                        	<div ng-show="registerFrm.$submitted || registerFrm.address.$touched" class="error-notification">
+	                        		<div ng-show="registerFrm.address.$error.required">Din gatuadress kr&auml;vs</div>
+	                        	</div>
+	                        </div>
+
+	                        <div class="form-group">
+	                        	<div class="semi-textbox">
+	                        		<input name="zipcode" placeholder="Postnummer" class="form-control" type="text" ng-model="patientRegister.zipcode" required />
+	                        		<div ng-show="registerFrm.$submitted || registerFrm.zipcode.$touched" class="error-notification">
+	                        			<div ng-show="registerFrm.zipcode.$error.required">Ditt postnummer kr&auml;vs</div>
+	                        		</div>
+	                        	</div>
+
+	                        	<div class="semi-textbox" style="margin-left: 30px;"	>
+	                        		<input name="place" placeholder="Ort" class="form-control"  type="text" ng-model="patientRegister.place" required />
+	                        		<div ng-show="registerFrm.$submitted || registerFrm.place.$touched" class="error-notification">
+	                        			<div ng-show="registerFrm.place.$error.required">Din ort kr&auml;vs</div>
+	                        		</div>
+	                        	</div>									
+	                        </div>
+	                        <div class="form-group">
+	                        	<input name="telephone_no" placeholder="Telefonnummer" class="form-control" type="text" ng-model="patientRegister.telephone_no" value="" ng-minlength="10" numlimit="10" ng-pattern="/^\d+$/" required />
+	                        	<div ng-show="registerFrm.$submitted || registerFrm.telephone_no.$touched" class="error-notification">
+	                        		<div ng-show="registerFrm.telephone_no.$error.required || registerFrm.telephone_no.$error.minlength">Ditt telefonnummer m&aring;ste vara minst 10 siffror</div>
+	                        		<div ng-show="registerFrm.telephone_no.$error.pattern">Numret inte giltig</div>
+	                        	</div>
+	                        </div>
+	                        
+	                        <!-- =Gender (Text) Row= -->
+							<div class="form-row gender-option-radio">
+								<label class="radio-field bankgiro-radio">
+									<input class="radio-btn" name="bank_type" value="F" type="radio" ng-model="patientRegister.gender" required /> 
+									<span class="text">Kvinna</span>
+									<span class="custom-radio"> </span>
+								</label><!-- =Personal Checking Accounts End//= -->
+								<label class="radio-field postgiro-radio">
+									<input class="radio-btn" name="bank_type" value="M" type="radio" ng-model="patientRegister.gender" required /> 
+									<span class="text">Man</span>
+									<span class="custom-radio"></span>
+								</label><!-- =Saving Accounts End//= -->
+
+								<div ng-show="registerFrm.$submitted || registerFrm.email.$touched" class="error-notification">
+	                        		<div ng-show="registerFrm.bank_type.$error.required">Ditt k&ouml;n kr&auml;vs</div>
+	                        	</div> 						
+							</div><!-- =Telefonnummer (mobil) Row end//= -->
+	                       
+	                        <!-- =Checkbox Row= -->
+	                        <div class="checkbox-row">
+	                        	<label class="checkbox-content">
+	                        		<span>
+	                        			<input type="checkbox" class="checkbox" name="acceptedTerms" ng-model="acceptedTerms" required />
+	                        		</span>
+	                        		<span class="text">
+	                        			Genom att skapa ett konto hos MinTerapi.se godk&auml;nner du v&aring;ra <a ui-sref="anon.terms">anv&auml;ndarvillkor</a>. Du bekr&auml;ftar att du &auml;r 18 &aring;r eller &auml;ldre och att du inte befinner dig i en akut kris. 
+	                        		</span>
+	                        	</label>
+	                        	<div ng-show="registerFrm.$submitted || registerFrm.acceptedTerms.$touched" class="error-notification">
+	                        		<div ng-show="registerFrm.acceptedTerms.$error.required">Var god v&auml;lj ett alternativ</div>
+	                        	</div>
+	                        </div><!-- =Checkbox Row End//= -->
+
+	                        <!-- =Btn Frame= -->
+	                        <div class="btn-row">
+	                        	<button class="btn btn-blue">Skapa konto</button>
+	                        </div><!-- =Btn Frame End//= -->
+	                    </form>
+	                </section><!-- =Form Container End//= -->	                
+	            </div><!-- =Registration Container End//= -->
+	        </section><!-- =content-section End//= -->
+	    </div><!-- =Get started Page Content Frame End//= -->
+		</section><!-- =Middle Content End//=

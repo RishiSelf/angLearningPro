@@ -1,0 +1,49 @@
+<div class="coming-soon-page">
+	<!-- =Middle Content Frame= -->
+	<section class="middle-frame coming-soon-frame">
+		<!-- =Bank Id Login container Start= -->				
+		<div class="coming-soon-container">
+			<!-- =Coming Soon Content= -->
+			<section class="coming-soon-content">
+				<h2 class="logo">
+					<img src="images/logo_comingsoon.png" alt="minterapi.se logo" title="Minterapi.se" />
+				</h2>
+				<h4 class="sub-text">
+					En m&ouml;tesplats p&aring; n&auml;tet f&ouml;r psykoterapeuter och m&auml;nniskor som s&ouml;ker hj&auml;lp med sv&aring;righeter i livet
+				</h4>
+				<form class="comingsoon-form" name="comingsoonForm" ng-submit="sendEmail(comingsoonForm.$valid)" novalidate>
+					<div class="email-address-row">
+						<input name="email" type="email" ng-model="Contact.email" value="" class="textbox" required placeholder="Din e-postadress">
+						<button type="submit" class="btn btn-send">Skicka</button>
+						<div ng-show="comingsoonForm.$submitted || comingsoonForm.email.$touched" class="comingsoonError">
+	                        <div ng-show="comingsoonForm.email.$error.required">Din e-post kr&auml;vs</div>
+	                        <div ng-show="comingsoonForm.email.$error.email">Din e-mail har ett ogiltigt format</div>
+	                    </div>					
+					</div><!-- =Email Address Row End//= -->
+				</form>
+				<div class="launch-text-row">
+					<label class="text">Ber&auml;knad lansering sommaren 2017</label>
+					
+					<div class="social-icons">
+						<a href="https://www.facebook.com/minterapi.se/" target="_blank" class="icons icon-fb">&nbsp;</a>
+						<a href="https://twitter.com/MinTerapi"  target="_blank" class="icons icon-twitter">&nbsp;</a>
+						<a href="mailto:comingsoon@minterapi.se" class="icons icon-mail">&nbsp;</a>
+					</div>
+				</div>
+			</section><!-- =Coming Soon Content End//= -->
+		</div><!-- =Bank Id login container End//= -->
+	</section><!-- =Middle Content End//= -->	
+	
+</div><!-- =Counselor Page End//= -->
+
+<script type="text/javascript">
+	$(document).ready(function(){
+		var screenHeight = window.innerHeight;
+		//alert(screenHeight);
+		$('.coming-soon-frame').css('height', screenHeight);
+	});
+	$(window).resize(function(){
+		var screenHeight = window.innerHeight;
+		$('.coming-soon-frame').css('height', screenHeight);
+	});
+</script>

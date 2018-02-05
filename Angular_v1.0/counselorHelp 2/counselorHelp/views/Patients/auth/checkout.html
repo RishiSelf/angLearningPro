@@ -1,0 +1,147 @@
+<!-- =Content Area Start= -->
+<div class="content-area" ng-init="checkPage()">
+	<!-- =Checkout Page Content Start= -->
+	<section class="checkout-page-content">
+		<h2 class="title">Min varukorg</h2>
+		<!-- =Table Frame= -->
+		<div class="table-frame table-responsive">
+			<div class="panel-danger" ng-if="isCartEmpty">
+            	<p class="panel-heading" style="text-align: center; font-size: 16px;">Din vagn &auml;r tom. F&ouml;r att k&ouml;pa en ny plan / telefonsession <a style="cursor:pointer;" ng-click="backToPricePage()">klicka h&auml;r</a></p>
+        	</div>
+			<table class="table" width="100%" border="0" ng-if="!isCartEmpty">
+				<thead>
+					<tr>
+						<th>&nbsp;</th>
+						<th>Produkt</th>
+						<th>Pris</th>
+						<th>Totalt belopp</th>
+						<th>&nbsp;</th>
+					</tr>
+				</thead>
+				<tbody ng-if="planPurchase">
+					<tr>
+						<td>
+							<div class="black-box">
+								<h5>{{aData.title}}</h5>
+
+								<label ng-if="aData.duration == 'week'">({{constant.week}})</label>
+								<label ng-if="aData.duration == 'month'">({{constant.month}})</label>
+								<label ng-if="aData.duration == 'quarter'">({{constant.quarter}})</label>
+							</div>
+						</td>
+						<td ng-if="aData.duration == 'week'">{{aData.title}} ({{constant.week}})</td>
+						<td ng-if="aData.duration == 'month'">{{aData.title}} ({{constant.month}})</td>
+						<td ng-if="aData.duration == 'quarter'">{{aData.title}} ({{constant.quarter}})</td>
+						<td>{{aData.price}}</td>
+						<td><strong>{{aData.price}}</strong></td>
+						<td>
+							<span class="glyphicon glyphicon-remove-sign" aria-hidden="true" ng-click="removeSelectedPlan($event)" style="cursor:pointer"></span>
+						</td>
+					</tr>
+				</tbody>
+
+				<tfoot ng-if="planPurchase">
+					<tr>
+						<td>&nbsp;</td>
+						<td>&nbsp;</td>
+						<td class="text-right">
+							<label>
+								Totalt belopp att betala
+							</label>	
+						</td>
+						<td class="text-left">
+							<strong class="amt">{{aData.price}}</strong>
+						</td>
+						<td>&nbsp;</td>
+					</tr>
+				</tfoot>
+
+				<tbody ng-if="!planPurchase">
+					<tr>
+						<td>
+							<div class="black-box">
+								<h5>telefonsession</h5>
+
+								<label>(20 minuter)</label>
+							</div>
+						</td>
+						<td>telefonsession (20 minuter)</td>
+						<td>{{patientOtherDetail.additionalPhoneSessionPrice}} kr</td>
+						<td><strong>{{patientOtherDetail.additionalPhoneSessionPrice}} kr</strong></td>
+						<td>
+							<span class="glyphicon glyphicon-remove-sign" aria-hidden="true" style="cursor:pointer" ng-click="removeSelectedPlan($event)"></span>
+						</td>
+					</tr>
+				</tbody>
+
+				<tfoot ng-if="!planPurchase">
+					<tr>
+						<td>&nbsp;</td>
+						<td>&nbsp;</td>
+						<td class="text-right">
+							<label>
+								Totalt belopp att betala
+							</label>	
+						</td>
+						<td class="text-left">
+							<strong class="amt">{{patientOtherDetail.additionalPhoneSessionPrice}} kr</strong>
+						</td>
+						<td>&nbsp;</td>
+					</tr>
+				</tfoot>
+			</table>
+		</div><!-- =Table Frame End//= -->
+
+		<div class="msg-error-frame" ng-if="error">
+			<div class="panel-danger">
+			  	<p class="panel-heading" style="text-align: center; font-size: 16px;">{{errorMessage}}</p>
+			</div>
+		</div><!-- =Msg Error Frame End//= -->
+
+		<!-- =Manage Card Frame= -->
+		<div class="manage-cards-row">
+			<!--								<h3 class="title">Hantera dina betalningsuppgifter </h3>-->
+			<div class="payment-info-title">
+				<label class="lbl">
+					Välj det kredit-eller bankkort du vill betala med
+				</label>
+
+			</div><!-- =Payment Info Title End//= -->
+
+			<!-- =Save Cards Frames= -->
+			<div class="save-cards-frame">
+				<!-- =Save Card row 01= -->
+				<section class="save-card-row" ng-repeat="cardDetail in patientCardDetail">
+					<label class="radio-field check-col">
+						<input class="radio-btn" name="cardType" value="cardType" type="radio" ng-click="setDefaultCard(cardDetail.id)" ng-checked="$index==0?true:false" />
+						<span class="custom-radio">&nbsp;</span>
+					</label>					
+					<span class="card-img" ng-if="cardDetail.brand == 'Visa'">
+						<img src="images/icon_card_visa.jpg" alt="visa card">
+					</span><!-- =card-img= -->
+					<span class="card-img" ng-if="cardDetail.brand == 'MasterCard'">
+						<img src="images/icon_card_mastercard.jpg" alt="mastercard card">
+					</span><!-- =card-img= -->
+					<span class="card-img" ng-if="cardDetail.brand == 'American Express'">
+						<img src="images/icon_card_amex.png" alt="amex card">
+					</span><!-- =card-img= -->
+
+					<div class="card-details">
+						<label class="card-name">{{cardDetail.brand}} Debit Card</label>
+						<label class="card-number">
+							xxxx xxxx xxxx {{cardDetail.last4}}
+						</label>
+					</div><!-- =Card Details= -->
+
+					<span class="glyphicon glyphicon-trash icon-trash" aria-hidden="true" ng-if="patientCardDetail.length > 1" ng-click="deleteCard(cardDetail.id, $index)"></span>
+				</section><!-- =Save Card row 01 End//= -->
+
+				<!-- =Add More Btn Row = -->
+				<div class="add-more-row text-right">
+					<button class="btn btn-blue" style="width: 140px;" ng-click="payNow()" ng-disabled="isCartEmpty || isPayment">Betala nu</button>
+				</div><!-- =Add More Btn Row End//= -->
+
+			</div><!-- =Save Cards Frames End//= -->
+		</div><!-- =Manage Card Frame End//= -->
+	</section><!-- =Checkout Page Content End//= -->
+</div><!-- =Content Area End//= -->

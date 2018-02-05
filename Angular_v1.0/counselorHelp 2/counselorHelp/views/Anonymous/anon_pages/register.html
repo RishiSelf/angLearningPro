@@ -1,0 +1,100 @@
+
+	<!-- =Middle Content Frame= -->
+	<section class="middle-frame" ng-init="checkQuestionsEmpty();">
+		<!-- =Content Frame Start= -->				
+		<div class="container page-content-container">
+			<!-- =Registration Page Frame= -->
+			<section class="register-page-frame">
+				<h2 class="section-title">Skapa ett konto hos Min Terapi.se</h2>
+				
+				
+				<!-- =Registration Content Row= -->
+				<div class="row registration-content">
+			
+					<!-- =Form Col= -->
+					<div class="col-lg-6 col-xs-12 form-col">
+						<div ng-bind-html="resMessage"></div>
+						<form name="registrationFrm" id="registrationFrm"  ng-submit="register(registrationFrm.$valid)"  novalidate>
+							<dl class="form-container registration-form">
+								<dt><label for="fName">F&ouml;rnamn</label></dt>
+								<dd>
+									<input type="text" value="" name="firstname" ng-model="User.firstname" class="form-control" required/>
+									<div ng-show="registrationFrm.$submitted || registrationFrm.firstname.$touched">
+                                        <div ng-show="registrationFrm.firstname.$error.required" class="errorMsg">First name is required.</div>
+                                    </div>
+								</dd>
+								
+								<dt><label for="lName">Efternamn</label></dt>
+								<dd>
+									<input type="text" value=""  name="lastname" ng-model="User.lastname" class="form-control" required/>
+									<div ng-show="registrationFrm.$submitted || registrationFrm.lastname.$touched">
+                                        <div ng-show="registrationFrm.lastname.$error.required" class="errorMsg">Last name is required.</div>
+                                    </div>
+								</dd>
+								
+								<dt><label for="email">E-Post</label></dt>
+								<dd>
+									<input type="email" value="" name="email" ng-model="User.email" class="form-control" required  ng-unique="{key: 'email', property: 'email'}"/>
+									<div ng-show="registrationFrm.$submitted || registrationFrm.email.$touched">
+                                        <div ng-show="registrationFrm.email.$error.required" class="errorMsg">Email is required.</div>
+                                        <div ng-show="registrationFrm.email.$error.email" class="errorMsg">Email address is not valid.</div>
+                                        <div ng-show="registrationFrm.email.$error.unique" class="errorMsg">Email address is already taken.</div>                                       
+                                    </div>
+								</dd>
+								
+								<dt><label for="password">Bekr&auml;fta e-post</label></dt>
+								<dd>
+									<input type="password" value="" name="password" ng-model="User.password" class="form-control" ng-minlength="6" disallow-spaces required/>
+									<div ng-show="registrationFrm.$submitted || registrationFrm.password.$touched">
+                                        <div ng-show="registrationFrm.password.$error.required" class="errorMsg">Password is required.</div>                                        
+                                        <div ng-show="registrationFrm.password.$error.minlength" class="errorMsg">Password length must be minimum 6.</div> 
+                                    </div>
+								</dd>
+							</dl>
+							<p class="terms-para">
+								<label class="term-checkbox">
+									<input type="checkbox" name="agree" ng-model="User.agree"  class="check-input" required/>
+									<span class="text">
+										Genom att skapa ett konto hos MinTerapi.se bekr&auml;ftar du att du &auml;r minst 18 &aring;r och godk&auml;nner MinTerapi.se&rsquo;s anv&auml;ndarvillkor.
+									</span>
+									<span class="checkbox">&nbsp;</span>
+									<div ng-show="registrationFrm.$submitted || registrationFrm.agree.$touched">
+                                        <div ng-show="registrationFrm.agree.$error.required" class="errorMsg">You must accept the T&C before registering.</div>
+                                    </div>
+								</label>								
+							</p><!-- =Terms Para End//= -->
+							
+							<div class="btn-row">
+								<button class="btn btn-blue" ng-disabled=disableRegisterBtn>Kom ig&aring;ng</button>
+							</div>
+						</form>
+					</div><!-- =Form Col End//= -->
+					
+					<!-- =registration notes= -->
+					<div class="col-lg-6 register-note-col">
+						<h2 class="title">Notes about the privacy of your email</h2>
+						<ul>
+							<li>
+								Your email address is kept strictly private. It is never shared, sold or disclosed to anyone. Even your counselor won't know your real email address.
+							</li>
+							<li>
+								The content of all the messages between you and your counselor will appear only in our secure private system. We will only send you emails with alerts about new messages that are waiting for you.
+							</li>
+							<li>
+								Your email address is used to login into our private secure server. Make sure you type it correctly.
+							</li>
+						</ul>
+					</div><!-- =registration notes= -->
+				</div><!-- =Registration Content row End//= -->
+			</section><!-- =Registration Frame End//= -->
+		
+		</div><!-- =Content Frame End//= -->
+		
+		
+	</section><!-- =Middle Content End//= -->
+
+	<style type="text/css">
+		.errorMsg {
+			color:red;
+		}
+	</style>

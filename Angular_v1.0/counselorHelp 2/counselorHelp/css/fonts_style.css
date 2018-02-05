@@ -1,0 +1,235 @@
+/*
+ * Legal Disclaimer
+ *
+ * These Fonts are licensed only for use on these domains and their subdomains:
+ * minterapi.se
+ *
+ * It is illegal to download or use them on other websites.
+ *
+ * While the @font-face statements below may be modified by the client, this
+ * disclaimer may not be removed.
+ *
+ * Lineto.com, 2016
+ */
+
+
+/*
+ *
+ * INSTRUCTIONS
+ *
+ * Copy the Legal Disclaimer and the @font-faces statements to your regular CSS file.
+ * The fonts folder(s) should be placed relative to the regular CSS file.
+ *
+ * You can use either the complete or subsetted fonts:
+ * If you don’t require the entire range of characters, you can use the smaller, subsetted webfonts instead.
+ * See "Glyphs & Languages" for an overview of the characters in the *_subsetted.html file in the root directory of this package.
+ *
+ */
+
+
+/* Complete */
+
+@font-face {
+    font-family: "Brown-Thinitalic";
+    src:url("fonts/lineto-brown-thinitalic.eot");
+    src:url("fonts/lineto-brown-thinitalic.eot?#iefix") format("embedded-opentype"),
+        url("fonts/lineto-brown-thinitalic.woff2") format("woff2"),
+		url("fonts/lineto-brown-thinItalic.ttf") format("truetype"),
+        url("fonts/lineto-brown-thinitalic.woff") format("woff");
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Brown-Reclinbold";
+    src:url("fonts/lineto-brown-reclinbold.eot");
+    src:url("fonts/lineto-brown-reclinbold.eot?#iefix") format("embedded-opentype"),
+        url("fonts/lineto-brown-reclinbold.woff2") format("woff2"),
+		url("fonts/lineto-brown-reclinbold.ttf") format("truetype"),
+        url("fonts/lineto-brown-reclinbold.woff") format("woff");
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Brown-Reclinlight";
+    src:url("fonts/lineto-brown-reclinlight.eot");
+    src:url("fonts/lineto-brown-reclinlight.eot?#iefix") format("embedded-opentype"),
+        url("fonts/lineto-brown-reclinlight.woff2") format("woff2"),
+		url("fonts/lineto-brown-reclinlight.ttf") format("truetype"),
+        url("fonts/lineto-brown-reclinlight.woff") format("woff");
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Brown-Reclinthin";
+    src:url("fonts/lineto-brown-reclinthin.eot");
+    src:url("fonts/lineto-brown-reclinthin.eot?#iefix") format("embedded-opentype"),
+        url("fonts/lineto-brown-reclinthin.woff2") format("woff2"),
+		url("fonts/lineto-brown-reclinthin.ttf") format("truetype"),
+        url("fonts/lineto-brown-reclinthin.woff") format("woff");
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Brown-Thin";
+    src:url("fonts/lineto-brown-thin.eot");
+    src:url("fonts/lineto-brown-thin.eot?#iefix") format("embedded-opentype"),
+        url("fonts/lineto-brown-thin.woff2") format("woff2"),
+		url("fonts/lineto-brown-thin.ttf") format("truetype"),
+        url("fonts/lineto-brown-thin.woff") format("woff");
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Brown-Regularalt";
+    src:url("fonts/lineto-brown-regularalt.eot");
+    src:url("fonts/lineto-brown-regularalt.eot?#iefix") format("embedded-opentype"),
+        url("fonts/lineto-brown-regularalt.woff2") format("woff2"),
+		url("fonts/lineto-brown-regularalt.ttf") format("truetype"),
+        url("fonts/lineto-brown-regularalt.woff") format("woff");
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Brown-Light";
+    src:url("fonts/lineto-brown-light.eot");
+    src:url("fonts/lineto-brown-light.eot?#iefix") format("embedded-opentype"),
+        url("fonts/lineto-brown-light.woff2") format("woff2"),
+		url("fonts/lineto-brown-light.ttf") format("truetype"),
+        url("fonts/lineto-brown-light.woff") format("woff");
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Brown-Reclinboldalt";
+    src:url("fonts/lineto-brown-reclinboldalt.eot");
+    src:url("fonts/lineto-brown-reclinboldalt.eot?#iefix") format("embedded-opentype"),
+        url("fonts/lineto-brown-reclinboldalt.woff2") format("woff2"),
+		url("fonts/lineto-brown-reclinboldalt.ttf") format("truetype"),
+        url("fonts/lineto-brown-reclinboldalt.woff") format("woff");
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Brown-Italicalt";
+    src:url("fonts/lineto-brown-italicalt.eot");
+    src:url("fonts/lineto-brown-italicalt.eot?#iefix") format("embedded-opentype"),
+        url("fonts/lineto-brown-italicalt.woff2") format("woff2"),
+		url("fonts/lineto-brown-italicalt.ttf") format("truetype"),
+        url("fonts/lineto-brown-italicalt.woff") format("woff");
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Brown-Bolditalicalt";
+    src:url("fonts/lineto-brown-bolditalicalt.eot");
+    src:url("fonts/lineto-brown-bolditalicalt.eot?#iefix") format("embedded-opentype"),
+        url("fonts/lineto-brown-bolditalicalt.woff2") format("woff2"),
+		url("fonts/lineto-brown-bolditalicalt.ttf") format("truetype"),
+        url("fonts/lineto-brown-bolditalicalt.woff") format("woff");
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Brown-Bolditalic";
+    src:url("fonts/lineto-brown-bolditalic.eot");
+    src:url("fonts/lineto-brown-bolditalic.eot?#iefix") format("embedded-opentype"),
+        url("fonts/lineto-brown-bolditalic.woff2") format("woff2"),
+		url("fonts/lineto-brown-bolditalic.ttf") format("truetype"),
+        url("fonts/lineto-brown-bolditalic.woff") format("woff");
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Brown-Reclinregularalt";
+    src:url("fonts/lineto-brown-reclinregularalt.eot");
+    src:url("fonts/lineto-brown-reclinregularalt.eot?#iefix") format("embedded-opentype"),
+        url("fonts/lineto-brown-reclinregularalt.woff2") format("woff2"),
+		url("fonts/lineto-brown-reclinregularalt.ttf") format("truetype"),
+        url("fonts/lineto-brown-reclinregularalt.woff") format("woff");
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Brown-Regular";
+    src:url("fonts/lineto-brown-regular.eot");
+    src:url("fonts/lineto-brown-regular.eot?#iefix") format("embedded-opentype"),
+        url("fonts/lineto-brown-regular.woff2") format("woff2"),
+		url("fonts/lineto-brown-regular.ttf") format("truetype"),
+        url("fonts/lineto-brown-regular.woff") format("woff");
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Brown-Bold";
+    src:url("fonts/lineto-brown-bold.eot");
+    src:url("fonts/lineto-brown-bold.eot?#iefix") format("embedded-opentype"),
+        url("fonts/lineto-brown-bold.woff2") format("woff2"),
+		url("fonts/lineto-brown-bold.ttf") format("truetype"),
+        url("fonts/lineto-brown-bold.woff") format("woff");
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Brown-Reclinregular";
+    src:url("fonts/lineto-brown-reclinregular.eot");
+    src:url("fonts/lineto-brown-reclinregular.eot?#iefix") format("embedded-opentype"),
+        url("fonts/lineto-brown-reclinregular.woff2") format("woff2"),
+		url("fonts/lineto-brown-reclinregular.ttf") format("truetype"),
+        url("fonts/lineto-brown-reclinregular.woff") format("woff");
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Brown-Boldalt";
+    src:url("fonts/lineto-brown-boldalt.eot");
+    src:url("fonts/lineto-brown-boldalt.eot?#iefix") format("embedded-opentype"),
+        url("fonts/lineto-brown-boldalt.woff2") format("woff2"),
+		url("fonts/lineto-brown-boldalt.ttf") format("truetype"),
+        url("fonts/lineto-brown-boldalt.woff") format("woff");
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Brown-Lightitalic";
+    src:url("fonts/lineto-brown-lightitalic.eot");
+    src:url("fonts/lineto-brown-lightitalic.eot?#iefix") format("embedded-opentype"),
+        url("fonts/lineto-brown-lightitalic.woff2") format("woff2"),
+		url("fonts/lineto-brown-lightitalic.ttf") format("truetype"),
+        url("fonts/lineto-brown-lightitalic.woff") format("woff");
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Brown-Italic";
+    src:url("fonts/lineto-brown-italic.eot");
+    src:url("fonts/lineto-brown-italic.eot?#iefix") format("embedded-opentype"),
+        url("fonts/lineto-brown-italic.woff2") format("woff2"),
+		url("fonts/lineto-brown-italic.ttf") format("truetype"),
+        url("fonts/lineto-brown-italic.woff") format("woff");
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+	font-family: "Brown-Light";
+	font-family: "Brown-Regular";
+}
+
+

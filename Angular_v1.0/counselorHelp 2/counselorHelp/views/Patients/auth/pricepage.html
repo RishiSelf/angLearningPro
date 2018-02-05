@@ -1,0 +1,44 @@
+<div class="content-area price-page-frame" ng-init="getPlans();">						
+	<section class="price-page-content">
+		<h2 class="section-title">Vad passar dig?</h2>
+		<p class="para">
+			MinTerapi.se erbjuder tre olika typer av paket samt m&ouml;jligheten att k&ouml;pa till extra telefonsession med din psykoterapeut. &Auml;r du os&auml;ker p&aring; vilket paket som passar just dig? Prova en vecka gratis och r&aring;dg&ouml;r d&auml;refter med din psykoterapeut f&ouml;r att f&aring; en individuell v&auml;gledning och rekommendation. P&aring; s&aring; vis kan du vara s&auml;ker p&aring; att du v&auml;ljer ett paket som passar just dig och dina behov b&auml;st. F&ouml;r att l&auml;sa mer om inneh&aring;ll i varje enskilt paket, och j&auml;mf&ouml;ra de olika paketen, klicka p&aring; l&auml;s mer om detta paket nedan.
+		</p>
+		<br /> <br />
+		<!-- =Price Package Box Frame= -->
+		<div class="row package-grid-row">
+			<!-- =Package-Grid 01= -->
+			<div class="col-lg-4 col-xs-12 package-col" ng-repeat="pricePlan in pricePlans">
+				<section class="package-feature-box">
+					<div class="feature-title">
+						<h4 class="text">
+							<strong>{{pricePlan.Plan.title}}</strong>
+							<label ng-if="pricePlan.Plan.duration == 'week'">({{constant.week}})</label>
+							<label ng-if="pricePlan.Plan.duration == 'month'">({{constant.month}})</label>
+							<label ng-if="pricePlan.Plan.duration == 'quarter'">({{constant.quarter}})</label>
+						</h4>
+					</div><!-- =feature-title End//= -->
+					<div class="feature-content">
+						<h3 class="content-title">{{pricePlan.Plan.price}} {{pricePlan.Plan.currency}}</h3>
+						<p class="para" ng-bind-html="pricePlan.Plan.description | customLimit:50"></p>
+					</div><!-- =Feature-Content End//= -->
+
+					<button ui-sref="patient.checkout({planId:pricePlan.Plan.id})" ui-sref-opts="{reload: true}"  class="btn btn-blue">K&ouml;p {{pricePlan.Plan.title}}</button>
+					<!-- <button class="btn btn-blue">K&ouml;p veckoabonnemang</button> -->
+					<label class="link-read-more">
+						<a ui-sref='anon.plan-detail'>L&auml;s mer om detta paket</a>
+					</label>
+				</section><!-- =Package Feature box End//= -->				
+			</div><!-- =Package-Grid 03 End//= -->						
+		</div><!-- =Price Package Box Frame End//= -->
+		<!-- =Additional Saving Frame= -->
+		<div class="additional-phone-frame" ng-if="phonesession == true">
+			<label class="phone-session-text">
+				20 minuter telefonsession för {{patientOtherDetail.additionalPhoneSessionPrice}} kr
+			</label>
+			<div class="btn-row">
+				<button class="btn btn-blue btn-purchase" ng-click="buyAdditionalPhoneSession()">Köp till ytterligare telefonsession</button>
+			</div>			
+		</div><!-- =Additional Saving Frame End//= -->
+	</section><!-- =Price Content Frame= -->
+</div><!-- =Price Page Content Frame End//= -->

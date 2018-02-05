@@ -1,0 +1,214 @@
+<!-- =Content Area Start= -->
+<div class="content-area">
+	<form class="form-container" name="counselorAdminFrm" ng-submit="counselorAdmin(counselorAdminFrm.$valid)" novalidate>		
+		<!-- =Address Information Section= -->
+		<section class="personal-info-section information-form">
+			<h2 class="title">Personliga kontaktuppgifter</h2>
+			<!-- =info form Section= -->
+			<div class="form-section">
+				<!-- =First Name Row= -->
+				<div class="form-row">
+					<input type="text" name="first_name" placeholder="F&ouml;rnamn" class="form-control" ng-model="counselorContactInfo.first_name"  tabindex="1" ng-disabled='true'/>
+					<!-- <div ng-show="counselorAdminFrm.$submitted || counselorAdminFrm.first_name.$touched" class="error-notification">
+                    	<div ng-show="counselorAdminFrm.first_name.$error.required">Du beh&ouml;ver fylla i ett f&ouml;rnamn</div>
+                    </div> --> 
+				</div><!-- =First Name Row end//= -->
+				
+				<!-- =Last Name Row= -->
+				<div class="form-row">
+					<input type="text" name="last_name" placeholder="Efternamn" class="form-control" ng-model="counselorContactInfo.last_name" tabindex="2" ng-disabled='true'/>
+					<!-- <div ng-show="counselorAdminFrm.$submitted || counselorAdminFrm.last_name.$touched" class="error-notification">
+                        <div ng-show="counselorAdminFrm.last_name.$error.required">Du beh&ouml;ver fylla i ett efternamn</div>
+                    </div>  -->
+				</div><!-- =Last Name Row end//= -->
+				
+				<!-- =Gatuadress Row= -->
+				<div class="form-row">
+					<input type="text" name="address" placeholder="Gatuadress" class="form-control" ng-model="counselorContactInfo.address" tabindex="3" required/>
+		        <div ng-show="counselorAdminFrm.$submitted || counselorAdminFrm.address.$touched" class="error-notification">
+            		<div ng-show="counselorAdminFrm.address.$error.required">Du beh&ouml;ver fylla i en gatuadress</div>
+            	</div>
+				</div><!-- =Gatuadress Row end//= -->
+				
+				<!-- =PostNumm and Ort Row= -->
+				<div class="row form-row">
+					<!-- =postnummer col= -->
+					<div class="col-lg-6 col-xs-12 semi-col">
+						<input type="text" name="zipcode" placeholder="Postnummer" class="form-control" ng-model="counselorContactInfo.zipcode" tabindex="4" required/>
+						<div ng-show="counselorAdminFrm.$submitted || counselorAdminFrm.zipcode.$touched" class="error-notification">
+                			<div ng-show="counselorAdminFrm.zipcode.$error.required">Du beh&ouml;ver fylla i ett postnummer</div>
+                		</div>
+					</div><!-- =postnummer col End//= -->
+					
+					<!-- =ORT col= -->
+					<div class="col-lg-6 col-xs-12 semi-col">
+						<input type="text" name="place" placeholder="Ort" class="form-control" ng-model="counselorContactInfo.place"  tabindex="5" required/>
+						<div ng-show="counselorAdminFrm.$submitted || counselorAdminFrm.place.$touched" class="error-notification">
+                			<div ng-show="counselorAdminFrm.place.$error.required">Du beh&ouml;ver fylla i en ort</div>
+                		</div>
+					</div><!-- =ORT col End//= -->
+					
+				</div><!-- =PostNumm and Ort Row End//= -->
+	
+				<!-- =Telefonnummer (mobil) Row= -->
+				<div class="form-row">
+					<input type="text" name="telephone_no" placeholder="Telefonnummer (mobil)" class="form-control" ng-model="counselorContactInfo.telephone_no" ng-minlength="10" numlimit="10" tabindex="6" ng-pattern="/^\d+$/" required/>
+					<div ng-show="counselorAdminFrm.$submitted || counselorAdminFrm.telephone_no.$touched" class="error-notification">
+						<div ng-show="counselorAdminFrm.telephone_no.$error.required || counselorAdminFrm.telephone_no.$error.minlength">Ditt telefonnummer m&aring;ste vara minst 10 siffror</div>
+						<div ng-show="counselorAdminFrm.telephone_no.$error.pattern">Numret inte giltig</div>
+					</div>
+				</div><!-- =Telefonnummer (mobil) Row end//= -->
+				
+				<!-- =E-postadress Row= -->
+				<div class="form-row">
+					<input type="email" name="email" placeholder="E-postadress" class="form-control" ng-model="counselorContactInfo.email" tabindex="7" ng-disabled='true' />
+					<!-- <div class="error-notification" ng-show="ifEmailExist">{{message}}</div>
+                	<div ng-show="counselorAdminFrm.$submitted || counselorAdminFrm.email.$touched" class="error-notification">
+                		<div ng-show="counselorAdminFrm.email.$error.required">Din e-post kr&auml;vs</div>
+                		<div ng-show="counselorAdminFrm.email.$error.email">Din e-mail har ett ogiltigt format</div>
+                	</div> -->
+				</div><!-- =E-postadress Row end//= -->
+				
+			</div><!-- =info form Section End//= -->
+		</section><!-- =Address Info Section End//= -->
+		
+		<!-- =Bank Details Section= -->
+		<section class="personal-info-section information-form">
+			<h2 class="title">F&ouml;retagets kontaktuppgifter</h2>
+			<!-- =info form Section= -->
+			<div class="form-section">
+				<!-- =Företagsnamn  Row= -->
+				<div class="form-row">
+					<input type="text" name="company_name" placeholder="F&ouml;retagsnamn" class="form-control" ng-model="counselorContactInfo.company_name" tabindex="8" required/>
+					<div ng-show="counselorAdminFrm.$submitted || counselorAdminFrm.company_name.$touched" class="error-notification">
+                		<div ng-show="counselorAdminFrm.company_name.$error.required">F&ouml;retagsnamn kr&auml;vs</div>
+                	</div>
+				</div><!-- =Företagsnamn  Row end//= -->
+				
+				<!-- =Organisationsnummer Row= -->
+				<div class="form-row">
+					<input type="text" name="organization_number" placeholder="Organisationsnummer" class="form-control" ng-model="counselorContactInfo.organization_number" tabindex="9" required/>
+					<div ng-show="counselorAdminFrm.$submitted || counselorAdminFrm.organization_number.$touched" class="error-notification">
+                		<div ng-show="counselorAdminFrm.organization_number.$error.required">Organisationsnummer kr&auml;vs</div>
+                	</div>
+				</div><!-- =Organisationsnummer Row end//= -->
+				
+				<!-- =Postadress Row= -->
+				<div class="form-row">
+					<input type="text" name="mailing_address" placeholder="Postadress" class="form-control" ng-model="counselorContactInfo.mailing_address" tabindex="10" required/>
+                	<div ng-show="counselorAdminFrm.$submitted || counselorAdminFrm.mailing_address.$touched" class="error-notification">
+                		<div ng-show="counselorAdminFrm.mailing_address.$error.required">Postadress kr&auml;vs</div>
+                	</div>
+				</div><!-- =Postadress Row end//= -->
+				
+				<!-- =PostNumm and Ort Row= -->
+				<div class="row form-row">
+					<!-- =postnummer col= -->
+					<div class="col-lg-6 col-xs-12 semi-col">
+						<input type="text" name="counselor_co_zipcode" placeholder="Postnummer" class="form-control" ng-model="counselorContactInfo.counselor_co_zipcode" tabindex="11" required/>
+						<div ng-show="counselorAdminFrm.$submitted || counselorAdminFrm.counselor_co_zipcode.$touched" class="error-notification">
+                			<div ng-show="counselorAdminFrm.counselor_co_zipcode.$error.required">Postnummer kr&auml;vs</div>
+                		</div>
+					</div><!-- =postnummer col End//= -->
+					
+					<!-- =ORT col= -->
+					<div class="col-lg-6 col-xs-12 semi-col">
+						<input type="text" name="counselor_co_place" placeholder="Ort" class="form-control" ng-model="counselorContactInfo.counselor_co_place" tabindex="12" required/>
+						<div ng-show="counselorAdminFrm.$submitted || counselorAdminFrm.counselor_co_place.$touched" class="error-notification">
+                			<div ng-show="counselorAdminFrm.counselor_co_place.$error.required">Ort kr&auml;vs</div>
+                		</div>
+					</div><!-- =ORT col End//= -->
+					
+				</div><!-- =PostNummer and Ort Row End//= -->
+				
+				<!-- =Bank Type (Text) Row= -->
+				<div class="form-row bank-option-radio">
+					<label class="radio-field bankgiro-radio">
+						<input class="radio-btn" name="bankgiro_bank_type" value="BG" type="radio" data-id="bankgiro" ng-model="counselorContactInfo.bank_type" required /> 
+						<span class="text" >Bankgiro (BG)</span>
+						<span class="custom-radio" tabindex="13"></span>
+					</label><!-- =Personal Checking Accounts End//= -->
+					<label class="radio-field postgiro-radio">
+						<input class="radio-btn" name="postgiro_bank_type" value="PG" type="radio" data-id="postgiro" ng-model="counselorContactInfo.bank_type" required /> 
+						<span class="text" >Postgiro (PG)</span>
+						<span class="custom-radio" tabindex="14" ></span>
+					</label><!-- =Saving Accounts End//= -->
+					
+					<div class="radio-textbox bankgiro">
+						<input type="text" name="Bank_text" placeholder="Bankgiro" class="form-control" ng-model="counselorContactInfo.bank_type_text" tabindex="15" required />
+					</div>
+					
+					<div class="radio-textbox postgiro">
+						<input type="text" name="Bank_text" placeholder="Postgiro" class="form-control" ng-model="counselorContactInfo.bank_type_text" tabindex="15" required />
+					</div>	
+
+					<div ng-show="counselorAdminFrm.$submitted || counselorAdminFrm.bankgiro_bank_type.$touched || counselorAdminFrm.postgiro_bank_type.$touched" class="error-notification">
+            			<div ng-show="counselorAdminFrm.bankgiro_bank_type.$error.required || counselorAdminFrm.postgiro_bank_type.$error.required">F&ouml;retagets bankgiro kr&auml;vs</div>
+            		</div>
+
+            		<div ng-show="counselorAdminFrm.$submitted || counselorAdminFrm.Bank_text.$touched" class="error-notification" ng-if="whenchecked">
+            			<div ng-show="counselorAdminFrm.Bank_text.$error.required">F&ouml;retagets bankgiro kr&auml;vs</div>
+            		</div>									
+				</div><!-- =Telefonnummer (mobil) Row end//= -->
+				
+				
+				<!-- =Bank Account Number Row= -->
+				<div class="form-row">
+
+					<input type="text" name="vat_number" placeholder="Momsregisteringsnummer" class="form-control" ng-model="counselorContactInfo.vat_number" required/>
+					<div ng-show="counselorAdminFrm.$submitted || counselorAdminFrm.vat_number.$touched" class="error-notification">
+            			<div ng-show="counselorAdminFrm.vat_number.$error.required">F&ouml;retagets momsregistreringsnummer kr&auml;vs</div>
+            		</div>
+
+				</div><!-- =Bank Account Number Row end//= -->
+				
+				<!-- =F-Tax Row= -->
+				<div class="form-row">
+					<label class="condition-check-row">
+						<input type="checkbox" class="check-box"  name="tax_approve" ng-true-value="1" ng-false-value="0" ng-model="counselorContactInfo.tax_approve" />
+						<span class="text"> Godk&auml;nd f&ouml;r F-skatt?</span>
+					</label>
+				</div><!-- =F-Tax Row end//= -->
+			</div><!-- =info form Section End//= -->
+		</section><!-- =Kontaktinformation Info Section End//= -->
+		
+		<!-- =Btn Row= -->
+		<div class="btn-row">
+			<button class="btn btn-blue">Spara</button>
+		</div><!-- =Btn Row End//= -->
+		
+	</form><!-- =Form Container End//= -->
+	
+	
+	<!-- =Payments Description Frame= -->
+	<div class="payment-description-frame">
+		<h2 class="title" style="color: #000; display: block; font-family: 'Brown-Regular'; font-size: 22px;">Tidigare utbetalningar</h2>
+		<!-- =Table Section Start= -->
+		<section class="payment-table-section table-responsive">
+			<table class="table  payment-table">
+				<thead>
+					<tr>
+						<th>Datum</th>
+						<th>Belopp</th>
+						<th>Referensnummer</th>
+						<th>Status</th>
+						
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="paymentDetail in counselorPayment">
+						<td>{{paymentDetail.paid_date}}</td>
+						<td>{{paymentDetail.amount}} SEK</td>
+						<td>{{paymentDetail.reference_number}}</td>
+						<td>
+							<span class="glyphicon glyphicon-ok icon-green-ok" aria-hidden="true"></span>
+							<label class="status-text">{{paymentDetail.status}}</label>
+						</td>
+					</tr>
+					
+				</tbody>
+				
+			</table><!-- == -->
+		</section><!-- =Table Section Start= -->
+	</div><!-- =Payments Description Frame End//= -->
+</div><!-- =Content Area End//=

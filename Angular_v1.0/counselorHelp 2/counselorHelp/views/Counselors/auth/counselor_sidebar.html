@@ -1,0 +1,112 @@
+
+<!-- =Middle Content Frame= -->
+<section class="middle-frame">
+	<!-- =Page Content Container= -->				
+	<div class="container page-content-container counselor-page-content">
+		<!-- =Counselor Landing Page Content= -->
+		<section class="row content-row">
+			<!-- =Left Col = -->
+			<aside class="col-lg-3 col-sm-3 col-xs-12 profile-listing-col">
+				<div class="profile-row">
+					<a href="" class="profile-pic">
+						<img ng-src="{{counselor_detail.profile_pic}}" alt="Counselor Pic" title="" />
+					</a>
+					<label class="name">
+						<span>{{counselor_detail.name}}</span>
+					</label>
+					<div class="online-status-frame">
+						<label class="text text-online" ng-bind-html="online_text"></label>
+						<!-- <label class="text text-offline">Ej Tillg&auml;nglig</label> -->
+						<toggle ng-change="online_status()" on=" " off=" " onstyle="btn-success" offstyle="btn-danger" style="android" class="status-toggle" ng-model="is_online"></toggle>
+					</div>
+				</div><!-- =Profile Row End//= -->
+				
+				<!-- =Listing row= -->
+				<!-- =Listing row= -->
+				<div class="listing-row sidebar-listing-row">
+					<button type="button" data-toggle="collapse" data-target="#listing-nav" class="navbar-toggle collapsed" aria-expanded="false" aria-controls="head-nav">
+						<span class="sr-only">Toggle navigation</span> 
+						<span class="icon-bar"></span> 
+						<span class="icon-bar"></span> 
+						<span class="icon-bar"></span> 
+					</button>
+					<ul class="list navbar-collapse collapse" id="listing-nav">
+						<li class="activeList" ui-sref="counselor.landing_page" ui-sref-opts="{reload: true}" ui-sref-active="active">
+							<h5 class="list-title">
+								<span class="text">Startsida</span>
+								<span class="icon-arrow show-icon">&nbsp;</span>
+							</h5>
+						</li>
+						<li class="activeList" ng-click="Profil()" ng-class="{active : activeMenu === 'counselor.edit_profile'}">
+							<h5 class="list-title">
+								<span class="text">Profil</span>
+								<span class="icon-arrow show-icon">&nbsp;</span>
+							</h5>
+							<ul class="sub-listing" ng-show="profil_sublisting">
+								<li class="activeList" ui-sref="counselor.auto-generatedmsgs" ui-sref-active="active"><a href='javascript:void(0)'>Redigera h&auml;lsningsfras</a></li>
+							</ul>
+						</li>
+						<li class="activeList" class="" ui-sref="counselor.message" ui-sref-opts="{reload: true}" ui-sref-active="active">
+							<h5 class="list-title">
+								<span class="text">Terapirum</span>
+								<span class="icon-arrow hide-icon">&nbsp;</span>
+							</h5>
+						</li>
+						
+						<li class="activeList" ui-sref="counselor.administration" ui-sref-opts="{reload: true}" ui-sref-active="active">
+							<h5 class="list-title">
+								<span class="text">Administration</span>
+								<span class="icon-arrow hide-icon">&nbsp;</span>
+							</h5>
+							<!-- <ul class="sub-listing">
+								<li><a href="#">Ekonomi</a></li>
+								<li>
+									<a href="#">Kontaktuppgifter</a>
+								</li>
+							</ul> -->
+						</li>
+						
+						<li ng-click="helpcenter()" ng-class="{active : activeMenu === 'helpcenter'}">
+							<h5 class="list-title">
+								<span class="text">Hj&auml;lpcenter</span>
+								<span class="icon-arrow hide-icon">&nbsp;</span>
+							</h5>
+							<ul class="sub-listing" ng-show="helpMenu">
+								<li ui-sref="counselor.counselor_clinicalguide" ui-sref-active="active"><a href='javascript:void(0)'>Kliniska guider</a></li>
+								<li ui-sref="counselor.faq" ui-sref-active="active"><a href='javascript:void(0)'>Vanliga fr&aring;gor och svar</a></li>
+								<li ui-sref="counselor.contactus" ui-sref-active="active"><a href='javascript:void(0)'>Hj&auml;lp och teknisk support</a></li>
+							</ul>
+						</li>
+					</ul>
+				</div><!-- =Listing row End//= -->
+				<button class="btn-logout" ng-click="counselor_logout()">
+					Logga ut
+				</button>
+			</aside><!-- =Left Col End//= -->
+			
+			<!-- =Right Col Start=-->
+			<div class="col-lg-9 col-sm-8 col-xs-12 right-content-col">
+				<div class="text-right icon-row" style="padding: 10px 0;">
+				</div>
+				<!-- =slide More Icon= -->
+				<!-- =slide More Icon End//= -->
+				<!-- <div ui-view="contactus"></div> -->
+				<div ui-view></div>
+				<!-- =Content Area Start= -->
+			</div><!-- =Right Col End//=-->
+		</section><!-- =Counselor Landing Page Content End//= -->
+	</div><!-- =Page Content Container End//= -->
+</section><!-- =Middle Content End//= -->
+<!-- <script src="js/lib/bootstrap-toggle.min.js"></script> -->
+<!-- <script>
+	$('.profile-listing-col .list li').each(function(){
+	// alert("testing 01");
+	$(this).children('.list-title').click(function(){
+		alert(2)
+		$('.profile-listing-col .list li').removeClass('active');
+		$(this).parent().addClass('active');
+		$(this).parent().siblings().children('.sub-listing').hide(500);
+		$(this).siblings('.sub-listing').show(500);
+	});
+});
+</script> -->

@@ -1,0 +1,124 @@
+<!-- =Middle Content Frame= -->
+<section class="middle-frame counselor-registration">
+	<!-- =Page Content Container= -->				
+	<div class="container page-content-container registration-form">
+		<!-- =Content Area Start= -->
+		<div class="content-area">
+			<h2 class="reg-title">Skapa nytt konto</h2>
+			<form class="form-container" name="counselorRegisterFrm" ng-submit="counselorRegistration(counselorRegisterFrm.$valid)" novalidate>
+				<!-- =Address Information Section= -->
+				<section class="personal-info-section information-form">
+					<!--<h2 class="title">Personliga kontaktuppgifter</h2>-->
+					<!-- =info form Section= -->
+					<div class="form-section">
+						<!-- =First Name Row= -->
+						<div class="form-row">
+							<!-- <input type="text" name="fName" placeholder="F&ouml;rnamn" class="form-control" /> -->
+							<input name="first_name" placeholder="Förnamn" class="form-control" type="text" ng-model="counselorRegister.first_name" ng-readonly="counselorRegister.first_name" />
+						</div><!-- =First Name Row end//= -->
+
+						<!-- =Last Name Row= -->
+						<div class="form-row">
+							<!-- <input type="text" name="Efternamn" placeholder="Efternamn" class="form-control" /> -->
+							<input name="last_name" placeholder="Efternamn" class="form-control" type="text" ng-model="counselorRegister.last_name" ng-readonly="counselorRegister.last_name" />
+						</div><!-- =Last Name Row end//= -->
+						
+						<!-- =Phone Number Row= -->
+						<div class="form-row">
+							<!-- <input type="text" name="Personnummer" placeholder="Personnummer" class="form-control" /> -->
+							<input name="phone" placeholder="Personnummer (10 siffror)" class="form-control" type="text" ng-model="Personnummer" ng-readonly="Personnummer" />
+						</div><!-- =Phone Number Row End//= -->
+						
+						<!-- =Gatuadress Row= -->
+						<div class="form-row">
+							<!-- <input type="text" name="gatuaddress" placeholder="Gatuadress" class="form-control" /> -->
+							<input name="address" placeholder="Gatuadress" class="form-control" type="text" ng-model="counselorRegister.address" required />
+								<div ng-show="counselorRegisterFrm.$submitted || counselorRegisterFrm.address.$touched" class="error-notification">
+                                	<div ng-show="counselorRegisterFrm.address.$error.required">Din gatuadress kr&auml;vs</div>
+                            	</div>
+						</div><!-- =Gatuadress Row end//= -->
+
+						<!-- =PostNumm and Ort Row= -->
+						<div class="row form-row">
+							<!-- =postnummer col= -->
+							<div class="col-lg-6 col-xs-12 semi-col">
+								<!-- <input type="text" name="Postnummer" placeholder="Postnummer" class="form-control" /> -->
+								<input name="zipcode" placeholder="Postnummer" class="form-control" type="text" ng-model="counselorRegister.zipcode" required />
+                        		<div ng-show="counselorRegisterFrm.$submitted || counselorRegisterFrm.zipcode.$touched" class="error-notification">
+                        			<div ng-show="counselorRegisterFrm.zipcode.$error.required">Ditt postnummer kr&auml;vs</div>
+                        		</div>
+							</div><!-- =postnummer col End//= -->
+
+							<!-- =ORT col= -->
+							<div class="col-lg-6 col-xs-12 semi-col">
+								<!-- <input type="text" name="Ort" placeholder="Ort" class="form-control" /> -->
+								<input name="place" placeholder="Ort" class="form-control"  type="text" ng-model="counselorRegister.place" required />
+                        		<div ng-show="counselorRegisterFrm.$submitted || counselorRegisterFrm.place.$touched" class="error-notification">
+                        			<div ng-show="counselorRegisterFrm.place.$error.required">Din ort kr&auml;vs</div>
+                        		</div>
+							</div><!-- =ORT col End//= -->
+
+						</div><!-- =PostNumm and Ort Row End//= -->
+						
+						<!-- =Telefonnummer (mobil) Row= -->
+						<div class="form-row">
+							<!-- <input type="text" name="telefonnummer" placeholder="Telefonnummer (mobil)" class="form-control" /> -->
+							<input type="text" name="telephone_no" placeholder="Telefonnummer" class="form-control" ng-model="counselorRegister.telephone_no" value="" ng-minlength="10" numlimit="10" ng-pattern="/^\d+$/" required />
+                        	<div ng-show="counselorRegisterFrm.$submitted || counselorRegisterFrm.telephone_no.$touched" class="error-notification">
+                        		<div ng-show="counselorRegisterFrm.telephone_no.$error.required || counselorRegisterFrm.telephone_no.$error.minlength">Ditt telefonnummer m&aring;ste vara minst 10 siffror</div>
+                        		<div ng-show="counselorRegisterFrm.telephone_no.$error.pattern">Numret inte giltig</div>
+                        	</div>
+						</div><!-- =Telefonnummer (mobil) Row end//= -->
+
+						<!-- =E-postadress Row= -->
+						<div class="form-row">
+							<!-- <input type="text" name="epostadress" placeholder="E-postadress" class="form-control" /> -->
+							<input name="email" placeholder="E-postadress" class="form-control" type="email" ng-model="counselorRegister.email" ng-readonly="counselorRegister.email" required />
+                        	<div ng-show="counselorRegisterFrm.$submitted || counselorRegisterFrm.email.$touched" class="error-notification">
+                        		<div ng-show="counselorRegisterFrm.email.$error.required">Din e-post kr&auml;vs</div>
+                        		<div ng-show="counselorRegisterFrm.email.$error.email">Din e-mail har ett ogiltigt format</div>
+                        	</div>
+						</div><!-- =E-postadress Row end//= -->
+
+						<!-- =Gender (Text) Row= -->
+						<div class="form-row gender-option-radio">
+							<label class="radio-field">
+								<input class="radio-btn" name="bank_type" value="F" type="radio" ng-model="counselorRegister.gender" required /> 
+								<span class="text">Kvinna</span>
+								<span class="custom-radio"> </span>
+							</label><!-- =Personal Checking Accounts End//= -->
+							<label class="radio-field">
+								<input class="radio-btn" name="bank_type" value="M" type="radio" ng-model="counselorRegister.gender" required /> 
+								<span class="text">Man</span>
+								<span class="custom-radio"></span>
+							</label><!-- =Saving Accounts End//= -->
+
+							<div ng-show="counselorRegisterFrm.$submitted || counselorRegisterFrm.email.$touched" class="error-notification">
+                        		<div ng-show="counselorRegisterFrm.bank_type.$error.required">Ditt k&ouml;n kr&auml;vs</div>
+                        	</div> 						
+						</div><!-- =Telefonnummer (mobil) Row end//= -->
+
+						<!-- =DOB Group Row= -->
+                        <!-- <div class="form-row dob-row">
+                            <input type="data" name="dob" placeholder="YYYY-MM-DD" class="form-control" ng-model="datePicker.dob" uib-datepicker-popup ng-model-options="{timezone:'UTC'}" is-open="datePicker.opened" ng-required="true" close-text="Close" close-on-date-selection='true' max-date="dtmax" required />
+                            <label class="icon-calender">
+                                <span aria-hidden="true" class="glyphicon glyphicon-calendar" ng-click="openDatePicker($event, datePicker)"></span>
+                            </label>
+                            <div ng-show="counselorRegisterFrm.$submitted || counselorRegisterFrm.dob.$touched" class="error-notification">
+                        		<div ng-show="counselorRegisterFrm.dob.$error.required">Din F&ouml;delsedatum kr&auml;vs</div>
+                        	</div>
+                        </div> --><!-- =DOB Group Row End//= -->
+
+					</div><!-- =info form Section End//= -->
+				</section><!-- =Address Info Section End//= -->
+				
+				<!-- =Btn Row= -->
+				<div class="btn-row">
+					<button class="btn btn-blue">Spara</button>
+				</div><!-- =Btn Row End//= -->
+			</form><!-- =Form Container End//= -->
+
+		</div><!-- =Content Area End//= -->
+				
+	</div><!-- =Page Content Container End//= -->
+</section><!-- =Middle Content End//= -->

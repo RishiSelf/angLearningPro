@@ -1,0 +1,116 @@
+<!-- =Content Area Start= -->
+<div class="content-area patient-page">
+	<h2 class="section-title">Hj&auml;lp och teknisk support</h2>
+
+	<section class="contact-us-content">
+		<p class="para">
+			Om du som patient har fr&aring;gor eller funderingar kring tj&auml;nsten eller beh&ouml;ver du teknisk support, b&ouml;rja med att se om din fr&aring;ga finns bland de vanligaste fr&aring;gorna. Om inte, &auml;r du v&auml;lkommen att kontakta oss genom att fylla i formul&auml;ret nedan. Du kan f&ouml;rv&auml;nta dig ett svar fr&aring;n MinTerapi.se inom 24 timmar.
+		</p>
+		<div class="form-section patientContactus">
+			<h3 class="title-text">Vad beh&ouml;ver du hj&auml;lp med?</h3>
+			<form class="contact-us-form" name="contactusForm" ng-submit="savePatientContact(contactusForm.$valid)" novalidate>
+				<div class="radio-fields-frame" ng-init="patientContact.helpNeed = 'Jag har problem med BankID eller Mobilt BankID'">
+					<label class="radio-field" for="">
+						<input type="radio" value="Jag har problem med BankID eller Mobilt BankID" name="helpNeed" ng-model="patientContact.helpNeed"/>
+						<span class="lbl">
+							Jag har problem med BankID eller Mobilt BankID
+						</span>
+						<span class="custom-radio">&nbsp;</span>
+					</label>
+
+					<label class="radio-field" for="">
+						<input type="radio" value="Jag har en teknisk fr&aring;ga som ber&ouml;r plattformen MinTerapi.se " name="helpNeed" ng-model="patientContact.helpNeed"/>
+						<span class="lbl">
+							Jag har en teknisk fr&aring;ga som ber&ouml;r plattformen MinTerapi.se 
+						</span>
+						<span class="custom-radio">&nbsp;</span>
+					</label>
+
+					<label class="radio-field" for="">
+						<input type="radio" value="Jag har en fr&aring;ga som ber&ouml;r mitt paket eller betalning" name="helpNeed" ng-model="patientContact.helpNeed"/>
+						<span class="lbl">
+							Jag har en fr&aring;ga som ber&ouml;r mitt paket eller betalning 
+						</span>
+						<span class="custom-radio">&nbsp;</span>
+					</label>
+
+					<label class="radio-field" for="">
+						<input type="radio" value="Jag har problem med mina kontouppgifter" name="helpNeed" ng-model="patientContact.helpNeed"/>
+						<span class="lbl">
+							Jag har problem med mina kontouppgifter
+						</span>
+						<span class="custom-radio">&nbsp;</span>
+					</label>
+
+					<label class="radio-field" for="">
+						<input type="radio" value="Jag vill ta bort mitt konto hos MinTerapi.se" name="helpNeed" ng-model="patientContact.helpNeed"/>
+						<span class="lbl">
+							Jag vill ta bort mitt konto hos MinTerapi.se
+						</span>
+						<span class="custom-radio">&nbsp;</span>
+					</label>
+
+					<label class="radio-field" for="">
+						<input type="radio" value="&Ouml;vriga fr&aring;gor" name="helpNeed" ng-model="patientContact.helpNeed"/>
+						<span class="lbl">
+							&Ouml;vriga fr&aring;gor
+						</span>
+						<span class="custom-radio">&nbsp;</span>
+					</label>
+				</div><!-- =Radio-Fields frame End//= -->
+
+				<!-- =Form Fields frame= -->
+				<div class="form-fields-frame">
+					<dl>
+						<dt><span class="lbl">F&ouml;rnamn</span></dt>
+						<dd>
+							<input name="firstname" ng-model="patientContact.firstname" value="" class="form-control" type="text" required>
+							<div ng-show="contactusForm.$submitted || contactusForm.firstname.$touched" class="error-notification">
+                                <div ng-show="contactusForm.firstname.$error.required">Du beh&ouml;ver fylla i ett f&ouml;rnamn</div>
+                            </div> 
+						</dd>
+
+						<dt><span class="lbl">Efternamn</span></dt>
+						<dd>
+							<input name="lastname" ng-model="patientContact.lastname" value="" class="form-control" type="text" required>
+							<div ng-show="contactusForm.$submitted || contactusForm.lastname.$touched" class="error-notification">
+                                <div ng-show="contactusForm.lastname.$error.required">Du beh&ouml;ver fylla i ett efternamn </div>
+                            </div> 
+						</dd>
+
+						<dt><span class="lbl">E-mail </span></dt>
+						<dd>
+							<input type="email" name="email" type="email" ng-model="patientContact.email" value="" class="form-control" required>
+							<div ng-show="contactusForm.$submitted || contactusForm.email.$touched" class="error-notification">
+                                <div ng-show="contactusForm.email.$error.required">Din e-post kr&auml;vs</div>
+                                <div ng-show="contactusForm.email.$error.email">Din e-mail har ett ogiltigt format</div>
+                            </div>
+						</dd>
+
+						<dt><span class="lbl">Telefon (valfritt)</span></dt>
+						<dd>
+							<input name="phonenumber" ng-model="patientContact.phonenumber" value="" class="form-control" type="text" ng-minlength="10" numlimit="10" ng-pattern="/^\d+$/" required>
+							<div ng-show="contactusForm.$submitted || contactusForm.phonenumber.$touched" class="error-notification">
+                                <div ng-show="contactusForm.phonenumber.$error.required || contactusForm.phonenumber.$error.minlength">Ditt telefonnummer m&aring;ste vara minst 10 siffror.</div>
+                                <div ng-show="contactusForm.phonenumber.$error.pattern">Numret inte giltig.</div>
+                            </div> 
+						</dd>
+
+						<dt><span class="lbl">Meddelande</span></dt>
+						<dd>
+							<textarea class="form-control textarea" ng-model="patientContact.message"></textarea>
+						</dd>								
+
+					</dl>
+
+					<div class="btn-row">
+						<button type="submit" name="" class="btn btn-blue" style="color:white;">Skicka meddelande </button>
+					</div>
+
+				</div><!-- =Form Fields frame End//= -->
+
+			</form>
+		</div><!-- =Form Section End//= -->
+
+	</section>
+</div><!-- =Content Area End//= -->

@@ -1,0 +1,144 @@
+
+<div class="content-area">						
+	
+	<!-- =Content 01= -->
+	<article class="content-frame" id="container">
+		<!-- <h2>{{resMessage}}</h2> -->
+		<h2 class="title" style="margin-top: 0; color: #111;">
+			<span class="title-text" >Hj&auml;lp och teknisk support</span>
+		</h2>
+		<p class="para">
+			Om du som psykoterapeut har fr&aring;gor eller funderingar kring tj&auml;nsten eller beh&ouml;ver teknisk support, b&ouml;rja med att se om din fr&aring;ga finns bland de vanligaste fr&aring;gorna. Om inte, &auml;r du v&auml;lkommen att kontakta oss genom att fylla i formul&auml;ret nedan. Du kan f&ouml;rv&auml;nta dig ett svar fr&aring;n MinTerapi.se inom 24 timmar.
+		</p>
+		
+	</article><!-- =Content 01 End//= -->
+	
+	<!-- =Content 02= -->
+	<article class="content-frame">
+		<!-- =Form Section= -->
+		<section class="counselorContact form-section">
+			<h3 class="title-text" style="font-size: 18px; margin-top: 0;">Vad beh&ouml;ver du hj&auml;lp med?</h3>
+			<form class="contact-us-form" name="contactFrm" ng-submit="saveContact(contactFrm.$valid)" novalidate>
+				<div class="radio-fields-frame" ng-init="Contact.helpNeed = 'Jag har problem med BankID eller Mobilt BankID'">
+					<label class="radio-field" for="">
+						<input value="Jag har problem med BankID eller Mobilt BankID" type="radio" name="helpNeed" ng-model="Contact.helpNeed">
+						<span class="lbl">
+							Jag har problem med BankID eller Mobilt BankID
+						</span>
+						<span class="custom-radio">&nbsp;</span>
+					</label>
+
+					<label class="radio-field" for="">
+						<input value="Jag har en teknisk fr&aring;ga som ber&ouml;r plattformen" ng-model="Contact.helpNeed" name="helpNeed" type="radio">
+						<span class="lbl">
+							Jag har en teknisk fr&aring;ga som ber&ouml;r plattformen 
+						</span>
+						<span class="custom-radio">&nbsp;</span>
+					</label>
+
+					<label class="radio-field" for="">
+						<input value="Jag har fr&aring;gor kring fr&aring;nvaro (semester, sjukdom, etc.)" ng-model="Contact.helpNeed" name="helpNeed" type="radio">
+						<span class="lbl">
+							Jag har fr&aring;gor kring fr&aring;nvaro (semester, sjukdom, etc.)
+						</span>
+						<span class="custom-radio">&nbsp;</span>
+					</label>
+
+					<label class="radio-field" for="">
+						<input value="Jag har fr&aring;gor kring utbetalning och tidigare ekonomiska transaktioner" ng-model="Contact.helpNeed" name="helpNeed" type="radio">
+						<span class="lbl">
+							Jag har fr&aring;gor kring utbetalning och tidigare ekonomiska transaktioner
+						</span>
+						<span class="custom-radio">&nbsp;</span>
+					</label>
+
+					<label class="radio-field" for="">
+						<input value="Jag har en klinisk fr&aring;ga" ng-model="Contact.helpNeed" name="helpNeed" type="radio">
+						<span class="lbl">
+							Jag har en klinisk fr&aring;ga
+						</span>
+						<span class="custom-radio">&nbsp;</span>
+					</label>
+
+					<label class="radio-field" for="">
+						<input value="Jag vill ej l&auml;ngre vara en del av MinTerapi.se" ng-model="Contact.helpNeed" name="helpNeed" type="radio">
+						<span class="lbl">
+							Jag vill ej l&auml;ngre vara en del av MinTerapi.se
+						</span>
+						<span class="custom-radio">&nbsp;</span>
+					</label>
+
+					<label class="radio-field" for="">
+						<input value="&Ouml;vriga fr&aring;gor " ng-model="Contact.helpNeed" name="helpNeed" type="radio">
+						<span class="lbl">
+							&Ouml;vriga fr&aring;gor 
+						</span>
+						<span class="custom-radio">&nbsp;</span>
+					</label>
+				</div><!-- =Radio-Fields frame End//= -->
+
+				<!-- =Form Fields frame= -->
+				<div class="form-fields-frame">
+					<dl>
+						<dt><span class="lbl">F&ouml;rnamn</span></dt>
+						<dd>
+							<input name="firstname" ng-model="Contact.firstname" value="" class="form-control" type="text" required>
+							<div ng-show="contactFrm.$submitted || contactFrm.firstname.$touched" class="error-notification">
+                                <div ng-show="contactFrm.firstname.$error.required">Du beh&ouml;ver fylla i ett f&ouml;rnamn</div>
+                            </div> 
+						</dd>
+
+						<dt><span class="lbl">Efternamn</span></dt>
+						<dd>
+							<input name="lastname" ng-model="Contact.lastname" value="" class="form-control" type="text" required>
+							<div ng-show="contactFrm.$submitted || contactFrm.lastname.$touched" class="error-notification">
+                                <div ng-show="contactFrm.lastname.$error.required">Du beh&ouml;ver fylla i ett efternamn </div>
+                            </div> 
+						</dd>
+
+						<dt><span class="lbl">E-mail </span></dt>
+						<dd>
+							<input type="email" name="email" type="email" ng-model="Contact.email" value="" class="form-control" required>
+							<div ng-show="contactFrm.$submitted || contactFrm.email.$touched" class="error-notification">
+                                <div ng-show="contactFrm.email.$error.required">Din e-post kr&auml;vs</div>
+                                <div ng-show="contactFrm.email.$error.email">Din e-mail har ett ogiltigt format</div>
+                            </div>
+						</dd>
+
+						<dt><span class="lbl">Telefon (valfritt)</span></dt>
+						<dd>
+							<input name="phonenumber" ng-model="Contact.phonenumber" value="" class="form-control" type="text" ng-minlength="10" numlimit="10" ng-pattern="/^\d+$/" required>
+							<div ng-show="contactFrm.$submitted || contactFrm.phonenumber.$touched" class="error-notification">
+                                <div ng-show="contactFrm.phonenumber.$error.required || contactFrm.phonenumber.$error.minlength">Ditt telefonnummer m&aring;ste vara minst 10 siffror</div>
+                                <div ng-show="contactFrm.phonenumber.$error.pattern">Numret inte giltig</div>
+                            </div> 
+						</dd>
+
+						<dt><span class="lbl">Meddelande</span></dt>
+						<dd>
+							<textarea class="form-control textarea" ng-model="Contact.message"></textarea>
+						</dd>								
+
+					</dl>
+
+					<div class="btn-row">
+						<button type="submit" name="" class="btn btn-blue" style="color:white;">Skicka meddelande </button>
+						<!-- <p style="float: left;color: green;margin-top: 10px;margin-left: 5px;">{{resMessage}}</p> -->
+					</div>
+
+				</div><!-- =Form Fields frame End//= -->
+
+			</form>
+		</section><!-- =form Section End//= -->
+	</article><!-- =Content 02 End//= -->
+	
+	
+</div><!-- =Content Area End//= -->
+
+<style type="text/css">
+    .counselorContact dd div {
+        color:red;
+
+    }
+</style>				
+	

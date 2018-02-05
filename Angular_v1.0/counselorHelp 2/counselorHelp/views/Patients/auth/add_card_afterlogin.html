@@ -1,0 +1,76 @@
+	<!-- =Content Area Start= -->
+	<div class="content-area after-login-page" ng-init="getYearList()">
+		<!-- =Billing info Section= -->
+		<section class="billing-info-section">			
+			<h2 class="title">L&auml;gg till nytt kredit- eller bankkort</h2>
+			<h4 class="sub-title">
+				Varje k&ouml;p och transaktion som genomf&ouml;rs p&aring; MinTerapi.se m&aring;ste godk&auml;nnas av dig f&ouml;rst. Du kommer inte att debiteras per automatik. Du kan s&auml;ga upp ett paket n&auml;r som helst p&aring; v&aring;r webbplats. Fyll i informationen nedan f&ouml;r att l&auml;gga till ett nytt kredit- eller bankkort. 
+			</h4>
+			<!-- =Payment Frame Start= -->
+			<div id="payment_tab" role="tabpanel" class="tab-pane active">
+				<div class="row">
+					<!-- =Card Information Col= -->
+				  	<div class="col-md-12 col-sm-12">
+					 	<form id="formPaymentInfo" class="form fv-form fv-form-bootstrap" name="cardInfoFrm" ng-submit="saveCardDetails(cardInfoFrm.$valid)" novalidate>
+							<button type="submit" class="fv-hidden-submit" style="display: none; width: 0px; height: 0px;"></button>
+							<div class="panel panel-primary">
+								<div class="panel-heading">Dina betalningsuppgifter</div>
+								<div class="panel-body">
+									<div class="row">
+
+										<div id="cCardForm" class="col-md-11">
+											<!-- <div class="form-group">
+												<label>Namn p&aring; kort</label>
+												<input id="nameOnCard" name="nameOnCard" class="form-control" data-fv-field="nameOnCard" type="text" ng-model="cardInfo.card.name" required />
+												<div ng-show="cardInfoFrm.$submitted || cardInfoFrm.nameOnCard.$touched" class="error-notification">
+					                                <div ng-show="cardInfoFrm.nameOnCard.$error.required">Din Namn på kort kr&auml;vs</div>
+					                            </div>
+											</div> -->
+											<div class="row">
+												<div class="col-xs-8">
+													<div class="form-group">
+														<label>Kortnummer</label>
+														<input id="ccnumber" name="ccnumber" class="form-control" data-fv-field="ccnumber" type="text" ng-model="cardInfo.card.number" autocomplete="off" readonly onfocus="this.removeAttribute('readonly');" style="background-color: #fff;" required />
+														<div ng-show="cardInfoFrm.$submitted || cardInfoFrm.ccnumber.$touched" class="error-notification">
+							                                <div ng-show="cardInfoFrm.ccnumber.$error.required">Din kortnummer kr&auml;vs</div>
+							                            </div>
+													</div>
+												</div>
+												<div class="col-xs-4">
+													<div class="form-group">
+														<label>CVC</label>
+														<input id="ccCvv" name="ccCvv" maxlength="4" class="form-control" data-fv-field="ccCvv" type="password" ng-model="cardInfo.card.cvc" autocomplete="off" readonly onfocus="this.removeAttribute('readonly');" style="background-color: #fff;" required />
+														<div ng-show="cardInfoFrm.$submitted || cardInfoFrm.ccCvv.$touched" class="error-notification">
+							                                <div ng-show="cardInfoFrm.ccCvv.$error.required">Var god v&auml;lj ett alternativ</div>
+							                            </div>
+													</div>
+												</div>
+											</div>
+											<!-- <div class="form-group form-inline">
+												<label>Typ av kort</label><br>
+												<select  id="cctype" name="cctype" value="" class="form-control" data-fv-field="cctype" ng-options="cardName.value as cardName.id for cardName in cardType.cards" ng-model="cardName" ng-init = "cardName = cardType.cards[0].id"></select>
+											</div> -->
+											<div class="form-group form-inline card-period">
+												<label>Giltighetstid</label><br>
+												<select  id="ccmonth" name="ccmonth" value="" class="form-control" data-fv-field="ccmonth"  ng-model="cardInfo.card.exp_month" ng-options="month.id  as month.value for month in monthName.months" ng-init = "cardInfo.card.exp_month = monthName.months[0].id">
+												</select>
+												/ &nbsp;
+												<select id="ccyear" name="ccyear" value="" class="form-control" data-fv-field="ccyear" ng-model="cardInfo.card.exp_year" ng-options="year.id  as year.value for year in years" ng-init = "cardInfo.card.exp_year = years[0].id">
+												</select>
+												<div class="error-notification" ng-bind-html="Errmsg"></div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="panel-footer">
+									<button type="submit" class="btn btn-primary btn-save">Spara betalningsinformation</button>
+								   		&nbsp;&nbsp; &nbsp;
+									<button type="reset" class="btn btn-default btn-reset" ng-disabled="!cardInfoFrm.$valid" ng-click="resetFrm('cardInfo')">&Auml;ndra</button>
+								</div>
+							</div>
+						</form>
+					</div><!-- =Card Information Col End//= -->
+				</div><!-- =Payment Row End//= -->
+			</div><!-- =Payment-frame End//= -->
+		</section><!-- =Billing info Section End//= -->
+	</div><!-- =Content Area End//= -->
