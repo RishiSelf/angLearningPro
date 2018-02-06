@@ -1,10 +1,14 @@
 <header class="header-frame">
-    <h1 class="logo-col"><a >My Angular First App</a></h1>
+    <h1 class="logo-col"><a [routerLink]="['/dashboardScreen/dashboardpage']" >My Angular First App</a></h1>
     <section class="right-side-col">
         <label class="user-detail">
             <strong>Welcome!</strong>
             <i aria-hidden="true" class="fa fa-user-circle"></i>
-            <a href="/dashboardScreen/profilepage">Rishi Pant</a>
+            <a [routerLink]="['/dashboardScreen/profilepage']">Rishi Pant</a>
+        </label>
+        <strong> | </strong>
+        <label class="logout-lbl">
+          <a [routerLink]="['/landingScreen/homepage']">Logout</a>
         </label>
     </section><!-- =Right Side Col End//= -->
 </header>
