@@ -1,0 +1,43 @@
+.page-content-frame {
+  width: 100%;
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+.content-frame {
+  padding: 20px 0;
+}
+.content-frame .text-content {
+  padding: 20px 0;
+}
+.content-frame .paragraph {
+  text-align: center;
+  font-size: 16px;
+  font-weight: 400;
+  font-family: 'Roboto Slab', serif;
+  line-height: 170%;
+}
+.content-frame .btn-row {
+  margin: 40px 0 20px;
+  text-align: center;
+}
+.content-frame .btn-row .btn {
+  width: 100%;
+  max-width: 280px;
+  height: 52px;
+  font-size: 18px;
+  color: #303030;
+  text-transform: uppercase;
+  background: #fff;
+  transition: ease 0.8s;
+  box-shadow: 0 0 5px #888;
+
+  border-radius: 24px 24px;
+  -webkit-border-radius: 24px 24px;
+  -moz-border-radius: 24px 24px;
+  -o-border-radius: 24px 24px;
+}
+.content-frame .btn-row .btn:hover {
+  background: #303030;
+  color: #84B6F5;
+}
