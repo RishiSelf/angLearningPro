@@ -1,3 +1,11 @@
 <div class="page-container">
-    <router-outlet></router-outlet>
+  <div class="page-content-frame">
+    <h1 class="logo-frame">
+      <a [routerLink]= "['']" routerLinkActive="active">DummyLogo</a>
+    </h1><!-- =Logo Frame End//= -->
+    <div class="routing-page-frame">
+      <router-outlet></router-outlet>
+    </div><!-- =Routing page Frame= -->
+
+  </div><!-- =Page Content Frame= -->
 </div><!-- =Page Container End//= -->

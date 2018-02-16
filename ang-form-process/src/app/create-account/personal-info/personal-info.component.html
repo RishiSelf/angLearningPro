@@ -1,0 +1,34 @@
+<div class="form-step-bar">
+  <ul class="process-steps">
+    <li [routerLink]= "['']" routerLinkActive="active" class="done">
+      <span class="num">1</span>
+      <strong class="lbl">Personal</strong>
+    </li>
+    <li>
+      <span class="num">2</span>
+      <strong class="lbl">Professional</strong>
+    </li>
+    <li>
+      <span class="num">3</span>
+      <strong class="lbl">Educational</strong>
+    </li>
+    <li>
+      <span class="num">4</span>
+      <strong class="lbl">Financial</strong>
+    </li>
+  </ul>
+</div><!-- =form Steps Bar Steps Frame End//= -->
+
+<div class="form-container">
+  <h3>Personal Inforamtion</h3>
+  <form name="createAccount">
+    <div class="btn-row">
+      <button class="btn btn-white" [routerLink]= "['']" routerLinkActive="active">
+        <span>Next</span>
+      </button>
+      <button class="btn btn-black" [routerLink]= "['../landingScreen']" routerLinkActive="active">
+        <span>Back</span>
+      </button>
+    </div><!-- =Btn Row End//= -->
+  </form>
+</div>

@@ -6,11 +6,18 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./terms-condition.component.css']
 })
 export class TermsConditionComponent implements OnInit {
-var
-  constructor() { }
+ toggleEvent:  boolean= true;
 
+ changeEvent(e) {
+   if(e.target.checked) {
+     this.toggleEvent = false;
+   }
+   else {
+     this.toggleEvent = true;
+   }
+ }
+  constructor() {}
   ngOnInit() {
-
   }
 
 }

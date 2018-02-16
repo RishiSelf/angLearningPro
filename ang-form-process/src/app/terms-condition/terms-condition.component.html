@@ -1,7 +1,4 @@
-<div class="page-content-frame">
-  <h1 class="logo-frame">
-    <a [routerLink]= "['']" routerLinkActive="active">DummyLogo</a>
-  </h1><!-- =Logo Frame End//= -->
+
 
   <section class="content-frame">
 
@@ -27,7 +24,7 @@
 
     <div class="accept-block custom-checkbox-row">
       <label class="custom-check">
-        <input type="checkbox" value="" name="termConditions" class="input-check" />
+        <input type="checkbox" value="" name="termConditions" class="input-check" (change)="changeEvent($event)" />
         <span class="check-mark">&nbsp;</span>
         <span class="text">
           Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
@@ -35,7 +32,7 @@
       </label>
     </div><!-- = = -->
     <div class="btn-row">
-      <button class="btn btn-white" [routerLink]= "['../termsConditionScreen']" routerLinkActive="active" [disabled]="!item.checked">
+      <button class="btn btn-white" [routerLink]= "['../createAccountScreen']" routerLinkActive="active" [disabled]="toggleEvent">
         <span>Continue</span>
       </button>
       <button class="btn btn-black" [routerLink]= "['../landingScreen']" routerLinkActive="active">
@@ -45,4 +42,3 @@
 
 
   </section>
-</div>

@@ -1,0 +1,99 @@
+.content-frame {
+  max-width: 990px;
+  width: 90%;
+  margin: 0 auto;
+  padding: 20px 30px;
+  background: #fff;
+}
+
+.content-frame .content-title {
+  padding: 20px 0;
+  text-align: center;
+  color: #5088CE;
+  font-size: 32px;
+  font-weight: 400;
+  text-transform: uppercase;
+}
+
+.content-frame .form-step-bar {
+  padding: 20px 0;
+  text-align: center;
+}
+.content-frame .form-step-bar ul {
+  display: flex;
+  padding-left: 0;
+}
+.content-frame .form-step-bar ul li {
+  flex: auto;
+  position: relative;
+
+}
+.content-frame .form-step-bar ul li .num,
+.content-frame .form-step-bar ul li .lbl {
+  display: block;
+  position: relative;
+  z-index: 3;
+}
+.content-frame .form-step-bar ul li::before {
+  width: 100%;
+  height: 6px;
+  content: '';
+  position: absolute;
+  z-index: 1;
+  top: 20px;
+  background: #505050;
+  display: block;
+}
+.content-frame .form-step-bar ul li:first-child::before {
+  border-radius: 8px 0 0 8px;
+}
+.content-frame .form-step-bar ul li:last-child::before {
+  border-radius: 0 8px 8px 0;
+}
+.content-frame .form-step-bar ul li .num {
+  background: #505050;
+  width: 42px;
+  height: 42px;
+  margin: 0 auto 5px;
+  vertical-align: middle;
+  color: #fff;
+  font-size: 18px;
+  line-height: 42px;
+  border-radius: 50% 50%;
+  -webkit-border-radius: 50% 50%;
+  -moz-border-radius: 50% 50%;
+}
+.content-frame .form-step-bar ul li .lbl {
+  font-size: 14px;
+  color: #505050;
+  margin-top: 10px;
+  text-transform: uppercase;
+}
+.content-frame .form-step-bar ul li.active::before {
+    background: #5088CE;
+}
+.content-frame .form-step-bar ul li.active .num {
+  background: #5088CE;
+  
+}
+
+.content-frame .btn-row {
+  text-align: center;
+  padding: 15px 0;
+}
+.content-frame .btn-row .btn {
+  padding: 10px 30px;
+  transition: ease 0.8s;
+
+  border-radius: 30px 30px;
+  -webkit-border-radius: 30px 30px;
+  -moz-border-radius: 30px 30px;
+  -o-border-radius: 30px 30px;
+}
+.content-frame .btn-row .btn:hover {
+  box-shadow: 0 0 4px #202020;
+}
+.content-frame .btn-row .btn-black {
+  background: #3d3d3d;
+  color: #fff;
+}
