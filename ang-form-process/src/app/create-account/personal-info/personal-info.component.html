@@ -1,4 +1,4 @@
-<div class="form-step-bar">
+<!-- <div class="form-step-bar">
   <ul class="process-steps">
     <li [routerLink]= "['']" routerLinkActive="active" class="done">
       <span class="num">1</span>
@@ -17,11 +17,80 @@
       <strong class="lbl">Financial</strong>
     </li>
   </ul>
-</div><!-- =form Steps Bar Steps Frame End//= -->
+</div> -->
+<!-- =form Steps Bar Steps Frame End//= -->
+
+
+<h4>Radio &amp; Uncheckable Radio</h4>
+    <pre>{{radioModel || 'null'}}</pre>
+    <div class="btn-group">
+        <label class="btn btn-primary" ng-model="radioModel" uib-btn-radio="'personal'">
+          <span class="num">1</span>
+          <strong class="lbl">Personal</strong>
+        </label>
+        <label class="btn btn-primary" ng-model="radioModel" uib-btn-radio="'professional'">
+          <span class="num">2</span>
+          <strong class="lbl">Professional</strong>
+        </label>
+        <label class="btn btn-primary" ng-model="radioModel" uib-btn-radio="'educational'">
+          <span class="num">3</span>
+          <strong class="lbl">Educational</strong>
+        </label>
+        <label class="btn btn-primary" ng-model="radioModel" uib-btn-radio="'finacial'">
+          <span class="num">4</span>
+          <strong class="lbl">Financial</strong>
+        </label>
+    </div>
 
 <div class="form-container">
-  <h3>Personal Inforamtion</h3>
+  <h3 class="form-title">Personal Information</h3>
   <form name="createAccount">
+    <section class="form-section">
+      <div class="form-group">
+        <section class="row input-row">
+          <div class="col-sm-4 col-xs-12 input-col">
+
+            <select class="form-control">
+              <option>Select Title</option>
+              <option>Mr.</option>
+              <option>Mrs.</option>
+              <option>Ms.</option>
+              <option>Other</option>
+            </select>
+          </div><!-- =Title Col End//=-->
+
+          <div class="col-sm-4 col-xs-12 input-col">
+            <!-- <label for="fName" class="name">Title</label> -->
+            <input type="text" name="fName" placeholder="Your First Name" class="form-control" required />
+          </div><!-- =First Name Col End//=-->
+
+          <div class="col-sm-4 col-xs-12 input-col">
+            <!-- <label for="lName" class="name">Title</label> -->
+            <input type="text" name="lName" placeholder="Your Last Name" class="form-control" required />
+          </div><!-- =Last Name Col End//=-->
+        </section><!-- =input row End//= -->
+
+        <section class="row input-row phone-row">
+          <div class="col-sm-6 col-xs-12 input-col">
+            <select class="form-control c-code">
+              <option>Select Code</option>
+              <option>Indai (+91)</option>
+            </select>
+            <input type="text" name="fName" placeholder="Home Phone" class="form-control phone-num" required />
+          </div><!-- =Home Phone Col End//=-->
+
+          <div class="col-sm-6 col-xs-12 input-col">
+            <select class="form-control c-code">
+              <option>Select Code</option>
+              <option>Indai (+91)</option>
+            </select>
+            <input type="text" name="fName" placeholder="Mobile Phone" class="form-control phone-num" required />
+          </div><!-- =Home Phone Col End//=-->
+        </section><!-- =Input Row 02 End//= -->
+      </div>
+    </section><!-- =Form section End//= -->
+
+    <!-- =Btn Row= -->
     <div class="btn-row">
       <button class="btn btn-white" [routerLink]= "['']" routerLinkActive="active">
         <span>Next</span>
