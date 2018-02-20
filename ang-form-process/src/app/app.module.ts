@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { Routes, RouterModule } from '@angular/router';
+
 import { AppRoutingModule } from './app-routing.module';
 
 import { LandingScreenComponent } from './landing-screen/landing-screen.component';
@@ -27,6 +28,7 @@ import { DocumentationInfoComponent } from './create-account/documentation-info/
   imports: [
     BrowserModule,
     AppRoutingModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]
