@@ -1,0 +1,15 @@
+.content-frame {
+  max-width: 990px;
+  width: 90%;
+  margin: 0 auto;
+  text-align: center;
+  padding: 20px 30px;
+  background: #fff;
+}
+
+.content-frame .btn-new-account {
+  background: #5088CE;
+  color: #fff;
+  padding: 6px 30px;
+  border-radius: 24px 24px;
+}

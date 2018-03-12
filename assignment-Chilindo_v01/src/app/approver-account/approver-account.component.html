@@ -1,0 +1,1183 @@
+<div class="account-page-frame">
+  <header class="account-header-frame">
+    <div class="account-info-col">
+      <label class="account-person">
+        <strong>Hi,</strong>
+        <span class="name">Approver 10982!</span>
+      </label>
+      <a class="logout-link" [routerLink]= "['../assignmentTwoHomeScreen']">
+        <i class="fas fa-sign-out-alt"></i>
+      </a>
+    </div><!-- =Account Person Col End//= -->
+
+    <h1 class="logo-frame">
+      <a [routerLink]= "['../assignmentHomeScreen']" routerLinkActive="active">
+          <i class="fab fa-accusoft"></i>
+          <span class="text">Invoicing Screen</span>
+      </a>
+    </h1><!-- =Logo Frame End//= -->
+  </header><!-- =Account Detail Block End//= -->
+
+  <main class="account-main-content">
+    <aside class="side-col">
+      <p class="profile-pic">
+        <span class="pic-frame">
+          <i class="fas fa-user"></i>
+        </span>
+      </p><!-- =Profile Pic Col End//= -->
+
+      <ul class="listing-frame">
+        <li class="active" [ngClass]="{'active': item == 1 }">
+          <p class="list-content" (click)= 'item = 1'>
+            <i class="fas fa-th-list"></i>
+            <span class="tab">View All Invoices</span>
+          </p>
+        </li>
+
+        <li [ngClass]="{'active': item == 2 }">
+          <p class="list-content" (click)= 'item = 2'>
+            <i class="fas fa-check-square"></i>
+            <span class="tab">Approved Invoices</span>
+          </p>
+        </li>
+
+        <li [ngClass]="{'active': item == 3 }">
+          <p class="list-content" (click)= 'item = 3'>
+            <i class="fas fa-tasks"></i>
+            <span class="tab">Pending Invoices</span>
+          </p>
+        </li>
+
+        <li>
+          <p class="list-content" [routerLink]= "['../assignmentTwoHomeScreen']">
+            <i class="fas fa-sign-out-alt"></i>
+            <span class="tab">Logout</span>
+          </p>
+        </li>
+      </ul>
+    </aside><!-- =Side Col End//= -->
+
+    <section class="right-content-col account-container">
+      <nav class="top-row">
+        <div class="search-col">
+            <div class="search-container">
+              <input type="text" value="" placeholder="Enter Keyword for search.." name="searchInput" class="search-input" />
+              <button class="btn-search"><i class="fas fa-search"></i></button>
+            </div>
+        </div><!-- =Search Col End//= -->
+
+        <div class="btn-option-col" [hidden]= "item == 2">
+          <button class="btn btn-approve">
+            <i class="fas fa-check"></i>
+            <span class="text">Approve</span>
+          </button><!-- =Approve Btn End//= -->
+
+          <button class="btn btn-reject">
+            <i class="fas fa-times"></i>
+            <span class="text">Reject</span>
+          </button><!-- =Reject Btn End//= -->
+        </div><!-- =Btn Col End//= -->
+      </nav><!-- =Tow Row End//= -->
+
+      <!-- =invoice Listing Container= -->
+      <div class="invoive-listing-container" *ngIf="item ==1">
+        <h2 class="title">All the Invoice Listing</h2>
+        <section class="table-section table-responsive">
+          <table border="" class="table">
+            <thead>
+              <tr>
+                <th>&nbsp;</th>
+                <th>#Invoice Number</th>
+                <th>Invoice Date</th>
+                <th>Invoice Amount</th>
+                <th>Invoice Due Date</th>
+                <th>Customer Number</th>
+                <th>Customer Country</th>
+                <th>Item Name</th>
+                <th>Total Quantity</th>
+                <th>Item Cost <br /> (per item)</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  <input type="checkbox" name="" />
+                </td>
+                <td>
+                  <strong class="invoice-num">##012345678900</strong>
+                </td>
+                <td>
+                  <span class="invoice-date">02/03/2018</span>
+                </td>
+                <td>
+                  <span class="curr">$</span>
+                  <span class="invoice-amt">1,000.00</span>
+                </td>
+                <td>
+                  <span class="invoice-date">02/04/2018</span>
+                </td>
+                <td>
+                  <strong class="customer-num">0123456700</strong>
+                </td>
+                <td>
+                  <strong class="customer-country">India</strong>
+                </td>
+                <td>
+                  <strong class="item-name">Pro-0900</strong>
+                </td>
+                <td>
+                  <strong class="item-qnty">10</strong>
+                </td>
+                <td>
+                  <strong class="item-cost">100</strong>
+                </td>
+                <td>
+                  <label class="action-list">
+                    <i class="fas fa-paperclip" title="attachment"></i>
+                    <i class="fas fa-pen-square icon" title="Edit"></i>
+                  </label>
+                </td>
+              </tr>
+
+              <tr>
+                <td>
+                  <input type="checkbox" name="" />
+                </td>
+                <td>
+                  <strong class="invoice-num">##012345678901</strong>
+                </td>
+                <td>
+                  <span class="invoice-date">04/03/2018</span>
+                </td>
+                <td>
+                  <span class="curr">$</span>
+                  <span class="invoice-amt">2,000.00</span>
+                </td>
+                <td>
+                  <span class="invoice-date">06/04/2018</span>
+                </td>
+                <td>
+                  <strong class="customer-num">0123456701</strong>
+                </td>
+                <td>
+                  <strong class="customer-country">Algeria</strong>
+                </td>
+                <td>
+                  <strong class="item-name">Pro-0901</strong>
+                </td>
+                <td>
+                  <strong class="item-qnty">10</strong>
+                </td>
+                <td>
+                  <strong class="item-cost">200</strong>
+                </td>
+                <td>
+                  <label class="action-list">
+                    <i class="fas fa-paperclip" title="attachment"></i>
+                    <i class="fas fa-pen-square icon" title="Edit"></i>
+                  </label>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <input type="checkbox" name="" />
+                </td>
+                <td>
+                  <strong class="invoice-num">##012345678902</strong>
+                </td>
+                <td>
+                  <span class="invoice-date">05/03/2018</span>
+                </td>
+                <td>
+                  <span class="curr">$</span>
+                  <span class="invoice-amt">3,000.00</span>
+                </td>
+                <td>
+                  <span class="invoice-date">07/04/2018</span>
+                </td>
+                <td>
+                  <strong class="customer-num">0123456702</strong>
+                </td>
+                <td>
+                  <strong class="customer-country">USA</strong>
+                </td>
+                <td>
+                  <strong class="item-name">Pro-0902</strong>
+                </td>
+                <td>
+                  <strong class="item-qnty">30</strong>
+                </td>
+                <td>
+                  <strong class="item-cost">100</strong>
+                </td>
+                <td>
+                  <label class="action-list">
+                    <i class="fas fa-paperclip" title="attachment"></i>
+                    <i class="fas fa-pen-square icon" title="Edit"></i>
+                  </label>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <input type="checkbox" name="" />
+                </td>
+                <td>
+                  <strong class="invoice-num">##012345678903</strong>
+                </td>
+                <td>
+                  <span class="invoice-date">06/03/2018</span>
+                </td>
+                <td>
+                  <span class="curr">$</span>
+                  <span class="invoice-amt">5,000.00</span>
+                </td>
+                <td>
+                  <span class="invoice-date">12/03/2018</span>
+                </td>
+                <td>
+                  <strong class="customer-num">0123456703</strong>
+                </td>
+                <td>
+                  <strong class="customer-country">Canada</strong>
+                </td>
+                <td>
+                  <strong class="item-name">Pro-0903</strong>
+                </td>
+                <td>
+                  <strong class="item-qnty">25</strong>
+                </td>
+                <td>
+                  <strong class="item-cost">200</strong>
+                </td>
+                <td>
+                  <label class="action-list">
+                    <i class="fas fa-paperclip" title="attachment"></i>
+                    <i class="fas fa-pen-square icon" title="Edit"></i>
+                  </label>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <input type="checkbox" name="" />
+                </td>
+                <td>
+                  <strong class="invoice-num">##012345678904</strong>
+                </td>
+                <td>
+                  <span class="invoice-date">07/03/2018</span>
+                </td>
+                <td>
+                  <span class="curr">$</span>
+                  <span class="invoice-amt">7,000.00</span>
+                </td>
+                <td>
+                  <span class="invoice-date">07/04/2018</span>
+                </td>
+                <td>
+                  <strong class="customer-num">0123456704</strong>
+                </td>
+                <td>
+                  <strong class="customer-country">India</strong>
+                </td>
+                <td>
+                  <strong class="item-name">Pro-0904</strong>
+                </td>
+                <td>
+                  <strong class="item-qnty">20</strong>
+                </td>
+                <td>
+                  <strong class="item-cost">350</strong>
+                </td>
+                <td>
+                  <label class="action-list">
+                    <i class="fas fa-paperclip" title="attachment"></i>
+                    <i class="fas fa-pen-square icon" title="Edit"></i>
+                  </label>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <input type="checkbox" name="" />
+                </td>
+                <td>
+                  <strong class="invoice-num">##012345678906</strong>
+                </td>
+                <td>
+                  <span class="invoice-date">08/03/2018</span>
+                </td>
+                <td>
+                  <span class="curr">$</span>
+                  <span class="invoice-amt">4,000.00</span>
+                </td>
+                <td>
+                  <span class="invoice-date">06/04/2018</span>
+                </td>
+                <td>
+                  <strong class="customer-num">0123456706</strong>
+                </td>
+                <td>
+                  <strong class="customer-country">Algeria</strong>
+                </td>
+                <td>
+                  <strong class="item-name">Pro-0906</strong>
+                </td>
+                <td>
+                  <strong class="item-qnty">20</strong>
+                </td>
+                <td>
+                  <strong class="item-cost">200</strong>
+                </td>
+                <td>
+                  <label class="action-list">
+                    <i class="fas fa-paperclip" title="attachment"></i>
+                    <i class="fas fa-pen-square icon" title="Edit"></i>
+                  </label>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <input type="checkbox" name="" />
+                </td>
+                <td>
+                  <strong class="invoice-num">##012345678905</strong>
+                </td>
+                <td>
+                  <span class="invoice-date">07/03/2018</span>
+                </td>
+                <td>
+                  <span class="curr">$</span>
+                  <span class="invoice-amt">6,000.00</span>
+                </td>
+                <td>
+                  <span class="invoice-date">04/04/2018</span>
+                </td>
+                <td>
+                  <strong class="customer-num">0123456705</strong>
+                </td>
+                <td>
+                  <strong class="customer-country">Dubai</strong>
+                </td>
+                <td>
+                  <strong class="item-name">Pro-0905</strong>
+                </td>
+                <td>
+                  <strong class="item-qnty">20</strong>
+                </td>
+                <td>
+                  <strong class="item-cost">300</strong>
+                </td>
+                <td>
+                  <label class="action-list">
+                    <i class="fas fa-paperclip" title="attachment"></i>
+                    <i class="fas fa-pen-square icon" title="Edit"></i>
+                  </label>
+                </td>
+              </tr>
+
+              <tr>
+                <td>
+                  <input type="checkbox" name="" />
+                </td>
+                <td>
+                  <strong class="invoice-num">##012345678907</strong>
+                </td>
+                <td>
+                  <span class="invoice-date">07/03/2018</span>
+                </td>
+                <td>
+                  <span class="curr">$</span>
+                  <span class="invoice-amt">7,000.00</span>
+                </td>
+                <td>
+                  <span class="invoice-date">07/04/2018</span>
+                </td>
+                <td>
+                  <strong class="customer-num">0123456707</strong>
+                </td>
+                <td>
+                  <strong class="customer-country">Canada</strong>
+                </td>
+                <td>
+                  <strong class="item-name">Pro-0904</strong>
+                </td>
+                <td>
+                  <strong class="item-qnty">20</strong>
+                </td>
+                <td>
+                  <strong class="item-cost">350</strong>
+                </td>
+                <td>
+                  <label class="action-list">
+                    <i class="fas fa-paperclip" title="attachment"></i>
+                    <i class="fas fa-pen-square icon" title="Edit"></i>
+                  </label>
+                </td>
+              </tr>
+
+              <tr>
+                <td>
+                  <input type="checkbox" name="" />
+                </td>
+                <td>
+                  <strong class="invoice-num">##012345678908</strong>
+                </td>
+                <td>
+                  <span class="invoice-date">07/03/2018</span>
+                </td>
+                <td>
+                  <span class="curr">$</span>
+                  <span class="invoice-amt">7,000.00</span>
+                </td>
+                <td>
+                  <span class="invoice-date">07/04/2018</span>
+                </td>
+                <td>
+                  <strong class="customer-num">0123456708</strong>
+                </td>
+                <td>
+                  <strong class="customer-country">Thailand</strong>
+                </td>
+                <td>
+                  <strong class="item-name">Pro-0904</strong>
+                </td>
+                <td>
+                  <strong class="item-qnty">20</strong>
+                </td>
+                <td>
+                  <strong class="item-cost">350</strong>
+                </td>
+                <td>
+                  <label class="action-list">
+                    <i class="fas fa-paperclip" title="attachment"></i>
+                    <i class="fas fa-pen-square icon" title="Edit"></i>
+                  </label>
+                </td>
+              </tr>
+
+              <tr>
+                <td>
+                  <input type="checkbox" name="" />
+                </td>
+                <td>
+                  <strong class="invoice-num">##012345678909</strong>
+                </td>
+                <td>
+                  <span class="invoice-date">09/03/2018</span>
+                </td>
+                <td>
+                  <span class="curr">$</span>
+                  <span class="invoice-amt">6,000.00</span>
+                </td>
+                <td>
+                  <span class="invoice-date">07/04/2018</span>
+                </td>
+                <td>
+                  <strong class="customer-num">0123456709</strong>
+                </td>
+                <td>
+                  <strong class="customer-country">Thailand</strong>
+                </td>
+                <td>
+                  <strong class="item-name">Pro-0908</strong>
+                </td>
+                <td>
+                  <strong class="item-qnty">20</strong>
+                </td>
+                <td>
+                  <strong class="item-cost">300</strong>
+                </td>
+                <td>
+                  <label class="action-list">
+                    <i class="fas fa-paperclip" title="attachment"></i>
+                    <i class="fas fa-pen-square icon" title="Edit"></i>
+                  </label>
+                </td>
+              </tr>
+
+              <tr>
+                <td>
+                  <input type="checkbox" name="" />
+                </td>
+                <td>
+                  <strong class="invoice-num">##012345678910</strong>
+                </td>
+                <td>
+                  <span class="invoice-date">07/03/2018</span>
+                </td>
+                <td>
+                  <span class="curr">$</span>
+                  <span class="invoice-amt">9,000.00</span>
+                </td>
+                <td>
+                  <span class="invoice-date">07/04/2018</span>
+                </td>
+                <td>
+                  <strong class="customer-num">0123456710</strong>
+                </td>
+                <td>
+                  <strong class="customer-country">India</strong>
+                </td>
+                <td>
+                  <strong class="item-name">Pro-0909</strong>
+                </td>
+                <td>
+                  <strong class="item-qnty">20</strong>
+                </td>
+                <td>
+                  <strong class="item-cost">450</strong>
+                </td>
+                <td>
+                  <label class="action-list">
+                    <i class="fas fa-paperclip" title="attachment"></i>
+                    <i class="fas fa-pen-square icon" title="Edit"></i>
+                  </label>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </section><!-- =Table Section End//= -->
+      </div><!-- =invoice Listing Container End//= -->
+
+      <!-- =Approved Invoice Listing Container= -->
+      <div class="invoive-listing-container approved-listing" *ngIf="item ==2">
+        <h2 class="title">Approved Invoice Listing</h2>
+        <section class="table-section table-responsive">
+          <table border="" class="table">
+            <thead>
+              <tr>
+                <th>&nbsp;</th>
+                <th>#Invoice Number</th>
+                <th>Invoice Date</th>
+                <th>Invoice Amount</th>
+                <th>Invoice Due Date</th>
+                <th>Customer Number</th>
+                <th>Customer Country</th>
+                <th>Item Name</th>
+                <th>Item Cost <br /> (per item)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  <i class="fas fa-paperclip" title="attachment"></i>
+                  <strong>1.</strong>
+                </td>
+                <td>
+                  <strong class="invoice-num">##012345678911</strong>
+                </td>
+                <td>
+                  <span class="invoice-date">08/02/2018</span>
+                </td>
+                <td>
+                  <span class="curr">$</span>
+                  <span class="invoice-amt">1,000.00</span>
+                </td>
+                <td>
+                  <span class="invoice-date">02/04/2018</span>
+                </td>
+                <td>
+                  <strong class="customer-num">0123456711</strong>
+                </td>
+                <td>
+                  <strong class="customer-country">India</strong>
+                </td>
+                <td>
+                  <strong class="item-name">Pro-0902</strong>
+                </td>
+                <td>
+                  <strong class="item-cost">100</strong>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <i class="fas fa-paperclip" title="attachment"></i>
+                  <strong>2.</strong>
+                </td>
+                <td>
+                  <strong class="invoice-num">##012345678913</strong>
+                </td>
+                <td>
+                  <span class="invoice-date">08/02/2018</span>
+                </td>
+                <td>
+                  <span class="curr">$</span>
+                  <span class="invoice-amt">7,000.00</span>
+                </td>
+                <td>
+                  <span class="invoice-date">02/04/2018</span>
+                </td>
+                <td>
+                  <strong class="customer-num">0123456713</strong>
+                </td>
+                <td>
+                  <strong class="customer-country">Canada</strong>
+                </td>
+                <td>
+                  <strong class="item-name">Pro-0904</strong>
+                </td>
+                <td>
+                  <strong class="item-cost">350</strong>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <i class="fas fa-paperclip" title="attachment"></i>
+                  <strong>3.</strong>
+                </td>
+                <td>
+                  <strong class="invoice-num">##012345678914</strong>
+                </td>
+                <td>
+                  <span class="invoice-date">06/02/2018</span>
+                </td>
+                <td>
+                  <span class="curr">$</span>
+                  <span class="invoice-amt">4,000.00</span>
+                </td>
+                <td>
+                  <span class="invoice-date">08/04/2018</span>
+                </td>
+                <td>
+                  <strong class="customer-num">0123456714</strong>
+                </td>
+                <td>
+                  <strong class="customer-country">Algeria</strong>
+                </td>
+                <td>
+                  <strong class="item-name">Pro-0906</strong>
+                </td>
+                <td>
+                  <strong class="item-cost">200</strong>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <i class="fas fa-paperclip" title="attachment"></i>
+                  <strong>4.</strong>
+                </td>
+                <td>
+                  <strong class="invoice-num">##012345678915</strong>
+                </td>
+                <td>
+                  <span class="invoice-date">06/03/2018</span>
+                </td>
+                <td>
+                  <span class="curr">$</span>
+                  <span class="invoice-amt">5,000.00</span>
+                </td>
+                <td>
+                  <span class="invoice-date">02/04/2018</span>
+                </td>
+                <td>
+                  <strong class="customer-num">0123456715</strong>
+                </td>
+                <td>
+                  <strong class="customer-country">India</strong>
+                </td>
+                <td>
+                  <strong class="item-name">Pro-0901</strong>
+                </td>
+                <td>
+                  <strong class="item-cost">250</strong>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <i class="fas fa-paperclip" title="attachment"></i>
+                  <strong>5.</strong>
+                </td>
+                <td>
+                  <strong class="invoice-num">##012345678916</strong>
+                </td>
+                <td>
+                  <span class="invoice-date">04/03/2018</span>
+                </td>
+                <td>
+                  <span class="curr">$</span>
+                  <span class="invoice-amt">7,000.00</span>
+                </td>
+                <td>
+                  <span class="invoice-date">02/04/2018</span>
+                </td>
+                <td>
+                  <strong class="customer-num">0123456716</strong>
+                </td>
+                <td>
+                  <strong class="customer-country">Thailand</strong>
+                </td>
+                <td>
+                  <strong class="item-name">Pro-0903</strong>
+                </td>
+                <td>
+                  <strong class="item-cost">350</strong>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </section><!-- =Table Section End//= -->
+      </div><!-- =Approved Invoice Listing Container End//= -->
+
+      <!-- =Pending Invoice Listing Container= -->
+      <div class="invoive-listing-container pending-listting" *ngIf="item ==3">
+        <h2 class="title">All the Pending Invoice Listing</h2>
+        <section class="table-section table-responsive">
+          <table border="" class="table">
+            <thead>
+              <tr>
+                <th>&nbsp;</th>
+                <th>#Invoice Number</th>
+                <th>Invoice Date</th>
+                <th>Invoice Amount</th>
+                <th>Invoice Due Date</th>
+                <th>Customer Number</th>
+                <th>Customer Country</th>
+                <th>Item Name</th>
+                <th>Total Quantity</th>
+                <th>Item Cost <br /> (per item)</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  <input type="checkbox" name="" />
+                </td>
+                <td>
+                  <strong class="invoice-num">##012345678900</strong>
+                </td>
+                <td>
+                  <span class="invoice-date">02/03/2018</span>
+                </td>
+                <td>
+                  <span class="curr">$</span>
+                  <span class="invoice-amt">1,000.00</span>
+                </td>
+                <td>
+                  <span class="invoice-date">02/04/2018</span>
+                </td>
+                <td>
+                  <strong class="customer-num">0123456700</strong>
+                </td>
+                <td>
+                  <strong class="customer-country">India</strong>
+                </td>
+                <td>
+                  <strong class="item-name">Pro-0900</strong>
+                </td>
+                <td>
+                  <strong class="item-qnty">10</strong>
+                </td>
+                <td>
+                  <strong class="item-cost">100</strong>
+                </td>
+                <td>
+                  <label class="action-list">
+                    <i class="fas fa-paperclip" title="attachment"></i>
+                    <i class="fas fa-pen-square icon" title="Edit"></i>
+                  </label>
+                </td>
+              </tr>
+
+              <tr>
+                <td>
+                  <input type="checkbox" name="" />
+                </td>
+                <td>
+                  <strong class="invoice-num">##012345678901</strong>
+                </td>
+                <td>
+                  <span class="invoice-date">04/03/2018</span>
+                </td>
+                <td>
+                  <span class="curr">$</span>
+                  <span class="invoice-amt">2,000.00</span>
+                </td>
+                <td>
+                  <span class="invoice-date">06/04/2018</span>
+                </td>
+                <td>
+                  <strong class="customer-num">0123456701</strong>
+                </td>
+                <td>
+                  <strong class="customer-country">Algeria</strong>
+                </td>
+                <td>
+                  <strong class="item-name">Pro-0901</strong>
+                </td>
+                <td>
+                  <strong class="item-qnty">10</strong>
+                </td>
+                <td>
+                  <strong class="item-cost">200</strong>
+                </td>
+                <td>
+                  <label class="action-list">
+                    <i class="fas fa-paperclip" title="attachment"></i>
+                    <i class="fas fa-pen-square icon" title="Edit"></i>
+                  </label>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <input type="checkbox" name="" />
+                </td>
+                <td>
+                  <strong class="invoice-num">##012345678902</strong>
+                </td>
+                <td>
+                  <span class="invoice-date">05/03/2018</span>
+                </td>
+                <td>
+                  <span class="curr">$</span>
+                  <span class="invoice-amt">3,000.00</span>
+                </td>
+                <td>
+                  <span class="invoice-date">07/04/2018</span>
+                </td>
+                <td>
+                  <strong class="customer-num">0123456702</strong>
+                </td>
+                <td>
+                  <strong class="customer-country">USA</strong>
+                </td>
+                <td>
+                  <strong class="item-name">Pro-0902</strong>
+                </td>
+                <td>
+                  <strong class="item-qnty">30</strong>
+                </td>
+                <td>
+                  <strong class="item-cost">100</strong>
+                </td>
+                <td>
+                  <label class="action-list">
+                    <i class="fas fa-paperclip" title="attachment"></i>
+                    <i class="fas fa-pen-square icon" title="Edit"></i>
+                  </label>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <input type="checkbox" name="" />
+                </td>
+                <td>
+                  <strong class="invoice-num">##012345678903</strong>
+                </td>
+                <td>
+                  <span class="invoice-date">06/03/2018</span>
+                </td>
+                <td>
+                  <span class="curr">$</span>
+                  <span class="invoice-amt">5,000.00</span>
+                </td>
+                <td>
+                  <span class="invoice-date">12/03/2018</span>
+                </td>
+                <td>
+                  <strong class="customer-num">0123456703</strong>
+                </td>
+                <td>
+                  <strong class="customer-country">Canada</strong>
+                </td>
+                <td>
+                  <strong class="item-name">Pro-0903</strong>
+                </td>
+                <td>
+                  <strong class="item-qnty">25</strong>
+                </td>
+                <td>
+                  <strong class="item-cost">200</strong>
+                </td>
+                <td>
+                  <label class="action-list">
+                    <i class="fas fa-paperclip" title="attachment"></i>
+                    <i class="fas fa-pen-square icon" title="Edit"></i>
+                  </label>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <input type="checkbox" name="" />
+                </td>
+                <td>
+                  <strong class="invoice-num">##012345678904</strong>
+                </td>
+                <td>
+                  <span class="invoice-date">07/03/2018</span>
+                </td>
+                <td>
+                  <span class="curr">$</span>
+                  <span class="invoice-amt">7,000.00</span>
+                </td>
+                <td>
+                  <span class="invoice-date">07/04/2018</span>
+                </td>
+                <td>
+                  <strong class="customer-num">0123456704</strong>
+                </td>
+                <td>
+                  <strong class="customer-country">India</strong>
+                </td>
+                <td>
+                  <strong class="item-name">Pro-0904</strong>
+                </td>
+                <td>
+                  <strong class="item-qnty">20</strong>
+                </td>
+                <td>
+                  <strong class="item-cost">350</strong>
+                </td>
+                <td>
+                  <label class="action-list">
+                    <i class="fas fa-paperclip" title="attachment"></i>
+                    <i class="fas fa-pen-square icon" title="Edit"></i>
+                  </label>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <input type="checkbox" name="" />
+                </td>
+                <td>
+                  <strong class="invoice-num">##012345678906</strong>
+                </td>
+                <td>
+                  <span class="invoice-date">08/03/2018</span>
+                </td>
+                <td>
+                  <span class="curr">$</span>
+                  <span class="invoice-amt">4,000.00</span>
+                </td>
+                <td>
+                  <span class="invoice-date">06/04/2018</span>
+                </td>
+                <td>
+                  <strong class="customer-num">0123456706</strong>
+                </td>
+                <td>
+                  <strong class="customer-country">Algeria</strong>
+                </td>
+                <td>
+                  <strong class="item-name">Pro-0906</strong>
+                </td>
+                <td>
+                  <strong class="item-qnty">20</strong>
+                </td>
+                <td>
+                  <strong class="item-cost">200</strong>
+                </td>
+                <td>
+                  <label class="action-list">
+                    <i class="fas fa-paperclip" title="attachment"></i>
+                    <i class="fas fa-pen-square icon" title="Edit"></i>
+                  </label>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <input type="checkbox" name="" />
+                </td>
+                <td>
+                  <strong class="invoice-num">##012345678905</strong>
+                </td>
+                <td>
+                  <span class="invoice-date">07/03/2018</span>
+                </td>
+                <td>
+                  <span class="curr">$</span>
+                  <span class="invoice-amt">6,000.00</span>
+                </td>
+                <td>
+                  <span class="invoice-date">04/04/2018</span>
+                </td>
+                <td>
+                  <strong class="customer-num">0123456705</strong>
+                </td>
+                <td>
+                  <strong class="customer-country">Dubai</strong>
+                </td>
+                <td>
+                  <strong class="item-name">Pro-0905</strong>
+                </td>
+                <td>
+                  <strong class="item-qnty">20</strong>
+                </td>
+                <td>
+                  <strong class="item-cost">300</strong>
+                </td>
+                <td>
+                  <label class="action-list">
+                    <i class="fas fa-paperclip" title="attachment"></i>
+                    <i class="fas fa-pen-square icon" title="Edit"></i>
+                  </label>
+                </td>
+              </tr>
+
+              <tr>
+                <td>
+                  <input type="checkbox" name="" />
+                </td>
+                <td>
+                  <strong class="invoice-num">##012345678907</strong>
+                </td>
+                <td>
+                  <span class="invoice-date">07/03/2018</span>
+                </td>
+                <td>
+                  <span class="curr">$</span>
+                  <span class="invoice-amt">7,000.00</span>
+                </td>
+                <td>
+                  <span class="invoice-date">07/04/2018</span>
+                </td>
+                <td>
+                  <strong class="customer-num">0123456707</strong>
+                </td>
+                <td>
+                  <strong class="customer-country">Canada</strong>
+                </td>
+                <td>
+                  <strong class="item-name">Pro-0904</strong>
+                </td>
+                <td>
+                  <strong class="item-qnty">20</strong>
+                </td>
+                <td>
+                  <strong class="item-cost">350</strong>
+                </td>
+                <td>
+                  <label class="action-list">
+                    <i class="fas fa-paperclip" title="attachment"></i>
+                    <i class="fas fa-pen-square icon" title="Edit"></i>
+                  </label>
+                </td>
+              </tr>
+
+              <tr>
+                <td>
+                  <input type="checkbox" name="" />
+                </td>
+                <td>
+                  <strong class="invoice-num">##012345678908</strong>
+                </td>
+                <td>
+                  <span class="invoice-date">07/03/2018</span>
+                </td>
+                <td>
+                  <span class="curr">$</span>
+                  <span class="invoice-amt">7,000.00</span>
+                </td>
+                <td>
+                  <span class="invoice-date">07/04/2018</span>
+                </td>
+                <td>
+                  <strong class="customer-num">0123456708</strong>
+                </td>
+                <td>
+                  <strong class="customer-country">Thailand</strong>
+                </td>
+                <td>
+                  <strong class="item-name">Pro-0904</strong>
+                </td>
+                <td>
+                  <strong class="item-qnty">20</strong>
+                </td>
+                <td>
+                  <strong class="item-cost">350</strong>
+                </td>
+                <td>
+                  <label class="action-list">
+                    <i class="fas fa-paperclip" title="attachment"></i>
+                    <i class="fas fa-pen-square icon" title="Edit"></i>
+                  </label>
+                </td>
+              </tr>
+
+              <tr>
+                <td>
+                  <input type="checkbox" name="" />
+                </td>
+                <td>
+                  <strong class="invoice-num">##012345678909</strong>
+                </td>
+                <td>
+                  <span class="invoice-date">09/03/2018</span>
+                </td>
+                <td>
+                  <span class="curr">$</span>
+                  <span class="invoice-amt">6,000.00</span>
+                </td>
+                <td>
+                  <span class="invoice-date">07/04/2018</span>
+                </td>
+                <td>
+                  <strong class="customer-num">0123456709</strong>
+                </td>
+                <td>
+                  <strong class="customer-country">Thailand</strong>
+                </td>
+                <td>
+                  <strong class="item-name">Pro-0908</strong>
+                </td>
+                <td>
+                  <strong class="item-qnty">20</strong>
+                </td>
+                <td>
+                  <strong class="item-cost">300</strong>
+                </td>
+                <td>
+                  <label class="action-list">
+                    <i class="fas fa-paperclip" title="attachment"></i>
+                    <i class="fas fa-pen-square icon" title="Edit"></i>
+                  </label>
+                </td>
+              </tr>
+
+              <tr>
+                <td>
+                  <input type="checkbox" name="" />
+                </td>
+                <td>
+                  <strong class="invoice-num">##012345678910</strong>
+                </td>
+                <td>
+                  <span class="invoice-date">07/03/2018</span>
+                </td>
+                <td>
+                  <span class="curr">$</span>
+                  <span class="invoice-amt">9,000.00</span>
+                </td>
+                <td>
+                  <span class="invoice-date">07/04/2018</span>
+                </td>
+                <td>
+                  <strong class="customer-num">0123456710</strong>
+                </td>
+                <td>
+                  <strong class="customer-country">India</strong>
+                </td>
+                <td>
+                  <strong class="item-name">Pro-0909</strong>
+                </td>
+                <td>
+                  <strong class="item-qnty">20</strong>
+                </td>
+                <td>
+                  <strong class="item-cost">450</strong>
+                </td>
+                <td>
+                  <label class="action-list">
+                    <i class="fas fa-paperclip" title="attachment"></i>
+                    <i class="fas fa-pen-square icon" title="Edit"></i>
+                  </label>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </section><!-- =Table Section End//= -->
+      </div><!-- =Pending invoice Listing Container End//= -->
+    </section><!-- =Right Content Col End//= -->
+
+  </main><!-- =Account Main Content Frame End//= -->
+</div><!-- =Account Content Frame End//= -->

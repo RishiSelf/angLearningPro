@@ -1,0 +1,20 @@
+<h1 class="logo-frame">
+  <a [routerLink]= "['../assignmentHomeScreen']" routerLinkActive="active">
+      <i class="fab fa-accusoft"></i>
+      <span class="text">Invoicing Screen</span>
+  </a>
+</h1><!-- =Logo Frame End//= -->
+<br />
+<section class="content-frame">
+  <div class="account-type-listing">
+    <h2 class="title">Account Type</h2>
+    <div class="btn-row">
+      <a class="btn" [routerLink]= "['../userAccountScreen']">
+        User Account
+      </a>
+      <a class="btn" [routerLink]="['../approverAccountScreen']">
+        Approver Account
+      </a>
+    </div><!-- =Btn Row End//= -->
+  </div>
+</section>

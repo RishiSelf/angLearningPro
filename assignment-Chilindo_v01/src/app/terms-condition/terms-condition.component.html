@@ -1,0 +1,49 @@
+<h1 class="logo-frame">
+  <a [routerLink]= "" routerLinkActive="active">
+    <i class="fab fa-asymmetrik"></i>
+    <span class="logo-text">Account Opening</span>
+  </a>
+</h1><!-- =Logo Frame End//= -->
+
+  <section class="content-frame">
+
+    <article class="text-content article-box">
+      <h2 class="page-title">Terms and Condition</h2>
+      <p class="paragraph">
+        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+      </p>
+
+      <p class="paragraph">
+        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+      </p>
+
+      <p class="paragraph">
+        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+      </p>
+
+      <p class="paragraph">
+        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+      </p>
+    </article>
+
+    <div class="accept-block custom-checkbox-row">
+      <label class="custom-check">
+        <input type="checkbox" value="" name="termConditions" class="input-check" (change)="changeEvent($event)" />
+        <span class="check-mark">&nbsp;</span>
+        <span class="text">
+          Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+        </span>
+      </label>
+    </div><!-- = = -->
+    <div class="btn-row">
+      <button class="btn btn-white" [routerLink]= "['../createAccountScreen']" routerLinkActive="active" [disabled]="toggleEvent">
+        <span>Continue</span>
+      </button>
+      <button class="btn btn-black" [routerLink]= "['../landingScreen']" routerLinkActive="active">
+        <span>Back</span>
+      </button>
+    </div>
+
+
+  </section>

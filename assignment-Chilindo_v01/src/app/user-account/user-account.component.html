@@ -1,0 +1,527 @@
+<div class="account-page-frame">
+  <header class="account-header-frame">
+    <div class="account-info-col">
+      <label class="account-person">
+        <strong>Hi,</strong>
+        <span class="name">User 10982!</span>
+      </label>
+      <a class="logout-link" [routerLink]= "['../assignmentTwoHomeScreen']">
+        <i class="fas fa-sign-out-alt"></i>
+      </a>
+    </div><!-- =Account Person Col End//= -->
+
+    <h1 class="logo-frame">
+      <a [routerLink]= "['../assignmentHomeScreen']" routerLinkActive="active">
+          <i class="fab fa-accusoft"></i>
+          <span class="text">Invoicing Screen</span>
+      </a>
+    </h1><!-- =Logo Frame End//= -->
+  </header><!-- =Account Detail Block End//= -->
+
+  <main class="account-main-content">
+    <aside class="side-col">
+      <p class="profile-pic">
+        <span class="pic-frame">
+          <i class="fas fa-user"></i>
+        </span>
+      </p><!-- =Profile Pic Col End//= -->
+
+      <ul class="listing-frame">
+        <li class="active" [ngClass]="{'active': item == 1 }">
+          <p class="list-content" (click)= 'item = 1'>
+            <i class="fas fa-plus"></i>
+            <span class="tab">Create New Invoice</span>
+          </p>
+        </li>
+
+        <li [ngClass]="{'active': item == 2 }">
+          <p class="list-content" (click)= 'item = 2'>
+            <i class="fas fa-th-list"></i>
+            <span class="tab">View All Invoice</span>
+          </p>
+        </li>
+
+        <li>
+          <p class="list-content" [routerLink]= "['../assignmentTwoHomeScreen']">
+            <i class="fas fa-sign-out-alt"></i>
+            <span class="tab">Logout</span>
+          </p>
+        </li>
+      </ul>
+    </aside><!-- =Side Col End//= -->
+
+    <section class="right-content-col account-container">
+      <nav class="top-row">
+        <div class="search-col">
+            <div class="search-container">
+              <input type="text" value="" placeholder="Enter Keyword for search.." name="searchInput" class="search-input" />
+              <button class="btn-search"><i class="fas fa-search"></i></button>
+            </div>
+        </div><!-- =Search Col End//= -->
+
+        <ul class="tab-listing">
+          <li class="active" [ngClass]="{'active': item == 1 }">
+            <p class="list-content" (click)= 'item = 1'>
+              <i class="fas fa-plus"></i>
+              <span class="tab">Create New Invoice</span>
+            </p>
+          </li>
+          <li [ngClass]="{'active': item == 2 }">
+            <p class="list-content" (click)= 'item = 2'>
+              <i class="fas fa-th-list"></i>
+              <span class="tab">View All Invoice</span>
+            </p>
+          </li>
+        </ul><!-- =Tab Listing End//= -->
+      </nav><!-- =Tow Row End//= -->
+
+      <div class="invoice-form-container form-container" *ngIf="item == 1">
+        <h4 class="title-lbl">Fill all the details. All the details are necessary for Invoice Filling.</h4>
+        <form name="" #createInvoiceForm="ngForm">
+          <div class="form-section form-group">
+            <section class="row form-row">
+              <div class="col-sm-6 col-xs-12 input-col">
+                <label for="invoiceNum" class="form-lbl">##Invoice Number</label>
+                <input type="text" name="invoiceNum" pattern="[0-9]+" maxlength="20" [(ngModel)]="formData.invoiceNum" #invoiceNum="ngModel" class="form-control" required />
+                <!-- =Error Content= -->
+                <p *ngIf="invoiceNum.invalid && (invoiceNum.dirty || invoiceNum.touched)" class="alert alert-danger">
+                  <label class="lbl-text" *ngIf="invoiceNum.errors.required">Invoice Number is Required</label>
+                  <label class="lbl-text" *ngIf="invoiceNum.errors.pattern">Numeric Data is Required</label>
+                </p>
+              </div><!-- =Invoice num Col End//= -->
+
+              <div class="col-sm-6 col-xs-12 input-col">
+                <label for="invoiceDate" class="form-lbl">##Invoice Date</label>
+                <input type="date" name="invoiceDate" [(ngModel)]="formData.invoiceDate" #invoiceDate="ngModel" class="form-control" required />
+                <!-- =Error Content= -->
+                <p *ngIf="invoiceDate.invalid && (invoiceDate.dirty || invoiceDate.touched)" class="alert alert-danger">
+                  <label class="lbl-text" *ngIf="invoiceDate.errors.required">Invoice Date is Required</label>
+                </p>
+              </div><!-- =Invoice Date Col End//= -->
+            </section><!-- =Form Row End//= -->
+
+            <section class="row form-row">
+              <div class="col-sm-6 col-xs-12 input-col">
+                <label for="invoiceAmt" class="form-lbl">Invoice Amount</label>
+                <input type="text" name="invoiceAmt" pattern="[0-9]+" [(ngModel)]="formData.invoiceAmt" #invoiceAmt="ngModel" class="form-control" required />
+                <!-- =Error Content= -->
+                <p *ngIf="invoiceAmt.invalid && (invoiceAmt.dirty || invoiceAmt.touched)" class="alert alert-danger">
+                  <label class="lbl-text" *ngIf="invoiceAmt.errors.required">Invoice Amount is Required</label>
+                  <label class="lbl-text" *ngIf="invoiceAmt.errors.pattern">Numeric Value is Required</label>
+                </p>
+              </div><!-- =Invoice Amount Col End//= -->
+
+              <div class="col-sm-6 col-xs-12 input-col">
+                <label for="invoiceDueDate" class="form-lbl">Invoice Due Date</label>
+                <input type="date" name="invoiceDueDate" [(ngModel)]="formData.invoiceDueDate" #invoiceDueDate="ngModel" class="form-control" required />
+                <!-- =Error Content= -->
+                <p *ngIf="invoiceDueDate.invalid && (invoiceDueDate.dirty || invoiceDueDate.touched)" class="alert alert-danger">
+                  <label class="lbl-text" *ngIf="invoiceDueDate.errors.required">Invoice Date is Required</label>
+                </p>
+              </div><!-- =Invoice num Col End//= -->
+            </section><!-- =Form Row End//= -->
+
+            <section class="row form-row">
+              <div class="col-sm-6 col-xs-12 input-col">
+                <label for="customerNumber" class="form-lbl">Customer Number</label>
+                <input type="text" name="customerNumber" pattern="[0-9]+" [(ngModel)]="formData.customerNumber" #customerNumber="ngModel" class="form-control" required />
+                <!-- =Error Content= -->
+                <p *ngIf="customerNumber.invalid && (customerNumber.dirty || customerNumber.touched)" class="alert alert-danger">
+                  <label class="lbl-text" *ngIf="customerNumber.errors.required">Customer Number is Required</label>
+                  <label class="lbl-text" *ngIf="customerNumber.errors.pattern">Numeric Value is Required</label>
+                </p>
+              </div><!-- =Customer number Col End//= -->
+
+              <div class="col-sm-6 col-xs-12 input-col">
+                <label for="customerCountry" class="form-lbl">Customer Country</label>
+                <select class="form-control c-code" required name="customerCountry" [(ngModel)]="formData.customerCountry" #customerCountry= "ngModel">
+                  <option *ngFor="let phoneCode of countryPhoneCodeArr[0]">
+                      {{phoneCode.name}}
+                      <!-- {{phoneCode.dial_code}} -->
+                  </option>
+                </select>
+                <!-- =Error Content= -->
+                <p *ngIf="customerCountry.invalid && (customerCountry.dirty || customerCountry.touched)" class="alert alert-danger">
+                  <label class="lbl-text" *ngIf="customerCountry.errors.required">Select Country Code</label>
+                </p>
+              </div><!-- =Customer Contry Col End//= -->
+            </section><!-- =Form Row End//= -->
+
+            <h2 class="form-title"><span>Item Description</span></h2>
+            <section class="row form-row">
+              <div class="col-sm-3 col-xs-12 input-col">
+                <label for="itemName" class="form-lbl">Item  Name</label>
+                <input type="text" name="itemName" [(ngModel)]="formData.itemName" #itemName="ngModel" class="form-control" required />
+                <!-- =Error Content= -->
+                <p *ngIf="itemName.invalid && (itemName.dirty || itemName.touched)" class="alert alert-danger">
+                  <label class="lbl-text" *ngIf="itemName.errors.required">Invoice Name is Required</label>
+                </p>
+              </div><!-- =Item Name Col End//= -->
+              <div class="col-sm-3 col-xs-12 input-col">
+                <label for="itemQty" class="form-lbl">Item  Quantity</label>
+                <input type="text" name="itemQty" pattern="[0-9]+" [(ngModel)]="formData.itemQty" #itemQty="ngModel" class="form-control" required />
+                <!-- =Error Content= -->
+                <p *ngIf="itemQty.invalid && (itemQty.dirty || itemQty.touched)" class="alert alert-danger">
+                  <label class="lbl-text" *ngIf="itemQty.errors.required">Invoice Quantity is Required</label>
+                  <label class="lbl-text" *ngIf="itemQty.errors.pattern">Invoice Quantity must be Numeric</label>
+                </p>
+              </div><!-- =Item Cost Col End//= -->
+              <div class="col-sm-3 col-xs-12 input-col">
+                <label for="itemCost" class="form-lbl">Item  Cost</label>
+                <input type="text" name="itemCost" pattern="[0-9]+" [(ngModel)]="formData.itemCost" #itemCost="ngModel" class="form-control" required />
+                <!-- =Error Content= -->
+                <p *ngIf="itemCost.invalid && (itemCost.dirty || itemCost.touched)" class="alert alert-danger">
+                  <label class="lbl-text" *ngIf="itemCost.errors.required">Invoice Cost is Required</label>
+                  <label class="lbl-text" *ngIf="itemCost.errors.pattern">Invoice Cost must be Numeric</label>
+                </p>
+              </div><!-- =Item Cost Col End//= -->
+
+              <div class="col-sm-3 col-xs-12 action-col">
+                <button class="action addmore">
+                  <i _ngcontent-c1="" class="fas fa-plus"></i>
+                  <span class="text">Add More</span>
+                </button>
+                <button class="action deleteIt">
+                  <i class="far fa-trash-alt"></i>
+                  <span class="text">Delete</span>
+                </button>
+              </div>
+            </section><!-- =Form Row End//= -->
+            <section class="form-row total-cost-row">
+              <strong class="term">Total Cost :</strong>
+              <strong class="val">
+                <span class="currency">$</span>
+                <span class="amt">1,000</span>
+              </strong>
+            </section><!-- =Total Cost Row End//= -->
+            <section class="row form-row">
+              <div class="col-sm-4 col-xs-12 input-col">
+                <label for="invoiceDoc" class="form-lbl">Upload Invoice Documents</label>
+                <input type="file" name="invoiceDoc" [(ngModel)]="formData.invoiceDoc" #invoiceDoc="ngModel" class="form-control" required />
+                <!-- =Error Content= -->
+                <!-- <p *ngIf="invoiceDoc.invalid && (invoiceDoc.dirty || invoiceDoc.touched)" class="alert alert-danger">
+                  <label class="lbl-text" *ngIf="invoiceDoc.errors.required">Invoice Document is Required</label>
+                </p> -->
+              </div><!-- =Upload Doc for Invoice End//= -->
+            </section>
+          </div><!-- =Form Group End//= -->
+        </form>
+
+        <div class="btn-row">
+          <button class="btn btn-submit" [disabled]="createInvoiceForm.invalid" (click)="getInvoiceDetails()">Submit</button>
+          <button class="btn btn-reset" [disabled]="createInvoiceForm.invalid">Reset</button>
+        </div><!-- =Btn Row End//= -->
+      </div><!-- =Invoice Form Container End//= -->
+
+      <!-- =invoice Listing Container= -->
+      <div class="invoive-listing-container" *ngIf="item ==2">
+        <h2 class="title">All the Invoice Listing</h2>
+        <section class="table-section table-responsive">
+          <table border="" class="table">
+            <thead>
+              <tr>
+                <th>S.No.</th>
+                <th>##Invoice Number</th>
+                <th>##Invoice Date</th>
+                <th>Invoice Amount</th>
+                <th>Invoice Due Date</th>
+                <th>Customer Number</th>
+                <th>Customer Country</th>
+                <th>Item Name</th>
+                <th>Total Quantity</th>
+                <th>Item Cost <br /> (per item)</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  <i class="fas fa-paperclip"></i>
+                  <strong class="num">01</strong>
+                </td>
+                <td>
+                  <strong class="invoice-num">012456879895545</strong>
+                </td>
+                <td>
+                  <span class="invoice-date">02/03/2018</span>
+                </td>
+                <td>
+                  <span class="curr">$</span>
+                  <span class="invoice-amt">3,000.00</span>
+                </td>
+                <td>
+                  <span class="invoice-date">02/04/2018</span>
+                </td>
+                <td>
+                  <strong class="customer-num">012456879</strong>
+                </td>
+                <td>
+                  <strong class="customer-country">India</strong>
+                </td>
+                <td>
+                  <strong class="item-name">Pro-0987</strong>
+                </td>
+                <td>
+                  <strong class="item-qnty">10</strong>
+                </td>
+                <td>
+                  <strong class="item-cost">300</strong>
+                </td>
+                <td>
+                  <label class="action-list">
+                    <i class="fas fa-pen-square icon"></i>
+                    <i class="far fa-trash-alt icon"></i>
+                  </label>
+                </td>
+              </tr>
+
+              <tr>
+                <td>
+                  <i class="fas fa-paperclip"></i>
+                  <strong class="num">02</strong>
+                </td>
+                <td>
+                  <strong class="invoice-num">012456879895546</strong>
+                </td>
+                <td>
+                  <span class="invoice-date">02/03/2018</span>
+                </td>
+                <td>
+                  <span class="curr">$</span>
+                  <span class="invoice-amt">3,000.00</span>
+                </td>
+                <td>
+                  <span class="invoice-date">02/04/2018</span>
+                </td>
+                <td>
+                  <strong class="customer-num">012456877</strong>
+                </td>
+                <td>
+                  <strong class="customer-country">India</strong>
+                </td>
+                <td>
+                  <strong class="item-name">Pro-0987</strong>
+                </td>
+                <td>
+                  <strong class="item-qnty">10</strong>
+                </td>
+                <td>
+                  <strong class="item-cost">300</strong>
+                </td>
+                <td>
+                  <label class="action-list">
+                    <i class="fas fa-pen-square icon"></i>
+                    <i class="far fa-trash-alt icon"></i>
+                  </label>
+                </td>
+              </tr>
+
+              <tr>
+                <td>
+                  <i class="fas fa-paperclip"></i>
+                  <strong class="num">03</strong>
+                </td>
+                <td>
+                  <strong class="invoice-num">012456879895547</strong>
+                </td>
+                <td>
+                  <span class="invoice-date">02/03/2018</span>
+                </td>
+                <td>
+                  <span class="curr">$</span>
+                  <span class="invoice-amt">3,000.00</span>
+                </td>
+                <td>
+                  <span class="invoice-date">02/04/2018</span>
+                </td>
+                <td>
+                  <strong class="customer-num">012456878</strong>
+                </td>
+                <td>
+                  <strong class="customer-country">India</strong>
+                </td>
+                <td>
+                  <strong class="item-name">Pro-0987</strong>
+                </td>
+                <td>
+                  <strong class="item-qnty">10</strong>
+                </td>
+                <td>
+                  <strong class="item-cost">300</strong>
+                </td>
+                <td>
+                  <label class="action-list">
+                    <i class="fas fa-pen-square icon"></i>
+                    <i class="far fa-trash-alt icon"></i>
+                  </label>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <i class="fas fa-paperclip"></i>
+                  <strong class="num">04</strong>
+                </td>
+                <td>
+                  <strong class="invoice-num">0124568798955478</strong>
+                </td>
+                <td>
+                  <span class="invoice-date">02/03/2018</span>
+                </td>
+                <td>
+                  <span class="curr">$</span>
+                  <span class="invoice-amt">3,000.00</span>
+                </td>
+                <td>
+                  <span class="invoice-date">02/04/2018</span>
+                </td>
+                <td>
+                  <strong class="customer-num">012456878</strong>
+                </td>
+                <td>
+                  <strong class="customer-country">India</strong>
+                </td>
+                <td>
+                  <strong class="item-name">Pro-0987</strong>
+                </td>
+                <td>
+                  <strong class="item-qnty">10</strong>
+                </td>
+                <td>
+                  <strong class="item-cost">300</strong>
+                </td>
+                <td>
+                  <label class="action-list">
+                    <i class="fas fa-pen-square icon"></i>
+                    <i class="far fa-trash-alt icon"></i>
+                  </label>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <i class="fas fa-paperclip"></i>
+                  <strong class="num">05</strong>
+                </td>
+                <td>
+                  <strong class="invoice-num">012456879895549</strong>
+                </td>
+                <td>
+                  <span class="invoice-date">02/03/2018</span>
+                </td>
+                <td>
+                  <span class="curr">$</span>
+                  <span class="invoice-amt">3,000.00</span>
+                </td>
+                <td>
+                  <span class="invoice-date">02/04/2018</span>
+                </td>
+                <td>
+                  <strong class="customer-num">012456878</strong>
+                </td>
+                <td>
+                  <strong class="customer-country">India</strong>
+                </td>
+                <td>
+                  <strong class="item-name">Pro-0987</strong>
+                </td>
+                <td>
+                  <strong class="item-qnty">10</strong>
+                </td>
+                <td>
+                  <strong class="item-cost">300</strong>
+                </td>
+                <td>
+                  <label class="action-list">
+                    <i class="fas fa-pen-square icon"></i>
+                    <i class="far fa-trash-alt icon"></i>
+                  </label>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <i class="fas fa-paperclip"></i>
+                  <strong class="num">06</strong>
+                </td>
+                <td>
+                  <strong class="invoice-num">012456879895550</strong>
+                </td>
+                <td>
+                  <span class="invoice-date">02/03/2018</span>
+                </td>
+                <td>
+                  <span class="curr">$</span>
+                  <span class="invoice-amt">7,000.00</span>
+                </td>
+                <td>
+                  <span class="invoice-date">02/04/2018</span>
+                </td>
+                <td>
+                  <strong class="customer-num">012456878</strong>
+                </td>
+                <td>
+                  <strong class="customer-country">India</strong>
+                </td>
+                <td>
+                  <strong class="item-name">Pro-0987</strong>
+                </td>
+                <td>
+                  <strong class="item-qnty">20</strong>
+                </td>
+                <td>
+                  <strong class="item-cost">350</strong>
+                </td>
+                <td>
+                  <label class="action-list">
+                    <i class="fas fa-pen-square icon"></i>
+                    <i class="far fa-trash-alt icon"></i>
+                  </label>
+                </td>
+              </tr>
+
+              <tr>
+                <td>
+                  <i class="fas fa-paperclip"></i>
+                  <strong class="num">07</strong>
+                </td>
+                <td>
+                  <strong class="invoice-num">012456879895551</strong>
+                </td>
+                <td>
+                  <span class="invoice-date">05/03/2018</span>
+                </td>
+                <td>
+                  <span class="curr">$</span>
+                  <span class="invoice-amt">6,000.00</span>
+                </td>
+                <td>
+                  <span class="invoice-date">02/04/2018</span>
+                </td>
+                <td>
+                  <strong class="customer-num">012456878</strong>
+                </td>
+                <td>
+                  <strong class="customer-country">India</strong>
+                </td>
+                <td>
+                  <strong class="item-name">Pro-0979</strong>
+                </td>
+                <td>
+                  <strong class="item-qnty">10</strong>
+                </td>
+                <td>
+                  <strong class="item-cost">600</strong>
+                </td>
+                <td>
+                  <label class="action-list">
+                    <i class="fas fa-pen-square icon"></i>
+                    <i class="far fa-trash-alt icon"></i>
+                  </label>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </section><!-- =Table Section End//= -->
+      </div><!-- =invoice Listing Container End//= -->
+    </section><!-- =Right Content Col End//= -->
+
+  </main><!-- =Account Main Content Frame End//= -->
+</div><!-- =Account Content Frame End//= -->

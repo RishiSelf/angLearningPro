@@ -1,0 +1,525 @@
+<main class="main-page-container">
+  <header class="header-frame">
+    <h1 class="logo-frame">
+      <a [routerLink]= "['../landingScreen']" routerLinkActive="active">
+        <i class="fab fa-asymmetrik"></i>
+        <span class="logo-text">Account Opening</span>
+      </a>
+    </h1><!-- =Logo Frame End//= -->
+    <label class="back-label" [routerLink]= "['../assignmentHomeScreen']" routerLinkActive="active">
+      <i class="fas fa-sign-out-alt"></i>
+      <span>Back To Assignments</span>
+    </label>
+  </header><!-- =Header Frame End//= -->
+
+  <div class="mid-content-frame">
+    <section class="content-frame right-content-frame">
+      <h2 class="content-title">
+        <span class="title-text">Create Bank Account</span>
+      </h2><!-- =Content Title End//= -->
+      <div class="account-detail-frame" style="">
+        <!-- <router-outlet></router-outlet> -->
+        <div class="form-step-bar">
+          <ul class="process-steps">
+            <li class="" [ngClass]="{'active': item == 1, 'done': item > 1 }">
+              <span class="num" (click)= 'tabContent(item = 1)'>1</span>
+              <strong class="lbl">Personal</strong>
+              <!-- <strong class="lbl">Step 1</strong> -->
+            </li>
+            <li [ngClass]="{'active': item == 2, 'done': item > 2 }">
+              <span class="num"  (click)= 'tabContent(item = 2)'>2</span>
+              <strong class="lbl">Professional</strong>
+              <!-- <strong class="lbl">Step 2</strong> -->
+            </li>
+            <li [ngClass]="{'active': item == 3, 'done': item > 3 }">
+              <span class="num" (click)= 'tabContent(item = 3)'>3</span>
+              <strong class="lbl">Account</strong>
+              <!-- <strong class="lbl">Step 3</strong> -->
+            </li>
+            <li [ngClass]="{'active': item == 4, 'done': item > 4 }">
+              <span class="num" (click)= 'tabContent(item = 4)'>4</span>
+              <strong class="lbl">Upload Documents</strong>
+              <!-- <strong class="lbl">Step 4</strong> -->
+            </li>
+          </ul>
+        </div><!-- =Forms Step Bar End// =-->
+
+        <div class="form-container">
+          <form name="createAccount" #createAccountForm="ngForm">
+            <section class="form-section personal-infor-section" *ngIf="item == 1">
+              <h3 class="form-title">Personal Information</h3>
+              <div class="form-group">
+                <section class="row input-row">
+                  <div class="col-sm-2 col-xs-12 input-col">
+                    <label class="form-lbl" for="honorific">Title</label>
+                    <select class="form-control" name="honorific" required [(ngModel)]="formData.honorific" #honorific="ngModel">
+                      <option>Mr.</option>
+                      <option>Mrs.</option>
+                      <option>Ms.</option>
+                      <option>Other</option>
+                    </select>
+                    <!-- =Error Cotnent= -->
+                    <p class="alert alert-danger" *ngIf="honorific.invalid && (honorific.dirty || honorific.touched)">
+                      <label class="lbl-text" *ngIf="honorific.errors.required">Select Prefix Title</label>
+                    </p>
+                  </div><!-- =honorifics Col End//=-->
+
+                  <div class="col-sm-4 col-xs-12 input-col">
+                    <label for="fName" class="form-lbl">First Name</label>
+                    <input type="text" name="fName" placeholder="Your First Name" pattern="[a-zA-Z][a-zA-Z ]+" class="form-control" [(ngModel)]="formData.fName" required #fName="ngModel" />
+                    <!-- =Error Content= -->
+                    <p *ngIf="fName.invalid && (fName.dirty || fName.touched)" class="alert alert-danger">
+                      <label class="lbl-text" *ngIf="fName.errors.required">First Name is Required</label>
+                      <label class="lbl-text" *ngIf="fName.errors.pattern">First Name should be Alphabetic</label>
+                    </p>
+                  </div><!-- =First Name Col End//=-->
+                  <div class="col-sm-3 col-xs-12 input-col">
+                    <label for="mName" class="form-lbl">Middle Name</label>
+                    <input type="text" name="mName" placeholder="Your Middle Name" class="form-control" [(ngModel)]="formData.mName" #mName="ngModel" />
+                  </div><!-- =Middle Name Col End//=-->
+
+                  <div class="col-sm-3 col-xs-12 input-col">
+                    <label for="lName" class="form-lbl">Last Name</label>
+                    <input type="text" name="lName" placeholder="Your Last Name" class="form-control" pattern="[a-zA-Z][a-zA-Z ]+" required [(ngModel)]="formData.lName" #lName="ngModel" />
+
+                    <!-- =Error Content= -->
+                    <p *ngIf="lName.invalid && (lName.dirty || lName.touched)" class="alert alert-danger">
+                      <label class="lbl-text" *ngIf="lName.errors.required">Last Name is Required</label>
+                      <label class="lbl-text" *ngIf="lName.errors.pattern">Last Name should be Alphabetic</label>
+                    </p>
+                  </div><!-- =Last Name Col End//=-->
+                </section><!-- =input row End//= -->
+
+                <section class="row input-row phone-row">
+                  <div class="col-sm-6 col-xs-12 ">
+                    <section class="row">
+                        <div class="col-sm-4 col-xs-12 input-col">
+                          <label for="homePhoneCode" class="form-lbl">Phone Code</label>
+                          <select class="form-control c-code" required name="homePhoneCode" [(ngModel)]="formData.homePhoneCode" #homePhoneCode= "ngModel">
+                            <option *ngFor="let phoneCode of countryPhoneCodeArr[0]">
+                                {{phoneCode.name}}
+                                {{phoneCode.dial_code}}
+                            </option>
+                          </select>
+                          <!-- =Error Content= -->
+                          <p *ngIf="homePhoneCode.invalid && (homePhoneCode.dirty || homePhoneCode.touched)" class="alert alert-danger">
+                            <label class="lbl-text" *ngIf="homePhoneCode.errors.required">Select Country Code</label>
+                          </p>
+                        </div><!-- =home Code Select Col End//= -->
+
+                        <div class="col-sm-8 col-xs-12 input-col">
+                          <label for="homePhone" class="form-lbl">Home Phone Number</label>
+                          <input type="text" name="homePhone" placeholder="Home Phone" pattern="[0-9]*"  minlength="10"  maxlength="10" class="form-control phone-num" required [(ngModel)]="formData.homePhone" #homePhone="ngModel" />
+
+                          <!-- =Error Content= -->
+                          <p *ngIf="homePhone.invalid && (homePhone.dirty || homePhone.touched)" class="alert alert-danger">
+                            <label class="lbl-text" *ngIf="homePhone.errors.required">Enter Home Phone Number</label>
+                            <label class="lbl-text" *ngIf="homePhone.errors.pattern">Phone should be digit</label>
+                            <label class="lbl-text" *ngIf="homePhone.errors.maxlength">Phone should be of 10 digit</label>
+                          </p>
+                        </div><!-- =Home phone Textbox Col End//= -->
+                    </section>
+                  </div><!-- =Home Phone Col End//=-->
+
+                  <div class="col-sm-6 col-xs-12">
+                    <section class="row">
+                        <div class="col-sm-4 col-xs-12 input-col">
+                          <label for="workPhoneCode" class="form-lbl">Phone Code</label>
+                          <select class="form-control c-code" required name="workPhoneCode" [(ngModel)]="formData.workPhoneCode" #workPhoneCode= "ngModel">
+                            <option *ngFor="let phoneCode of countryPhoneCodeArr[0]">
+                                {{phoneCode.name}}
+                                {{phoneCode.dial_code}}
+                            </option>
+                          </select>
+                          <!-- =Error Content= -->
+                          <p *ngIf="workPhoneCode.invalid && (workPhoneCode.dirty || workPhoneCode.touched)" class="alert alert-danger">
+                            <label class="lbl-text" *ngIf="workPhoneCode.errors.required">Select Country Code</label>
+                          </p>
+                        </div><!-- =home Code Select Col End//= -->
+
+                        <div class="col-sm-8 col-xs-12 input-col">
+                          <label for="workPhone" class="form-lbl">Work Phone Code</label>
+                          <input type="text" name="workPhone" placeholder="Mobile Phone" pattern="[0-9]*"  minlength="10"  maxlength="10" class="form-control phone-num" required [(ngModel)]="formData.workPhone" #workPhone="ngModel" />
+
+                          <!-- =Error Content= -->
+                          <p *ngIf="workPhone.invalid && (workPhone.dirty || workPhone.touched)" class="alert alert-danger">
+                            <label class="lbl-text" *ngIf="workPhone.errors.required">Enter Work Phone Number</label>
+                            <label class="lbl-text" *ngIf="workPhone.errors.pattern">Work Phone should be digit</label>
+                            <label class="lbl-text" *ngIf="workPhone.errors.maxlength">Work Phone should be of 10 digit</label>
+                          </p>
+                        </div><!-- =Mobile phone Textbox Col End//= -->
+                    </section>
+
+                  </div><!-- =Home Phone Col End//=-->
+                </section><!-- =Input Row 02 End//= -->
+
+                <section class="row input-row phone-row">
+                  <div class="col-sm-4 col-xs-12 input-col">
+                    <label for="emailId" class="form-lbl">Email Id</label>
+                    <input type="email" name="emailId" placeholder="Email Id" pattern= "^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" class="form-control" required [(ngModel)]="formData.emailId" #emailId="ngModel" />
+
+                    <!-- =Error Content= -->
+                    <p *ngIf="emailId.invalid && (emailId.dirty || emailId.touched)" class="alert alert-danger">
+                      <label class="lbl-text" *ngIf="emailId.errors.required">Enter Email Id</label>
+                      <label class="lbl-text" *ngIf="emailId.errors.pattern">Enter correct Email Id</label>
+                    </p>
+                  </div><!-- =Email Id Col End//= -->
+
+                  <div class="col-sm-4 col-xs-12 input-col">
+                    <label for="mailingAddress" class="form-lbl">Mailing Address</label>
+                    <textarea class="form-control" placeholder="Mailing Address" name="mailingAddress" [(ngModel)]="formData.mailingAddress" #mailingAddress="ngModel" required></textarea>
+                    <p class="alert alert-danger" *ngIf="mailingAddress.invalid && (mailingAddress.dirty || mailingAddress.touched)">
+                      <label class="lbl-text" *ngIf="mailingAddress.errors.required">Enter Your Address</label>
+                    </p>
+                  </div><!-- =Mailing Address Col End//= -->
+
+                  <div class="col-sm-4 col-xs-12 input-col">
+                    <label for="securityNum" class="form-lbl">Social Security Number</label>
+                    <input type="text" name="securityNum" placeholder="Social Security Number" class="form-control" pattern="[0-9]+" maxlength="20" [(ngModel)]="formData.securityNum" #securityNum="ngModel" required />
+
+                    <p class="alert alert-danger" *ngIf="securityNum.invalid && (securityNum.dirty || securityNum.touched)">
+                      <label class="lbl-text" *ngIf="securityNum.errors.required">Enter Social Security Number</label>
+                      <label class="lbl-text" *ngIf="securityNum.errors.pattern">Enter Only Number</label>
+                      <!-- <label class="lbl-text" *ngIf="securityNum.errors.maxlength">Security Number should not be more than 20 digits</label> -->
+                    </p>
+                  </div><!-- =Mailing Address Col End//= -->
+                </section><!-- =Input Row 03 End//= -->
+              </div><!-- =Personal From Group End//= -->
+            </section><!-- =Personal Info Form section End//= -->
+
+            <section class="form-section prof-infor-section" *ngIf="item == 2" name="professional">
+              <h3 class="form-title">Professional Information</h3>
+
+              <div class="form-group prof-form-group">
+                <section class="row input-row">
+                  <div class="col-sm-6 col-xs-12 input-col">
+                    <label for="employerName" class="form-lbl">Employer Name</label>
+                    <div class="input-block">
+                      <input type="text" name="employerName" class="form-control" [(ngModel)]="formData.employerName" #employerName= "ngModel" required  />
+                      <!-- =Error Message= -->
+                      <p class="alert alert-danger" *ngIf="employerName.invalid && (employerName.dirty || employerName.touched)">
+                        <label class="lbl-text" *ngIf="employerName.errors.required">Enter Employer Name</label>
+                      </p>
+                    </div>
+                  </div><!-- =Employer Name Col End//= -->
+
+                  <div class="col-sm-6 col-xs-12 input-col">
+                    <label for="employerAddress" class="form-lbl">Employer Address</label>
+                    <div class="input-block">
+                      <textarea  name="employerAddress" class="form-control" [(ngModel)]="formData.employerAddress" #employerAddress= "ngModel" required>
+                      </textarea>
+                      <!-- =Error Message= -->
+                      <p class="alert alert-danger" *ngIf="employerAddress.invalid && (employerAddress.dirty || employerAddress.touched)">
+                        <label class="lbl-text" *ngIf="employerAddress.errors.required">Enter Employer Address</label>
+                      </p>
+                    </div>
+                  </div><!-- =Employer Address Col End//= -->
+
+                  <div class="col-sm-6 col-xs-12 input-col">
+                    <section class="row phone-row">
+                      <div class="col-sm-4 col-xs-4">
+                        <label for="officePhoneCode" class="form-lbl">Phone Code</label>
+                        <div class="input-block">
+                          <select class="form-control c-code" required name="officePhoneCode" [(ngModel)]="formData.officePhoneCode" #officePhoneCode= "ngModel">
+                            <option *ngFor="let phoneCode of countryPhoneCodeArr[0]">
+                                {{phoneCode.name}}
+                                {{phoneCode.dial_code}}
+                            </option>
+                          </select>
+                          <!-- =Error Content= -->
+                          <p *ngIf="officePhoneCode.invalid && (officePhoneCode.dirty || officePhoneCode.touched)" class="alert alert-danger">
+                            <label class="lbl-text" *ngIf="officePhoneCode.errors.required">Select Country Code</label>
+                          </p>
+                        </div><!-- =Input Blocl End//= -->
+                      </div><!-- =Phone Code Block End//= -->
+
+                      <div class="col-sm-8 col-xs-8">
+                        <label for="officePhone" class="form-lbl">Work Phone</label>
+                        <div class="input-block">
+                            <input type="text" name="officePhone" class="form-control" [(ngModel)]="formData.officePhone" #officePhone= "ngModel" required />
+
+                            <!-- =Error Message= -->
+                            <p class="alert alert-danger" *ngIf="officePhone.invalid && (officePhone.dirty || officePhone.touched)">
+                              <label class="lbl-text" *ngIf="officePhone.errors.required">Enter Phone Code</label>
+                            </p>
+                        </div>
+                      </div><!-- =Telephone Num End//= -->
+                    </section><!-- =phone row End//= -->
+
+                  </div><!-- =Employer Phone Number Col End//= -->
+
+                  <div class="col-sm-6 col-xs-12 input-col">
+                    <label for="jobPosition" class="form-lbl">Job Position</label>
+                    <div class="input-block">
+                        <input type="text" name="jobPosition" class="form-control" [(ngModel)]="formData.jobPosition" #jobPosition= "ngModel" required  />
+
+                        <!-- =Error Message= -->
+                        <p class="alert alert-danger" *ngIf="jobPosition.invalid && (jobPosition.dirty || jobPosition.touched)">
+                          <label class="lbl-text" *ngIf="jobPosition.errors.required">Enter Job Position</label>
+                        </p>
+                    </div>
+                  </div><!-- =Job Position Col End//= -->
+                </section><!-- =professional Input Row= -->
+              </div><!-- =Professional Form Group End//= -->
+
+            </section><!-- =Professional Info Form section End//= -->
+
+            <section class="form-section prof-infor-section" *ngIf="item == 3">
+              <h3 class="form-title">Account Information</h3>
+
+              <div class="form-group educ-form-group">
+                <section class="row input-row">
+                  <div class="col-sm-6 col-xs-12 input-col">
+                    <label for="accountType" class="form-lbl">Select Account Type</label>
+                    <div class="input-block">
+                      <div class="radio-block">
+                        <input type="radio" name="accountType" value="saving" class="" [(ngModel)]="formData.accountType" #accountType= "ngModel" required  />
+                        <span class="radio-lbl">Saving</span>
+                      </div>
+                      <div class="radio-block">
+                        <input type="radio" name="accountType" value="current" class="" [(ngModel)]="formData.accountType" #accountType= "ngModel" required  />
+                        <span class="radio-lbl">Deposit</span>
+                      </div>
+
+                      <!-- =Error Message= -->
+                      <p class="alert alert-danger" *ngIf="accountType.invalid && (accountType.dirty || accountType.touched)">
+                        <label class="lbl-text" *ngIf="accountType.errors.required">Select Account Type</label>
+                      </p>
+                    </div>
+                  </div><!-- =Employer Name Col End//= -->
+
+                  <div class="col-sm-6 col-xs-12 input-col">
+                    <label for="accountPurpose" class="form-lbl">Purpose of Bank Account</label>
+                    <div class="input-block">
+                      <textarea  name="accountPurpose" class="form-control" [(ngModel)]="formData.accountPurpose" #accountPurpose= "ngModel" required>
+                      </textarea>
+
+                      <!-- =Error Message= -->
+                      <p class="alert alert-danger" *ngIf="accountPurpose.invalid && (accountPurpose.dirty || accountPurpose.touched)">
+                        <label class="lbl-text" *ngIf="accountPurpose.errors.required">Enter Purpose for Opening Bank Account</label>
+                      </p>
+                    </div>
+                  </div><!-- =Prupose of Account Col End//= -->
+
+                  <div class="col-sm-6 col-xs-12 input-col">
+                    <label for="moneySource" class="form-lbl">Source of Income</label>
+                    <div class="input-block">
+                      <select  name="moneySource" class="form-control" [(ngModel)]="formData.moneySource" #moneySource= "ngModel" required>
+                        <!-- <option selected rea>Select Source of Income</option> -->
+                        <option>Salary</option>
+                        <option>Through Business Income</option>
+                        <option>Property Renting/Selling</option>
+                        <option>Professional Services</option>
+                      </select>
+
+                      <!-- =Error Message= -->
+                      <p class="alert alert-danger" *ngIf="moneySource.invalid && (moneySource.dirty || moneySource.touched)">
+                        <label class="lbl-text" *ngIf="moneySource.errors.required">Select Source of Income</label>
+                      </p>
+                    </div>
+                  </div><!-- =Source of Income Col End//= -->
+
+                  <div class="col-sm-6 col-xs-12 input-col">
+                    <label for="popularitySource" class="form-lbl">How did you hear Us?</label>
+                    <div class="input-block">
+                      <select  name="popularitySource" class="form-control" [(ngModel)]="formData.popularitySource" #popularitySource= "ngModel" required>
+                        <option>Through Friends</option>
+                        <option>Through Business Magazines</option>
+                        <option>Through Emails and Newsletter</option>
+                      </select>
+
+                      <!-- =Error Message= -->
+                      <p class="alert alert-danger" *ngIf="popularitySource.invalid && (popularitySource.dirty || popularitySource.touched)">
+                        <label class="lbl-text" *ngIf="popularitySource.errors.required">Select From where you heard. </label>
+                      </p>
+                    </div>
+                  </div><!-- =how did hear us Col End//= -->
+
+                </section><!-- =Educational Input Row= -->
+              </div><!-- =Educational Form Group End//= -->
+
+            </section><!-- =Professional Info Form section End//= -->
+
+            <section class="form-section prof-infor-section" *ngIf="item == 4">
+              <h3 class="form-title">Upload Documents</h3>
+              <div class="form-group document-form-group">
+                <section class="row input-row">
+                  <div class="col-sm-6 col-xs-12 input-col">
+                    <label for="uploadDocOne" class="form-lbl">Upload Copy Of Utility Bill</label>
+                    <div class="input-block">
+                        <input type="file" name="uploadDocOne" class="form-control" [(ngModel)]="formData.uploadDocOne" #uploadDocOne= "ngModel" required (change)="onInputFileUploadChange($event)" />
+
+                        <!-- =Error Message= -->
+                        <!-- <p class="alert alert-danger" *ngIf="uploadDocOne.invalid && ( uploadDocOne.dirty || uploadDocOne.touched) &&  uploadDocOne.fileNameLength == 0">
+                          <label class="lbl-text" *ngIf= "uploadDocOne.errors.invalid">Upload Documents</label>
+                        </p> -->
+                    </div>
+                  </div><!-- =Upload Utility Bill Copy Col End//= -->
+
+                  <div class="col-sm-6 col-xs-12 input-col">
+                    <label for="uploadDocOne" class="form-lbl">Upload Copy of Social Security Number</label>
+                    <div class="input-block">
+                        <input type="file" name="uploadSecurityNum" class="form-control" [(ngModel)]="formData.uploadSecurityNum" #uploadSecurityNum= "ngModel" required (change)="onInputFileUploadChange($event)"  />
+
+                        <!-- =Error Message= -->
+                        <!-- <p class="alert alert-danger" *ngIf="uploadSecurityNum.invalid && ( uploadSecurityNum.dirty || uploadSecurityNum.touched) &&  uploadSecurityNum.fileNameLength == 0">
+                          <label class="lbl-text" *ngIf= "uploadSecurityNum.errors.change">Upload Documents</label>
+                        </p> -->
+                    </div>
+                  </div><!-- =Upload Copy Security Number Col End//= -->
+                </section><!-- =Financial upload Input Row= -->
+              </div><!-- =Educational Form Group End//= -->
+            </section><!-- =Professional Info Form section End//= -->
+
+            <!-- =Btn Row= -->
+            <div class="btn-row">
+              <button class="btn btn-next" [disabled]="createAccountForm.invalid" [hidden]=" item == 4" (click)="item = item + 1">
+                <span>Next</span>
+              </button>
+              <button class="btn btn-black" [hidden]=" item == 1" (click)="item = item - 1">
+                <span>Back</span>
+              </button>
+
+              <button type="submit" class="btn btn-save-data" *ngIf="item == 4" (click)="getFormValue(item)">
+                <span>Save Data</span>
+              </button>
+
+              <div class="form-response" [hidden]="createAccountForm.invalid" *ngIf="item == 4">
+                <a class="btn btn-success btn-approve" [routerLink]= "['../acceptApplicationRequest']" routerLinkActive="active">Approve Application</a>
+                <a class="btn btn-danger btn-reject" [routerLink]= "['../rejectApplicationRequest']" routerLinkActive="active">Reject Application</a>
+              </div><!-- =form-response End//= -->
+            </div><!-- =Btn Row End//= -->
+          </form>
+        </div><!-- =Form Container end//= -->
+
+
+        <!-- =Table Container= -->
+        <div class="table-container" [hidden]="!createAccountForm.submitted">
+          <table class="table-frame">
+            <thead>
+              <tr class="" *ngFor="let formDataItem of formDataItems">
+                <td>
+                  <ul class="termTitle">
+                    <li>
+                      <strong>First Name</strong>
+                    </li>
+                    <li>
+                      <strong>Middle Name</strong>
+                    </li>
+                    <li>
+                      <strong>Last Name</strong>
+                    </li>
+                    <li>
+                      <strong>Home Phone Number</strong>
+                    </li>
+                    <li>
+                      <strong>Work Phone Number</strong>
+                    </li>
+                    <li>
+                      <strong>Email ID</strong>
+                    </li>
+                    <li>
+                      <strong>Mailing Address</strong>
+                    </li>
+                    <li>
+                      <strong>Social Security Number</strong>
+                    </li>
+                    <li>
+                      <strong>Employer Name</strong>
+                    </li>
+                    <li>
+                      <strong>Employer Address</strong>
+                    </li>
+                    <li>
+                      <strong>Office Phone</strong>
+                    </li>
+                    <li>
+                      <strong>Job Position</strong>
+                    </li>
+                    <li>
+                      <strong>Bank Account Type</strong>
+                    </li>
+                    <li>
+                      <strong>Purpose of Bank Account</strong>
+                    </li>
+                    <li>
+                      <strong>Source Of Income</strong>
+                    </li>
+                    <li>
+                      <strong>How did hear us</strong>
+                    </li>
+                    <li>
+                      <strong>Copy of Utility Bill</strong>
+                    </li>
+                    <li>
+                      <strong>Copy of Social Security Number</strong>
+                    </li>
+                  </ul>
+                  <ul class="data-response-list">
+                    <li>
+                      <span>{{formDataItem.fName}}</span>
+                    </li>
+                    <li>
+                      <span>{{formDataItem.mName}}</span>
+                    </li>
+                    <li>
+                      <span>{{formDataItem.lName}}</span>
+                    </li>
+                    <li>
+                      <span>{{formDataItem.homePhone}}</span>
+                    </li>
+                    <li>
+                      <span>{{formDataItem.workPhone}}</span>
+                    </li>
+                    <li>
+                      <span>{{formDataItem.emailId}}</span>
+                    </li>
+                    <li>
+                      <span>{{formDataItem.mailingAddress}}</span>
+                    </li>
+                    <li>
+                      <span>{{formDataItem.securityNum}}</span>
+                    </li>
+                    <li>
+                      <span>{{formDataItem.employerName}}</span>
+                    </li>
+                    <li>
+                      <span>{{formDataItem.employerAddress}}</span>
+                    </li>
+                    <li>
+                      <span>{{formDataItem.officePhone}}</span>
+                    </li>
+                    <li>
+                      <span>{{formDataItem.jobPosition}}</span>
+                    </li>
+                    <li>
+                      <span>{{formDataItem.accountType}}</span>
+                    </li>
+                    <li>
+                      <span>{{formDataItem.accountPurpose}}</span>
+                    </li>
+                    <li>
+                      <span>{{formDataItem.employerAddress}}</span>
+                    </li>
+                    <li>
+                      <span>{{formDataItem.moneySource}}</span>
+                    </li>
+                    <li>
+                      <span>{{formDataItem.popularitySource}}</span>
+                    </li>
+                    <li>
+                      <span>{{formDataItem.uploadDocOne}}</span>
+                    </li>
+                    <li>
+                      <span>{{formDataItem.uploadSecurityNum}}</span>
+                    </li>
+                  </ul>
+                </td>
+            </thead>
+          </table>
+        </div><!-- =Table Container End//= -->
+
+      </div>
+    </section>
+  </div><!-- =Mid Content Frame End//= -->
+</main><!-- = Main Page Container= -->
